@@ -15,3 +15,14 @@
     - [ ] Report
 
 - [ ] Report
+
+## Jobs:
+- [] Database (XAMPP) e cose PHP varie
+- [] Header (navbar hamburger incluso)
+- [] Footer
+- [] Base.php for all pages: header + footer. BEFORE THE OTHER PAGES 
+- [] Main page
+- [] Products page
+- [] Single product page
+- [] Carrello
+- [] Profilo
