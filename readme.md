@@ -18,11 +18,14 @@
 
 ## Jobs:
 - [] Database (XAMPP) e cose PHP varie
-- [] Header (navbar hamburger incluso)
-- [] Footer
-- [] Base.php for all pages: header + footer. BEFORE THE OTHER PAGES 
+- [] Base.php for all pages: header + footer + navbar hamburger BEFORE THE OTHER PAGES 
 - [] Main page
 - [] Products page
 - [] Single product page
 - [] Carrello
-- [] Profilo
+- [] Profilo + meccanismo login
+
+## Tasks: first before 27th january + second
+- Baga: navbar hamburger + 
+- Lucov: header, footer + 
+- Turbo: Database + 
