@@ -41,6 +41,7 @@
                         </a>
                     </div>
                     <!--> Profile <-->
+                    <!--> TODO: quando un utente non è loggato deve essere un dropdown -->
                     <div class="nav-item">
                         <a class="nav-link" href="#">
                             <img src="resources/cart.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
