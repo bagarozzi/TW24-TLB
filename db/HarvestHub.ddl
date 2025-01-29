@@ -12,8 +12,6 @@
 -- Database Section
 -- ________________ 
 
-create database HarvestHub_conserva;
-
 
 -- DBSpace Section
 -- _______________
@@ -215,55 +213,55 @@ create table VERSIONE_PRODOTTO (
 
 alter table avviso_disponibilita add constraint REF_avvis_VERSI_FK
      foreign key (riferimento)
-     references VERSIONE_PRODOTTO;
+     references VERSIONE_PRODOTTO (riferimento);
 
 alter table avviso_disponibilita add constraint REF_avvis_UTENT
      foreign key (email)
-     references UTENTE_REGISTRATO;
+     references UTENTE_REGISTRATO (email);
 
 alter table carrello add constraint REF_carre_VERSI_FK
      foreign key (riferimento)
-     references VERSIONE_PRODOTTO;
+     references VERSIONE_PRODOTTO (riferimento);
 
 alter table carrello add constraint REF_carre_UTENT
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table etichetta add constraint REF_etich_TAG_FK
      foreign key (nome)
-     references TAG;
+     references TAG (nome);
 
 alter table etichetta add constraint REF_etich_PRODO
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table INDIRIZZO add constraint REF_INDIR_UTENT
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table INDIRIZZO add constraint REF_INDIR_PROVI_FK
      foreign key (codProvincia)
-     references PROVINCIA;
+     references PROVINCIA (codProvincia);
 
 alter table INDIRIZZO add constraint REF_INDIR_NAZIO_FK
      foreign key (codNazione)
-     references NAZIONE;
+     references NAZIONE (codNazione);
 
 alter table lista_desideri add constraint REF_lista_VERSI_FK
      foreign key (riferimento)
-     references VERSIONE_PRODOTTO;
+     references VERSIONE_PRODOTTO (riferimento);
 
 alter table lista_desideri add constraint REF_lista_UTENT
      foreign key (email)
-     references UTENTE_REGISTRATO;
+     references UTENTE_REGISTRATO (email);
 
 alter table offerta add constraint REF_offer_PROMO
      foreign key (codPromozione)
-     references PROMOZIONE;
+     references PROMOZIONE (codPromozione);
 
 alter table offerta add constraint REF_offer_PRODO_FK
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table ORDINE add constraint COEX_ORDINE_1
      check((pun_data is not null and pun_numPunti is not null and pun_stato is not null)
@@ -275,15 +273,15 @@ alter table ORDINE add constraint COEX_ORDINE
 
 alter table ORDINE add constraint REF_ORDIN_METOD_1_FK
      foreign key (codice)
-     references METODO_SPEDIZIONE;
+     references METODO_SPEDIZIONE (codice);
 
 alter table ORDINE add constraint REF_ORDIN_METOD_FK
      foreign key (Pag_codice)
-     references METODO_PAGAMENTO;
+     references METODO_PAGAMENTO (codice);
 
 alter table ORDINE add constraint REF_ORDIN_INDIR_1_FK
      foreign key (email, alias)
-     references INDIRIZZO;
+     references INDIRIZZO (email, alias);
 
 alter table ORDINE add constraint REF_ORDIN_INDIR_1_CHK
      check((email is not null and alias is not null)
@@ -291,27 +289,27 @@ alter table ORDINE add constraint REF_ORDIN_INDIR_1_CHK
 
 alter table ORDINE add constraint REF_ORDIN_UTENT_FK
      foreign key (Ese_email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table ORDINE add constraint REF_ORDIN_INDIR_FK
      foreign key (Con_email, Con_alias)
-     references INDIRIZZO;
+     references INDIRIZZO (email, alias);
 
 alter table ORDINE add constraint REF_ORDIN_SOGLI_FK
      foreign key (nome)
-     references SOGLIA_SPEDIZIONE;
+     references SOGLIA_SPEDIZIONE (nome);
 
 alter table PRODOTTO add constraint REF_PRODO_CATEG_FK
      foreign key (App_nome)
-     references CATEGORIA_PRODOTTO;
+     references CATEGORIA_PRODOTTO (nome);
 
 alter table recensione add constraint REF_recen_VERSI
      foreign key (riferimento)
-     references VERSIONE_PRODOTTO;
+     references VERSIONE_PRODOTTO (riferimento);
 
 alter table recensione add constraint REF_recen_UTENT_FK
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table richiesta add constraint COEX_richiesta
      check((res_motivo is not null and res_data is not null)
@@ -319,43 +317,43 @@ alter table richiesta add constraint COEX_richiesta
 
 alter table richiesta add constraint REF_richi_VERSI_FK
      foreign key (riferimento)
-     references VERSIONE_PRODOTTO;
+     references VERSIONE_PRODOTTO (riferimento);
 
 alter table richiesta add constraint REF_richi_ORDIN
      foreign key (R_O_riferimento)
-     references ORDINE;
+     references ORDINE (riferimento);
 
 alter table SCONTO_QUANTITA_ add constraint REF_SCONT_PRODO
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table SCONTO_UTENTE add constraint REF_SCONT_ORDIN_FK
      foreign key (riferimento)
-     references ORDINE;
+     references ORDINE (riferimento);
 
 alter table SCONTO_UTENTE add constraint REF_SCONT_UTENT_FK
      foreign key (email)
-     references UTENTE_REGISTRATO;
+     references UTENTE_REGISTRATO (email);
 
 alter table sottocategoria add constraint REF_sotto_CATEG_1_FK
      foreign key (nome)
-     references CATEGORIA_PRODOTTO;
+     references CATEGORIA_PRODOTTO (nome);
 
 alter table sottocategoria add constraint REF_sotto_CATEG
      foreign key (Fig_nome)
-     references CATEGORIA_PRODOTTO;
+     references CATEGORIA_PRODOTTO (nome);
 
 alter table step add constraint REF_step_ORDIN
      foreign key (riferimento)
-     references ORDINE;
+     references ORDINE (riferimento);
 
 alter table UTENTE_REGISTRATO add constraint ID_UTENT_UTENT_FK
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table VERSIONE_PRODOTTO add constraint REF_VERSI_PRODO_FK
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 
 -- Index Section
