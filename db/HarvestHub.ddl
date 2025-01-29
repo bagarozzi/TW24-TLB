@@ -3,16 +3,16 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 11.0.2              
 -- * Generator date: Sep 14 2021              
--- * Generation date: Wed Jan 29 16:48:42 2025 
+-- * Generation date: Wed Jan 29 17:24:47 2025 
 -- * LUN file: C:\Users\Turbo\Desktop\uniProject\TW24-TLB\db\HarvestHub.lun 
--- * Schema: HarvestHub_copia_aggiornata/SQL 
+-- * Schema: HarvestHub_conserva/SQL 
 -- ********************************************* 
 
 
 -- Database Section
 -- ________________ 
 
-create database HarvestHub_copia_aggiornata;
+create database HarvestHub_conserva;
 
 
 -- DBSpace Section
@@ -43,11 +43,6 @@ create table CATEGORIA_PRODOTTO (
      descrizione varchar(256) not null,
      constraint ID_CATEGORIA_PRODOTTO_ID primary key (nome));
 
-create table correlazione (
-     __codProdotto numeric(1) not null,
-     codProdotto numeric(1) not null,
-     constraint ID_correlazione_ID primary key (codProdotto, __codProdotto));
-
 create table etichetta (
      codProdotto numeric(1) not null,
      nome varchar(32) not null,
@@ -77,13 +72,13 @@ create table lista_desideri (
      constraint ID_lista_desideri_ID primary key (email, riferimento));
 
 create table METODO_PAGAMENTO (
-     codice -- Sequence attribute not implemented -- not null,
+     codice numeric(1) not null,
      descrizione varchar(256) not null,
      costo numeric(1),
      constraint ID_METODO_PAGAMENTO_ID primary key (codice));
 
 create table METODO_SPEDIZIONE (
-     codice -- Sequence attribute not implemented -- not null,
+     codice numeric(1) not null,
      nome varchar(64) not null,
      descrizione varchar(256) not null,
      costo numeric(1),
@@ -102,7 +97,7 @@ create table offerta (
      constraint ID_offerta_ID primary key (codPromozione, codProdotto));
 
 create table ORDINE (
-     riferimento -- Sequence attribute not implemented -- not null,
+     riferimento numeric(1) not null,
      data date not null,
      tracking varchar(64),
      pun_data date,
@@ -122,7 +117,7 @@ create table ORDINE (
      constraint ID_ORDINE_ID primary key (riferimento));
 
 create table PRODOTTO (
-     codProdotto -- Sequence attribute not implemented -- not null,
+     codProdotto numeric(1) not null,
      nome varchar(64) not null,
      prezzo float(1) not null,
      descrizione varchar(5000) not null,
@@ -132,7 +127,7 @@ create table PRODOTTO (
      constraint ID_PRODOTTO_ID primary key (codProdotto));
 
 create table PROMOZIONE (
-     codPromozione -- Sequence attribute not implemented -- not null,
+     codPromozione numeric(1) not null,
      dataOraInizio date not null,
      dataOraFine date not null,
      constraint ID_PROMOZIONE_ID primary key (codPromozione));
@@ -205,7 +200,7 @@ create table UTENTE_REGISTRATO (
      email varchar(64) not null,
      newsletter char not null,
      password varchar(512) not null,
-     constraint FKUTE_UTE_ID primary key (email));
+     constraint ID_UTENT_UTENT_ID primary key (email));
 
 create table VERSIONE_PRODOTTO (
      riferimento varchar(32) not null,
@@ -218,63 +213,55 @@ create table VERSIONE_PRODOTTO (
 -- Constraints Section
 -- ___________________ 
 
-alter table avviso_disponibilita add constraint FKavv_VER_FK
+alter table avviso_disponibilita add constraint REF_avvis_VERSI_FK
      foreign key (riferimento)
      references VERSIONE_PRODOTTO;
 
-alter table avviso_disponibilita add constraint FKavv_UTE
+alter table avviso_disponibilita add constraint REF_avvis_UTENT
      foreign key (email)
      references UTENTE_REGISTRATO;
 
-alter table carrello add constraint FKcar_VER_FK
+alter table carrello add constraint REF_carre_VERSI_FK
      foreign key (riferimento)
      references VERSIONE_PRODOTTO;
 
-alter table carrello add constraint FKcar_UTE
+alter table carrello add constraint REF_carre_UTENT
      foreign key (email)
      references UTENTE;
 
-alter table correlazione add constraint FKcor_PRO
-     foreign key (codProdotto)
-     references PRODOTTO;
-
-alter table correlazione add constraint FK__FK
-     foreign key (__codProdotto)
-     references PRODOTTO;
-
-alter table etichetta add constraint FKeti_TAG_FK
+alter table etichetta add constraint REF_etich_TAG_FK
      foreign key (nome)
      references TAG;
 
-alter table etichetta add constraint FKeti_PRO
+alter table etichetta add constraint REF_etich_PRODO
      foreign key (codProdotto)
      references PRODOTTO;
 
-alter table INDIRIZZO add constraint FKregistrazione
+alter table INDIRIZZO add constraint REF_INDIR_UTENT
      foreign key (email)
      references UTENTE;
 
-alter table INDIRIZZO add constraint FKappartenenzaProvincia_FK
+alter table INDIRIZZO add constraint REF_INDIR_PROVI_FK
      foreign key (codProvincia)
      references PROVINCIA;
 
-alter table INDIRIZZO add constraint FKappartenenzaNazione_FK
+alter table INDIRIZZO add constraint REF_INDIR_NAZIO_FK
      foreign key (codNazione)
      references NAZIONE;
 
-alter table lista_desideri add constraint FKlis_VER_FK
+alter table lista_desideri add constraint REF_lista_VERSI_FK
      foreign key (riferimento)
      references VERSIONE_PRODOTTO;
 
-alter table lista_desideri add constraint FKlis_UTE
+alter table lista_desideri add constraint REF_lista_UTENT
      foreign key (email)
      references UTENTE_REGISTRATO;
 
-alter table offerta add constraint FKoff_PRO_1
+alter table offerta add constraint REF_offer_PROMO
      foreign key (codPromozione)
      references PROMOZIONE;
 
-alter table offerta add constraint FKoff_PRO_FK
+alter table offerta add constraint REF_offer_PRODO_FK
      foreign key (codProdotto)
      references PRODOTTO;
 
@@ -286,43 +273,43 @@ alter table ORDINE add constraint COEX_ORDINE
      check((not_data is not null and not_importo is not null and not_stato is not null)
            or (not_data is null and not_importo is null and not_stato is null)); 
 
-alter table ORDINE add constraint FKspedizione_FK
+alter table ORDINE add constraint REF_ORDIN_METOD_1_FK
      foreign key (codice)
      references METODO_SPEDIZIONE;
 
-alter table ORDINE add constraint FKpagamento_FK
+alter table ORDINE add constraint REF_ORDIN_METOD_FK
      foreign key (Pag_codice)
      references METODO_PAGAMENTO;
 
-alter table ORDINE add constraint FKfatturazione_FK
+alter table ORDINE add constraint REF_ORDIN_INDIR_1_FK
      foreign key (email, alias)
      references INDIRIZZO;
 
-alter table ORDINE add constraint FKfatturazione_CHK
+alter table ORDINE add constraint REF_ORDIN_INDIR_1_CHK
      check((email is not null and alias is not null)
            or (email is null and alias is null)); 
 
-alter table ORDINE add constraint FKesecuzione_FK
+alter table ORDINE add constraint REF_ORDIN_UTENT_FK
      foreign key (Ese_email)
      references UTENTE;
 
-alter table ORDINE add constraint FKconsegna_FK
+alter table ORDINE add constraint REF_ORDIN_INDIR_FK
      foreign key (Con_email, Con_alias)
      references INDIRIZZO;
 
-alter table ORDINE add constraint FKapplicazioneSoglia_FK
+alter table ORDINE add constraint REF_ORDIN_SOGLI_FK
      foreign key (nome)
      references SOGLIA_SPEDIZIONE;
 
-alter table PRODOTTO add constraint FKappartenenza_FK
+alter table PRODOTTO add constraint REF_PRODO_CATEG_FK
      foreign key (App_nome)
      references CATEGORIA_PRODOTTO;
 
-alter table recensione add constraint FKrec_VER
+alter table recensione add constraint REF_recen_VERSI
      foreign key (riferimento)
      references VERSIONE_PRODOTTO;
 
-alter table recensione add constraint FKrec_UTE_FK
+alter table recensione add constraint REF_recen_UTENT_FK
      foreign key (email)
      references UTENTE;
 
@@ -330,43 +317,43 @@ alter table richiesta add constraint COEX_richiesta
      check((res_motivo is not null and res_data is not null)
            or (res_motivo is null and res_data is null)); 
 
-alter table richiesta add constraint FKric_VER_FK
+alter table richiesta add constraint REF_richi_VERSI_FK
      foreign key (riferimento)
      references VERSIONE_PRODOTTO;
 
-alter table richiesta add constraint FKric_ORD
+alter table richiesta add constraint REF_richi_ORDIN
      foreign key (R_O_riferimento)
      references ORDINE;
 
-alter table SCONTO_QUANTITA_ add constraint FKoffertaQuantita
+alter table SCONTO_QUANTITA_ add constraint REF_SCONT_PRODO
      foreign key (codProdotto)
      references PRODOTTO;
 
-alter table SCONTO_UTENTE add constraint FKriscossione_FK
+alter table SCONTO_UTENTE add constraint REF_SCONT_ORDIN_FK
      foreign key (riferimento)
      references ORDINE;
 
-alter table SCONTO_UTENTE add constraint FKcredito_FK
+alter table SCONTO_UTENTE add constraint REF_SCONT_UTENT_FK
      foreign key (email)
      references UTENTE_REGISTRATO;
 
-alter table sottocategoria add constraint FKpadre_FK
+alter table sottocategoria add constraint REF_sotto_CATEG_1_FK
      foreign key (nome)
      references CATEGORIA_PRODOTTO;
 
-alter table sottocategoria add constraint FKfiglio
+alter table sottocategoria add constraint REF_sotto_CATEG
      foreign key (Fig_nome)
      references CATEGORIA_PRODOTTO;
 
-alter table step add constraint FKORD_ste
+alter table step add constraint REF_step_ORDIN
      foreign key (riferimento)
      references ORDINE;
 
-alter table UTENTE_REGISTRATO add constraint FKUTE_UTE_FK
+alter table UTENTE_REGISTRATO add constraint ID_UTENT_UTENT_FK
      foreign key (email)
      references UTENTE;
 
-alter table VERSIONE_PRODOTTO add constraint FKdisponibilita_FK
+alter table VERSIONE_PRODOTTO add constraint REF_VERSI_PRODO_FK
      foreign key (codProdotto)
      references PRODOTTO;
 
@@ -377,7 +364,7 @@ alter table VERSIONE_PRODOTTO add constraint FKdisponibilita_FK
 create unique index ID_avviso_disponibilita_IND
      on avviso_disponibilita (email, riferimento);
 
-create index FKavv_VER_IND
+create index REF_avvis_VERSI_IND
      on avviso_disponibilita (riferimento);
 
 create unique index ID_BUONO_IND
@@ -386,37 +373,31 @@ create unique index ID_BUONO_IND
 create unique index ID_carrello_IND
      on carrello (email, riferimento);
 
-create index FKcar_VER_IND
+create index REF_carre_VERSI_IND
      on carrello (riferimento);
 
 create unique index ID_CATEGORIA_PRODOTTO_IND
      on CATEGORIA_PRODOTTO (nome);
 
-create unique index ID_correlazione_IND
-     on correlazione (codProdotto, __codProdotto);
-
-create index FK__IND
-     on correlazione (__codProdotto);
-
 create unique index ID_etichetta_IND
      on etichetta (codProdotto, nome);
 
-create index FKeti_TAG_IND
+create index REF_etich_TAG_IND
      on etichetta (nome);
 
 create unique index ID_INDIRIZZO_IND
      on INDIRIZZO (email, alias);
 
-create index FKappartenenzaProvincia_IND
+create index REF_INDIR_PROVI_IND
      on INDIRIZZO (codProvincia);
 
-create index FKappartenenzaNazione_IND
+create index REF_INDIR_NAZIO_IND
      on INDIRIZZO (codNazione);
 
 create unique index ID_lista_desideri_IND
      on lista_desideri (email, riferimento);
 
-create index FKlis_VER_IND
+create index REF_lista_VERSI_IND
      on lista_desideri (riferimento);
 
 create unique index ID_METODO_PAGAMENTO_IND
@@ -431,34 +412,34 @@ create unique index ID_NAZIONE_IND
 create unique index ID_offerta_IND
      on offerta (codPromozione, codProdotto);
 
-create index FKoff_PRO_IND
+create index REF_offer_PRODO_IND
      on offerta (codProdotto);
 
 create unique index ID_ORDINE_IND
      on ORDINE (riferimento);
 
-create index FKspedizione_IND
+create index REF_ORDIN_METOD_1_IND
      on ORDINE (codice);
 
-create index FKpagamento_IND
+create index REF_ORDIN_METOD_IND
      on ORDINE (Pag_codice);
 
-create index FKfatturazione_IND
+create index REF_ORDIN_INDIR_1_IND
      on ORDINE (email, alias);
 
-create index FKesecuzione_IND
+create index REF_ORDIN_UTENT_IND
      on ORDINE (Ese_email);
 
-create index FKconsegna_IND
+create index REF_ORDIN_INDIR_IND
      on ORDINE (Con_email, Con_alias);
 
-create index FKapplicazioneSoglia_IND
+create index REF_ORDIN_SOGLI_IND
      on ORDINE (nome);
 
 create unique index ID_PRODOTTO_IND
      on PRODOTTO (codProdotto);
 
-create index FKappartenenza_IND
+create index REF_PRODO_CATEG_IND
      on PRODOTTO (App_nome);
 
 create unique index ID_PROMOZIONE_IND
@@ -470,13 +451,13 @@ create unique index ID_PROVINCIA_IND
 create unique index ID_recensione_IND
      on recensione (riferimento, email);
 
-create index FKrec_UTE_IND
+create index REF_recen_UTENT_IND
      on recensione (email);
 
 create unique index ID_richiesta_IND
      on richiesta (R_O_riferimento, riferimento);
 
-create index FKric_VER_IND
+create index REF_richi_VERSI_IND
      on richiesta (riferimento);
 
 create unique index ID_SCONTO_QUANTITA__IND
@@ -485,10 +466,10 @@ create unique index ID_SCONTO_QUANTITA__IND
 create unique index ID_SCONTO_UTENTE_IND
      on SCONTO_UTENTE (codice);
 
-create index FKriscossione_IND
+create index REF_SCONT_ORDIN_IND
      on SCONTO_UTENTE (riferimento);
 
-create index FKcredito_IND
+create index REF_SCONT_UTENT_IND
      on SCONTO_UTENTE (email);
 
 create unique index ID_SOGLIA_SPEDIZIONE_IND
@@ -497,7 +478,7 @@ create unique index ID_SOGLIA_SPEDIZIONE_IND
 create unique index ID_sottocategoria_IND
      on sottocategoria (Fig_nome, nome);
 
-create index FKpadre_IND
+create index REF_sotto_CATEG_1_IND
      on sottocategoria (nome);
 
 create unique index ID_step_IND
@@ -509,12 +490,12 @@ create unique index ID_TAG_IND
 create unique index ID_UTENTE_IND
      on UTENTE (email);
 
-create unique index FKUTE_UTE_IND
+create unique index ID_UTENT_UTENT_IND
      on UTENTE_REGISTRATO (email);
 
 create unique index ID_VERSIONE_PRODOTTO_IND
      on VERSIONE_PRODOTTO (riferimento);
 
-create index FKdisponibilita_IND
+create index REF_VERSI_PRODO_IND
      on VERSIONE_PRODOTTO (codProdotto);
 
