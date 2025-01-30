@@ -20,14 +20,19 @@
 			display: flex;
 		}
 
-        #button-image {
-            position: absolute;
-            left: 15%;
+        .social-button {
+            position: relative;
+			background: transparent;
+			border: 2px solid transparent; /* Bordo invisibile */
             width: auto; /* Regola la dimensione se necessario */
-            height: 30px;
-			
+            height: auto;
+			margin-left:40px;
         }
 
+		#first-button {
+			margin-left:200px;
+		}
+		
         p {
             position: absolute;
             color: white;
@@ -38,8 +43,11 @@
     </style>
 	<div id = "footer-container">	
 		<div id= "footer-background-opacity">
-    		<img id="button-image" src="resources/buttonList.png" alt="Pulsante Lista">
     		<p>&copy; 2025 Il tuo sito. Tutti i diritti riservati.</p>
+			<button id="first-button" class = "social-button"><img src="resources/X.png" alt="Profilo X"></button>
+			<button class = "social-button"><img src="resources/Icon.png" alt="Pulsante icon"></button>
+			<button class = "social-button"><img src="resources/Youtube.png" alt="Profilo youtube"></button>
+			<button class = "social-button"><img src="resources/Instagram.png" alt="Profilo Instagram"></button>
 		</div>
 	</div>
 </footer>
