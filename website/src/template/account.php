@@ -47,11 +47,11 @@
     <div class="card shadow-lg">
       <div class="card-body">
         <!-- Intestazione -->
-        <div>
-          <h2 class="mb-3 text-center">Welcome TURBO</h2>
-          <p class="text-muted text-center">jacopo.turchi12@gmail.com</p>
-          <hr>
+        <div class="d-flex justify-content-between">
+            <h2 class="mb-3">Welcome TURBO</h2>
+            <a href="../index.php" class="btn-close" aria-label="Close"></a>
         </div>
+        <p class="text-muted">jacopo.turchi12@gmail.com</p>
 
         <!-- Voci del menu -->
         <div class="d-grid gap-3">
