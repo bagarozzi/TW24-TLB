@@ -6,7 +6,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
                             <h2 class="card-title text-light">Farming products</h2>
-                            <a href="#" class="btn btn-primary fs-3 w-50 align-self-end">Browse fertilizers</a>
+                            <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
                             <h2 class="card-title">Tractors</h2>
-                            <a href="#" class="btn btn-primary fs-3 w-50 align-self-end">Browse all tractors</a>
+                            <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
                             <h2 class="card-title">Equipment</h2>
-                            <a href="#" class="btn btn-primary fs-3 w-50 align-self-end">Browse all equipment</a>
+                            <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
                             <h2 class="card-title">Cattle</h2>
-                            <a href="#" class="btn btn-primary fs-3 w-50 align-self-end">Browse cattle's care</a>
+                            <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
