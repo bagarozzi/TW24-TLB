@@ -5,7 +5,7 @@
                     <img src="resources/slides/fert.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
-                            <h2 class="card-title text-light">Farming products</h2>
+                            <h2 class="card-title text-light"><span class="badge bg-light text-dark">Farming products</span></h2>
                             <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
@@ -16,7 +16,7 @@
                     <img src="resources/tractor.png" class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
-                            <h2 class="card-title">Tractors</h2>
+                            <h2 class="card-title"><span class="badge bg-light text-dark">Tractors</span></h2>
                             <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
@@ -29,7 +29,7 @@
                     <img src="resources/equipment.jpg" class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
-                            <h2 class="card-title">Equipment</h2>
+                            <h2 class="card-title"><span class="badge bg-light text-dark">Equipment</span></h2>
                             <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                     <img src="resources/slides/cow.png" class="card-img" alt="...">
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-between align-items-between h-100 p-4">
-                            <h2 class="card-title">Cattle</h2>
+                            <h2 class="card-title"><span class="badge bg-light text-dark">Cattle</span></h2>
                             <a href="#" class="stretched-link"></a>
                         </div>
                     </div>
