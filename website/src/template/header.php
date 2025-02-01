@@ -50,3 +50,46 @@
         </form>
     </div>
 </header>
+<!-- Offcanvas Account -->
+<div class="offcanvas offcanvas-end offcanvas-account" tabindex="-1" id="accountOffcanvas">
+    <div class="card">
+        <div class="card-body">
+            <!-- Header -->
+            <div class="d-flex justify-content-between">
+                <h2 class="mb-3">Welcome TURBO</h2>
+                <a href="#" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></a>
+            </div>
+            <p class="text-muted">jacopo.turchi12@gmail.com</p>
+            <!-- Menu Items -->
+            <div class="d-grid gap-3">
+                <a href="./form-personal-information.php" class="menu-item">
+                    <i class="menu-icon bi bi-person"></i>
+                    Personal Information
+                </a>
+                <a href="./orders.php" class="menu-item">
+                    <i class="menu-icon bi bi-receipt"></i>
+                    My Orders
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon bi bi-cart"></i>
+                    Shopping Cart
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon bi bi-bell"></i>
+                    Notifications
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="menu-icon bi bi-credit-card"></i>
+                    Payment Methods
+                </a>
+            </div>
+            <!-- Logout Button -->
+            <div class="logout-btn-container mt-3">
+                <a href="../index.php" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
