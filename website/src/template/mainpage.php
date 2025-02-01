@@ -1,2 +1,2 @@
-<? require 'index-carousel.php'; ?>
-<? require 'categories.php'; ?>
+<?php require "index-carousel.php"; ?>
+<?php require "categories.php"; ?>

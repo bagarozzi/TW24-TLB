@@ -20,9 +20,9 @@
                 <!-- Profile -->
                 <!-- TODO: quando un utente non è loggato deve essere un dropdown -->
                 <div class="nav-item">
-                    <a class="nav-link" href="./template/account.php">
+                    <button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
                         <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                    </a>
+                    </button>
                 </div>
             </div>
             <!-- Expansion -->
