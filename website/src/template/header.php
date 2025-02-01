@@ -41,12 +41,10 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid position-absolute justify-content-center w-100">
-        <form class="form-inline">
-            <div class="form-group d-flex row justify-content-center align-items-center">
-                <input type="text" class="form-control w-50 d-inline" id="inputPassword2" placeholder="search the HarvestHub">
-                <button type="submit" class="btn btn-primary w-25 d-inline col-rounded-circle mb-2"><img src="resources/search.png" alt="" width="20" height="20" class="d-inline-block align-text-top"></button>
-            </div>
+    <div class="container-fluid position-absolute justify-content-center w-100 mt-2">
+        <form class="d-flex justify-content-center w-100">
+            <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-primary" type="submit">Search</button>
         </form>
     </div>
 </header>
