@@ -7,13 +7,22 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="resources/slides/johndeere.png" class="d-block w-100" alt="...">
+                <img src="resources/slides/johndeere.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h1>They'll see you in town.</h5>
+                </div>
             </div>
             <div class="carousel-item">
-            <img src="resources/slides/cow.jpg" class="d-block w-100" alt="...">
+                <img src="resources/slides/hydro.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h1 class="text-dark">The new era of farming.</h1>
+                </div>
             </div>
             <div class="carousel-item">
-            <img src="resources/slides/trattore.avif" class="d-block w-100" alt="...">
+                <img src="resources/slides/trattore.avif" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h5>Third slide label</h5>
+                </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
