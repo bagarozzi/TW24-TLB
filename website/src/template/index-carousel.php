@@ -15,13 +15,13 @@
             <div class="carousel-item">
                 <img src="resources/slides/hydro.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption">
-                    <h1 class="text-dark">The new era of farming.</h1>
+                    <h1 class="text-dark text-danger">The new era of farming.</h1>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="resources/slides/trattore.avif" class="d-block w-100" alt="...">
+                <img src="resources/slides/bots.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption">
-                    <h5>Third slide label</h5>
+                    <h1>Need an hand?</h1>
                 </div>
             </div>
         </div>
