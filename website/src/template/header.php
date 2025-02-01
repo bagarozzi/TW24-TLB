@@ -15,14 +15,14 @@
                 <div class="d-flex">
                     <div class="nav-item">
                         <a class="nav-link" href="#">
-                            <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
                         </a>
                     </div>
                     <!-- Profile -->
                     <!-- TODO: quando un utente non è loggato deve essere un dropdown -->
                     <div class="nav-item">
-                        <a class="nav-link" href="#">
-                            <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                        <a class="nav-link" href="./template/account.php">
+                            <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
                         </a>
                     </div>
                 </div>

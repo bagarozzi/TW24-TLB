@@ -21,6 +21,10 @@
             <input type="text" class="form-control" id="surname" value="Turchi">
           </div>
           <div class="mb-3">
+            <label for="staticEmail" class="form-label">Email</label>
+            <input type="text" readonly class="form-control" id="staticEmail" value="jacopo.turchi12@gmail.com">
+          </div>
+          <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
             <input type="tel" class="form-control" id="phone" value="3334445566">
           </div>
@@ -38,7 +42,7 @@
           </div>
           <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-success">Save</button>
-            <a href="index.html" class="btn btn-secondary">Cancel</a>
+            <a href="./account.php" class="btn btn-danger">Cancel</a>
           </div>
         </form>
       </div>

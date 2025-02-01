@@ -25,17 +25,17 @@
               <td>3</td>
               <td>26/01/2025</td>
               <td>24€</td>
-              <td><a href="order-detail.html" class="btn btn-primary btn-sm">View</a></td>
+              <td><a href="./order-detail.php" class="btn btn-primary btn-sm">View</a></td>
             </tr>
             <tr>
               <td>2</td>
               <td>26/01/2025</td>
               <td>32€</td>
-              <td><a href="order-detail.html" class="btn btn-primary btn-sm">View</a></td>
+              <td><a href="./order-detail.php" class="btn btn-primary btn-sm">View</a></td>
             </tr>
           </tbody>
         </table>
-        <a href="index.html" class="btn btn-secondary">Back</a>
+        <a href="./account.php" class="btn btn-secondary">Back</a>
       </div>
     </div>
   </div>

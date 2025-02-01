@@ -32,7 +32,7 @@
             </tr>
           </tbody>
         </table>
-        <a href="orders.html" class="btn btn-secondary">Back</a>
+        <a href="./orders.php" class="btn btn-secondary">Back</a>
       </div>
     </div>
   </div>

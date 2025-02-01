@@ -55,23 +55,23 @@
 
         <!-- Voci del menu -->
         <div class="d-grid gap-3">
-          <a href="personal.html" class="menu-item">
+          <a href="./form-personal-information.php" class="menu-item">
             <i class="menu-icon bi bi-person"></i>
             Personal Information
           </a>
-          <a href="orders.html" class="menu-item">
+          <a href="./orders.php" class="menu-item">
             <i class="menu-icon bi bi-receipt"></i>
             My Orders
           </a>
-          <a href="cart.html" class="menu-item">
+          <a href="#" class="menu-item">
             <i class="menu-icon bi bi-cart"></i>
             Shopping Cart
           </a>
-          <a href="notifications.html" class="menu-item">
+          <a href="#" class="menu-item">
             <i class="menu-icon bi bi-bell"></i>
             Notifications
           </a>
-          <a href="payment.html" class="menu-item">
+          <a href="#" class="menu-item">
             <i class="menu-icon bi bi-credit-card"></i>
             Payment Methods
           </a>
@@ -79,7 +79,7 @@
 
         <!-- Pulsante Logout -->
         <div class="logout-btn-container mt-3">
-          <a href="logout.html" class="btn btn-danger">Logout</a>
+          <a href="../index.php" class="btn btn-danger">Logout</a>
         </div>
       </div>
     </div>
