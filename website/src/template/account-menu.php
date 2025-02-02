@@ -3,8 +3,8 @@
     <div class="card">
         <div class="card-body d-flex justify-content-between flex-column h-100">
             <!-- Intestazione -->
-            <div class="d-flex justify-content-between">
-                <h2 class="mb-3">Welcome TURBO</h2>
+            <div class="d-flex justify-content-between mb-3">
+                <h2 class="fs-4">Welcome jacopo.turchi2@gmail.com</h2>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <!-- Voci del menu -->
