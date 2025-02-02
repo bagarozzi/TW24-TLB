@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 02, 2025 alle 17:13
+-- Creato il: Feb 02, 2025 alle 19:43
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.1.17
 
@@ -23,7 +23,6 @@ SET time_zone = "+00:00";
 
 create database `HarvestHub`;
 use `HarvestHub`;
-
 --
 -- Struttura della tabella `ADMIN`
 --
@@ -78,7 +77,7 @@ CREATE TABLE `NOTIFICA` (
   `Data` date NOT NULL,
   `Titolo` varchar(20) NOT NULL,
   `Descrizione` varchar(255) NOT NULL,
-  `letto` char(1) NOT NULL,
+  `letto` tinyint(1) NOT NULL,
   `username` varchar(20) NOT NULL,
   `riferimento` int(11) NOT NULL,
   `email` varchar(64) NOT NULL
@@ -246,13 +245,13 @@ ALTER TABLE `NOTIFICA`
   MODIFY `id_notifica` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `NOTIFICA`
+-- AUTO_INCREMENT per la tabella `ORDINE`
 --
 ALTER TABLE `ORDINE`
   MODIFY `riferimento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `NOTIFICA`
+-- AUTO_INCREMENT per la tabella `PRODOTTO`
 --
 ALTER TABLE `PRODOTTO`
   MODIFY `codProdotto` int(11) NOT NULL AUTO_INCREMENT;
