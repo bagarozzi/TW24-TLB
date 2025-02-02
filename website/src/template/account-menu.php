@@ -25,10 +25,6 @@
                     <i class="menu-icon bi bi-bell"></i>
                     Notifications
                 </a>
-                <a href="#" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-credit-card"></i>
-                    Payment Methods
-                </a>
             </div>
             <!-- Pulsante Logout -->
             <div class="logout-btn-container mt-3 text-end">

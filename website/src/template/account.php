@@ -38,10 +38,6 @@
                         <i class="menu-icon bi bi-bell"></i>
                         Notifications
                     </a>
-                    <a href="#" class="menu-item">
-                        <i class="menu-icon bi bi-credit-card"></i>
-                        Payment Methods
-                    </a>
                 </div>
 
                 <!-- Pulsante Logout -->
