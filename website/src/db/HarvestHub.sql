@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 02, 2025 alle 16:18
+-- Creato il: Feb 02, 2025 alle 17:13
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.1.17
 
@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `HarvestHub`
 --
 
--- --------------------------------------------------------
+create database `HarvestHub`;
+use `HarvestHub`;
 
 --
 -- Struttura della tabella `ADMIN`
@@ -39,9 +40,9 @@ CREATE TABLE `ADMIN` (
 --
 
 CREATE TABLE `carrello` (
-  `codProdotto` decimal(1,0) NOT NULL,
+  `codProdotto` int(11) NOT NULL,
   `email` varchar(64) NOT NULL,
-  `quantita` decimal(1,0) NOT NULL
+  `quantita` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -62,7 +63,7 @@ CREATE TABLE `CATEGORIA_PRODOTTO` (
 --
 
 CREATE TABLE `lista_desideri` (
-  `codProdotto` decimal(1,0) NOT NULL,
+  `codProdotto` int(11) NOT NULL,
   `email` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -73,13 +74,13 @@ CREATE TABLE `lista_desideri` (
 --
 
 CREATE TABLE `NOTIFICA` (
-  `id_notifica` decimal(1,0) NOT NULL,
+  `id_notifica` int(11) NOT NULL,
   `Data` date NOT NULL,
   `Titolo` varchar(20) NOT NULL,
   `Descrizione` varchar(255) NOT NULL,
   `letto` char(1) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `riferimento` decimal(1,0) NOT NULL,
+  `riferimento` int(11) NOT NULL,
   `email` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -90,7 +91,7 @@ CREATE TABLE `NOTIFICA` (
 --
 
 CREATE TABLE `ORDINE` (
-  `riferimento` decimal(1,0) NOT NULL,
+  `riferimento` int(11) NOT NULL,
   `data` date NOT NULL,
   `email` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -102,12 +103,12 @@ CREATE TABLE `ORDINE` (
 --
 
 CREATE TABLE `PRODOTTO` (
-  `codProdotto` decimal(1,0) NOT NULL,
+  `codProdotto` int(11) NOT NULL,
   `nome` varchar(64) NOT NULL,
   `prezzo` char(1) NOT NULL,
   `descrizione` char(1) NOT NULL,
   `immagine` char(1) NOT NULL,
-  `disponibilita` decimal(1,0) NOT NULL,
+  `disponibilita` int(11) NOT NULL,
   `App_nome` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -118,9 +119,9 @@ CREATE TABLE `PRODOTTO` (
 --
 
 CREATE TABLE `recensione` (
-  `codProdotto` decimal(1,0) NOT NULL,
+  `codProdotto` int(11) NOT NULL,
   `email` varchar(64) NOT NULL,
-  `stelle` decimal(1,0) NOT NULL,
+  `stelle` int(11) NOT NULL,
   `commento` varchar(1024) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -131,9 +132,9 @@ CREATE TABLE `recensione` (
 --
 
 CREATE TABLE `richiesta` (
-  `riferimento` decimal(1,0) NOT NULL,
-  `codProdotto` decimal(1,0) NOT NULL,
-  `quantita` decimal(1,0) NOT NULL
+  `riferimento` int(11) NOT NULL,
+  `codProdotto` int(11) NOT NULL,
+  `quantita` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -233,6 +234,28 @@ ALTER TABLE `richiesta`
 ALTER TABLE `UTENTE`
   ADD PRIMARY KEY (`email`),
   ADD UNIQUE KEY `ID_UTENTE_IND` (`email`);
+
+--
+-- AUTO_INCREMENT per le tabelle scaricate
+--
+
+--
+-- AUTO_INCREMENT per la tabella `NOTIFICA`
+--
+ALTER TABLE `NOTIFICA`
+  MODIFY `id_notifica` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `NOTIFICA`
+--
+ALTER TABLE `ORDINE`
+  MODIFY `riferimento` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT per la tabella `NOTIFICA`
+--
+ALTER TABLE `PRODOTTO`
+  MODIFY `codProdotto` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Limiti per le tabelle scaricate

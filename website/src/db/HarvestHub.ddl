@@ -12,8 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database `HarvestHub2`;
-use `HarvestHub2`;
+create database `HarvestHub`;
+use `HarvestHub`;
 
 
 -- DBSpace Section
