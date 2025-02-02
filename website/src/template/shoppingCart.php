@@ -1,5 +1,5 @@
 
-            <div class="container-fluid d-flex justify-content-center">
+<div class="container-fluid d-flex justify-content-center">
                 <h1>Shopping cart</h1>
             </div>
             <div class="row">
@@ -17,94 +17,30 @@
                             </div>
                         </div>
                     </div>
+                    <?php foreach($templateParams["shoppingCart"] as $item): ?>
                     <div class="card w-100 my-2">
                         <div class="card-body d-flex justify-content-center">
                             <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <img src="resources/tractor.png" alt="" style="width: 50%; height: auto;">
+                                <img src="<?php echo $item["immagine"] ?>" alt="" style="width: 50%; height: auto;">
                                 <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
-                                    <h5 class="card-title">John Deere MT-3</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Trattore cingolato</h6>
+                                    <h5 class="card-title"><?php echo $item["nome"] ?></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $item["descrizione"] ?></h6>
                                 </div>
                             </div>
                             <div class="col d-flex align-items-center justify-content-center">
-                            <h5 class="card-title">100.00€</h5>
+                            <h5 class="card-title"><?php echo $item["prezzo"] ?> €</h5>
                             </div>
                             <div class="col d-flex flex-column align-items-center justify-content-around">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2"/>
+                                    <input type="text" class="form-control" value="<?php echo $item["quantita"] ?>"/>
                                     <button class="btn btn-primary rounded-circle">+</button>
                                 </div>
                                 <button class="btn btn-danger">Remove item</button>
                             </div>
                         </div>
                     </div>
-                    <div class="card w-100 my-2">
-                        <div class="card-body d-flex justify-content-center">
-                            <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <img src="resources/tractor.png" alt="" style="width: 50%; height: auto;">
-                                <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
-                                    <h5 class="card-title">John Deere MT-3</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Trattore cingolato</h6>
-                                </div>
-                            </div>
-                            <div class="col d-flex align-items-center justify-content-center">
-                            <h5 class="card-title">100.00€</h5>
-                            </div>
-                            <div class="col d-flex flex-column align-items-center justify-content-around">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2"/>
-                                    <button class="btn btn-primary rounded-circle">+</button>
-                                </div>
-                                <button class="btn btn-danger">Remove item</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card w-100 my-2">
-                        <div class="card-body d-flex justify-content-center">
-                            <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <img src="resources/tractor.png" alt="" style="width: 50%; height: auto;">
-                                <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
-                                    <h5 class="card-title">John Deere MT-3</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Trattore cingolato</h6>
-                                </div>
-                            </div>
-                            <div class="col d-flex align-items-center justify-content-center">
-                            <h5 class="card-title">100.00€</h5>
-                            </div>
-                            <div class="col d-flex flex-column align-items-center justify-content-around">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2"/>
-                                    <button class="btn btn-primary rounded-circle">+</button>
-                                </div>
-                                <button class="btn btn-danger">Remove item</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card w-100 my-2">
-                        <div class="card-body d-flex justify-content-center">
-                            <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <img src="resources/tractor.png" alt="" style="width: 50%; height: auto;">
-                                <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
-                                    <h5 class="card-title">John Deere MT-3</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Trattore cingolato</h6>
-                                </div>
-                            </div>
-                            <div class="col d-flex align-items-center justify-content-center">
-                            <h5 class="card-title">100.00€</h5>
-                            </div>
-                            <div class="col d-flex flex-column align-items-center justify-content-around">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2"/>
-                                    <button class="btn btn-primary rounded-circle">+</button>
-                                </div>
-                                <button class="btn btn-danger">Remove item</button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="col-12 col-lg-4 d-flex flex-column justify-content-start px-5">
                     <h2>Order summary</h2>
@@ -116,21 +52,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php foreach($templateParams["shoppingCart"] as $item): ?>
                             <tr>
                                 <td>
-                                    Trattore
+                                    <?php echo $item["nome"] ?>
                                 </td>
                                 <td>
-                                    1000
+                                    <?php echo $item["prezzo"] ?> € x <?php echo $item["quantita"] ?>
                                 </td>
                             </tr>
-                                <td>
-                                    Trattore
-                                </td>
-                                <td>
-                                    500
-                                </td>
-                            </tr>
+                            <?php endforeach; ?>
                             <tr>
                                 <td>Shipping costs</td>
                                 <td>100€</td>
@@ -143,7 +74,15 @@
                         <tfoot class="border-top-2">
                             <tr class="fw-bold fs-5">
                                 <td>Total</td>
-                                <td>3200€</td>
+                                <td>
+                                    <?php 
+                                        $total = 0;
+                                        foreach($templateParams["shoppingCart"] as $item) {
+                                            $total += $item["prezzo"] * $item["quantita"];
+                                        }
+                                        echo $total + 100 + 1600;
+                                    ?>€
+                                </td>
                             </tr>
                         </tfoot>
                     </table>
