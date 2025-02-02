@@ -107,7 +107,7 @@ CREATE TABLE `PRODOTTO` (
   `nome` varchar(64) NOT NULL,
   `prezzo` varchar(16) NOT NULL,
   `descrizione` varchar(100) NOT NULL,
-  `immagine` varchar(24) NOT NULL,
+  `immagine` varchar(64) NOT NULL,
   `disponibilita` int(11) NOT NULL,
   `App_nome` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
