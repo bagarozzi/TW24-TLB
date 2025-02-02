@@ -22,7 +22,7 @@
 
                 <!-- Voci del menu -->
                 <div class="d-grid gap-3">
-                    <a href="./form-personal-information.php" class="menu-item">
+                    <a href="./personal-information.php" class="menu-item">
                         <i class="menu-icon bi bi-person"></i>
                         Personal Information
                     </a>
