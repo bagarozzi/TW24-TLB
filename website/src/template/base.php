@@ -13,6 +13,19 @@
         }
     </style>
 </head>
+
+<style>
+    html,body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    main {
+        flex-grow: 1;
+    }
+</style>
+
 <body>
     <?php require "header.php";?>
     <?php require "account-menu.php";?>
