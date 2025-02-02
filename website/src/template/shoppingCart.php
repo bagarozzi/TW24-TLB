@@ -32,7 +32,7 @@
                             <div class="col d-flex flex-column align-items-center justify-content-around">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2">
+                                    <input type="text" class="form-control" value="2"/>
                                     <button class="btn btn-primary rounded-circle">+</button>
                                 </div>
                                 <button class="btn btn-danger">Remove item</button>
@@ -54,7 +54,7 @@
                             <div class="col d-flex flex-column align-items-center justify-content-around">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2">
+                                    <input type="text" class="form-control" value="2"/>
                                     <button class="btn btn-primary rounded-circle">+</button>
                                 </div>
                                 <button class="btn btn-danger">Remove item</button>
@@ -76,7 +76,7 @@
                             <div class="col d-flex flex-column align-items-center justify-content-around">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2">
+                                    <input type="text" class="form-control" value="2"/>
                                     <button class="btn btn-primary rounded-circle">+</button>
                                 </div>
                                 <button class="btn btn-danger">Remove item</button>
@@ -98,7 +98,7 @@
                             <div class="col d-flex flex-column align-items-center justify-content-around">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="2">
+                                    <input type="text" class="form-control" value="2"/>
                                     <button class="btn btn-primary rounded-circle">+</button>
                                 </div>
                                 <button class="btn btn-danger">Remove item</button>
