@@ -13,7 +13,7 @@
             <!-- Shopping cart -->
             <div class="d-flex">
                 <div class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="./cart.php">
                         <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
                     </a>
                 </div>
@@ -41,10 +41,14 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid position-absolute justify-content-center w-100 mt-2">
-        <form class="d-flex justify-content-center w-100">
-            <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Search</button>
-        </form>
-    </div>
+    <?php 
+        if(isset($templateParams["includeSearchbar"]) && $templateParams["includeSearchbar"] == true) {
+            echo '<div class="container-fluid position-absolute justify-content-center w-100 mt-2">
+                    <form class="d-flex justify-content-center w-100">
+                        <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search"/>
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </form>
+                  </div>';
+        }
+    ?>
 </header>

@@ -35,7 +35,7 @@
             </tr>
           </tbody>
         </table>
-        <a href="./account.php" class="btn btn-secondary">Back</a>
+        <a href="./index.php" class="btn btn-secondary">Back</a>
       </div>
     </div>
   </div>
