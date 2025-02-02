@@ -12,8 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database HarvestHub_concettuale;
-
+create database `HarvestHub2`;
+use `HarvestHub2`;
 
 
 -- DBSpace Section
@@ -99,55 +99,55 @@ create table richiesta (
 
 alter table ORDINE add constraint REF_ORDIN_UTENT_FK
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table carrello add constraint REF_carre_UTENT
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table carrello add constraint REF_carre_PRODO_FK
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table NOTIFICA add constraint REF_NOTIF_ADMIN_FK
      foreign key (username)
-     references ADMIN;
+     references ADMIN (username);
 
 alter table NOTIFICA add constraint REF_NOTIF_ORDIN_FK
      foreign key (riferimento)
-     references ORDINE;
+     references ORDINE (riferimento);
 
 alter table NOTIFICA add constraint REF_NOTIF_UTENT_FK
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table PRODOTTO add constraint REF_PRODO_CATEG_FK
      foreign key (App_nome)
-     references CATEGORIA_PRODOTTO;
+     references CATEGORIA_PRODOTTO (nome);
 
 alter table lista_desideri add constraint REF_lista_UTENT
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table lista_desideri add constraint REF_lista_PRODO_FK
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table recensione add constraint REF_recen_UTENT_FK
      foreign key (email)
-     references UTENTE;
+     references UTENTE (email);
 
 alter table recensione add constraint REF_recen_PRODO
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table richiesta add constraint REF_richi_PRODO_FK
      foreign key (codProdotto)
-     references PRODOTTO;
+     references PRODOTTO (codProdotto);
 
 alter table richiesta add constraint REF_richi_ORDIN
      foreign key (riferimento)
-     references ORDINE;
+     references ORDINE (riferimento);
 
 
 -- Index Section
