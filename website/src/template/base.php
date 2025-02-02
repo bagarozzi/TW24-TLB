@@ -12,6 +12,7 @@
         }
     ?>
     <link rel="stylesheet" href="./css/account.css">
+    <link rel="stylesheet" href="./css/base.css">
     <?php
         if(isset($templateParams["scriptSheet"])) {
             echo '<script src="' . $templateParams["scriptSheet"] . '"></script>';

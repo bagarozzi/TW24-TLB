@@ -1,0 +1,9 @@
+.normal-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.normal-link:hover {
+    color: inherit;
+    text-decoration: none;
+}

@@ -105,9 +105,9 @@ CREATE TABLE `ORDINE` (
 CREATE TABLE `PRODOTTO` (
   `codProdotto` int(11) NOT NULL,
   `nome` varchar(64) NOT NULL,
-  `prezzo` char(1) NOT NULL,
-  `descrizione` char(1) NOT NULL,
-  `immagine` char(1) NOT NULL,
+  `prezzo` varchar(16) NOT NULL,
+  `descrizione` varchar(100) NOT NULL,
+  `immagine` varchar(64) NOT NULL,
   `disponibilita` int(11) NOT NULL,
   `App_nome` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

@@ -9,12 +9,12 @@ class DatabaseHelper {
         }
     }
 
-    public function getShoppingCart($user) {
-        $stmt = $this->db->prepare("SELECT * FROM prodotto, carrello WHERE prodotto.codProdotto=carrello.codProdotto AND carrello.email=?");
-        $stmt->bind_param("s", $user);
+    public function getProductsByCategory($category) {
+        $stmt = $this->db->prepare("SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto 
+                                    WHERE prodotto.App_nome = ?;");
+        $stmt->bind_param("s", $category);
         $stmt->execute();
         $result = $stmt->get_result();
-
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
