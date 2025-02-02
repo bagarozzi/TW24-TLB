@@ -2,8 +2,8 @@
             <div class="container-fluid d-flex justify-content-center mt-3">
                 <h1>Shopping cart</h1>
             </div>
-            <div class="row">
-                <div class="col-12 col-lg-8 px-5">
+            <div class="row w-100">
+                <div class="col-12 col-lg-8 px-4">
                 <div class="card w-100 border-0">
                     <div class="card-body d-flex justify-content-center">
                             <div class="col d-flex align-items-center justify-content-center">
@@ -59,7 +59,7 @@
                     </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="col-12 col-lg-4 d-flex flex-column justify-content-start px-5">
+                <div class="col-12 col-lg-4 d-flex flex-column justify-content-start px-4">
                     <h2>Order summary</h2>
                     <table class="table table-striped">
                         <thead>
