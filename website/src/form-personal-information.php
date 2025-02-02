@@ -11,7 +11,7 @@
     <div class="card shadow-lg">
       <div class="card-body">
         <h2 class="mb-4">Personal Information</h2>
-        <form>
+        <form action="./index.php" method="post">
           <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" value="Jacopo">
@@ -40,7 +40,7 @@
             <label for="confirm-password" class="form-label">Confirm Password</label>
             <input type="password" class="form-control" id="confirm-password">
           </div>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mt-3">
             <button type="submit" class="btn btn-success">Save</button>
             <a href="./index.php" class="btn btn-danger">Cancel</a>
           </div>
