@@ -17,5 +17,17 @@ class DatabaseHelper {
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function updateShoppingCart($user, $product, $quantity) {
+        $stmt = $this->db->prepare("UPDATE carrello SET quantita=? WHERE email=? AND codProdotto=?");
+        $stmt->bind_param("isi", $quantity, $user, $product);
+        $stmt->execute();
+    }
+
+    public function removeFromShoppingCart($user, $product) {
+        $stmt = $this->db->prepare("DELETE FROM carrello WHERE email=? AND codProdotto=?");
+        $stmt->bind_param("si", $user, $product);
+        $stmt->execute();
+    }
 }
 ?>
