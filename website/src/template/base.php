@@ -6,7 +6,11 @@
     <title>Il tuo sito</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo $templateParams["styleSheet"]?>">
+    <?php
+        if(isset($templateParams["styleSheet"])) {
+            echo '<link rel="stylesheet" href="' . $templateParams["styleSheet"] . '">';
+        }
+    ?>
     <link rel="stylesheet" href="./css/account.css">
     <?php
         if(isset($templateParams["scriptSheet"])) {
