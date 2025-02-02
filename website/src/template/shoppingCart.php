@@ -1,27 +1,11 @@
 
-<div class="container-fluid d-flex justify-content-center">
+            <div class="container-fluid d-flex justify-content-center mt-3">
                 <h1>Shopping cart</h1>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-8 px-5">
                 <div class="card w-100 border-0">
-                    <?php 
-                        if(empty($templateParams["shoppingCart"])) {
-                            echo '<div class="card w-100 my-2">
-                        <div class="card-body d-flex justify-content-center">
-                            <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <img class="w-25 w-md-50" src="resources/empty_cart.png" alt="">
-                                <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
-                                    <h2 class="card-title">Your cart is empty!</h5>
-                                    <h3 class="card-subtitle mb-2 text-muted">Get your farming right on HarvestHub</h6>
-                                    <button href="./index.php" class="btn btn-success">Start shopping</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>';
-                        }
-                        else {
-                            echo '                        <div class="card-body d-flex justify-content-center">
+                    <div class="card-body d-flex justify-content-center">
                             <div class="col d-flex align-items-center justify-content-center">
                                 <h5 class="card-title">Item</h5>
                             </div>
@@ -30,6 +14,20 @@
                             </div>
                             <div class="col d-flex align-items-center justify-content-center">
                                 <h5 class="card-title">Quantity</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <?php 
+                        if(empty($templateParams["shoppingCart"])) {
+                            echo '<div class="card w-100 my-2">
+                        <div class="card-body d-flex justify-content-center">
+                            <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
+                                <img class="w-25" src="resources/empty_cart.png" alt="">
+                                <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
+                                    <h2 class="card-title">Your cart is empty!</h5>
+                                    <h3 class="card-subtitle mb-2 text-muted">Get your farming right on HarvestHub</h6>
+                                    <button href="./index.php" class="btn btn-success">Start shopping</button>
+                                </div>
                             </div>
                         </div>
                     </div>';
@@ -56,7 +54,6 @@
                                     <input type="text" name="quantity" class="form-control" value="<?php echo $item["quantita"] ?>"/>
                                     <button type="submit" name="increase" class="btn btn-primary rounded-circle">+</button>
                                 </form>
-                                <button class="btn btn-danger">Remove item</button>
                             </div>
                         </div>
                     </div>
