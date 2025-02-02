@@ -9,7 +9,7 @@
             </div>
             <!-- Voci del menu -->
             <div class="d-grid gap-3">
-                <a href="./form-personal-information.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
+                <a href="./personal-information.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-person"></i>
                     Personal Information
                 </a>

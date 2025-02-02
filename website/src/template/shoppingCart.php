@@ -31,11 +31,13 @@
                             <h5 class="card-title"><?php echo $item["prezzo"] ?> €</h5>
                             </div>
                             <div class="col d-flex flex-column align-items-center justify-content-around">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <button class="btn btn-primary rounded-circle">-</button>
-                                    <input type="text" class="form-control" value="<?php echo $item["quantita"] ?>"/>
-                                    <button class="btn btn-primary rounded-circle">+</button>
-                                </div>
+                                <form class="d-flex justify-content-between align-items-center">
+                                    <input type="hidden" name="action" value="update_quantity">
+                                    <input type="hidden" name="product_id" value="<?php echo $item["codProdotto"]; ?>">
+                                    <button type="submit" name="decrease" class="btn btn-primary rounded-circle">-</button>
+                                    <input type="text" name="quantity" class="form-control" value="<?php echo $item["quantita"] ?>"/>
+                                    <button type="submit" name="increase" class="btn btn-primary rounded-circle">+</button>
+                                </form>
                                 <button class="btn btn-danger">Remove item</button>
                             </div>
                         </div>
