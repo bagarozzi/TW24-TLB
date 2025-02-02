@@ -1,6 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 $templateParams["nome"] = "mainpage.php";
+$templateParams["includeSearchbar"] = true;
 ?>
 
 <!DOCTYPE html>
