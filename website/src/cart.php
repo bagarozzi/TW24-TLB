@@ -1,5 +1,6 @@
 <?php
 require_once 'bootstrap.php';
+$templateParams["titolo"] = "Shopping Cart";
 $templateParams["nome"] = "shoppingCart.php";
 $templateParams["styleSheet"] = "css/cart.css";
 $templateParams["scriptSheet"] = "js/cart.js";
