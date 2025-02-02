@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Feb 02, 2025 alle 19:43
+-- Creato il: Feb 02, 2025 alle 19:46
 -- Versione del server: 10.4.28-MariaDB
 -- Versione PHP: 8.1.17
 
@@ -144,7 +144,6 @@ CREATE TABLE `richiesta` (
 
 CREATE TABLE `UTENTE` (
   `email` varchar(64) NOT NULL,
-  `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `nome` varchar(64) NOT NULL,
   `cognome` varchar(64) NOT NULL,
