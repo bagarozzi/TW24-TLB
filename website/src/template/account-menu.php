@@ -9,23 +9,23 @@
             </div>
             <!-- Voci del menu -->
             <div class="d-grid gap-3">
-                <a href="./form-personal-information.php" class="menu-item d-flex align-items-center p-10 border border-light text-decoration-none text-dark rounded p-2">
+                <a href="./form-personal-information.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-person"></i>
                     Personal Information
                 </a>
-                <a href="./orders.php" class="menu-item d-flex align-items-center p-10 border border-light text-decoration-none text-dark rounded p-2">
+                <a href="./orders.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-receipt"></i>
                     My Orders
                 </a>
-                <a href="./cart.php" class="menu-item d-flex align-items-center p-10 border border-light text-decoration-none text-dark rounded p-2">
+                <a href="./cart.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-cart"></i>
                     Shopping Cart
                 </a>
-                <a href="#" class="menu-item d-flex align-items-center p-10 border border-light text-decoration-none text-dark rounded p-2">
+                <a href="#" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-bell"></i>
                     Notifications
                 </a>
-                <a href="#" class="menu-item d-flex align-items-center p-10 border border-light text-decoration-none text-dark rounded p-2">
+                <a href="#" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-credit-card"></i>
                     Payment Methods
                 </a>
