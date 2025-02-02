@@ -42,7 +42,7 @@
           </div>
           <div class="d-flex justify-content-between">
             <button type="submit" class="btn btn-success">Save</button>
-            <a href="./account.php" class="btn btn-danger">Cancel</a>
+            <a href="./index.php" class="btn btn-danger">Cancel</a>
           </div>
         </form>
       </div>

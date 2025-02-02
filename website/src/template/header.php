@@ -13,7 +13,7 @@
             <!-- Shopping cart -->
             <div class="d-flex">
                 <div class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="./cart.php">
                         <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
                     </a>
                 </div>

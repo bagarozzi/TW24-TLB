@@ -17,7 +17,7 @@
                     <i class="menu-icon bi bi-receipt"></i>
                     My Orders
                 </a>
-                <a href="#" class="menu-item">
+                <a href="./cart.php" class="menu-item">
                     <i class="menu-icon bi bi-cart"></i>
                     Shopping Cart
                 </a>
@@ -32,7 +32,7 @@
             </div>
             <!-- Pulsante Logout -->
             <div class="logout-btn-container mt-3">
-                <a href="../index.php" class="btn btn-danger">Logout</a>
+                <a href="./index.php" class="btn btn-danger">Logout</a>
             </div>
         </div>
     </div>
