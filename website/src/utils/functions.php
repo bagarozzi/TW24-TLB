@@ -28,7 +28,7 @@ function uploadImage($path, $image) {
         $i = 1;
         do{
             $i++;
-            $imageName = pathinfo(basename($image["name"]), PATHINFOFILENAME)."$i.".$imageFileType;
+            $imageName = pathinfo(basename($image["name"]), PATHINFO_FILENAME)."$i.".$imageFileType;
         }
         while(file_exists($path.$imageName));
         $fullPath = $path.$imageName;
@@ -46,5 +46,3 @@ function uploadImage($path, $image) {
     }
     return array($result, $msg);
 }
-
-?>
