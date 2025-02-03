@@ -11,18 +11,21 @@
                 <div class="carousel-caption">
                     <h1>They'll see you in town.</h5>
                 </div>
+                <a href="#" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
                 <img src="resources/slides/hydro.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption">
                     <h1 class="text-dark text-danger">The new era of farming.</h1>
                 </div>
+                <a href="#" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
                 <img src="resources/slides/bots.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption">
                     <h1>Need a hand?</h1>
                 </div>
+                <a href="#" class="stretched-link"></a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
