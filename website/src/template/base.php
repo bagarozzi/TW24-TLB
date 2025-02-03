@@ -18,6 +18,7 @@
             echo '<script src="' . $templateParams["scriptSheet"] . '"></script>';
         }
     ?>
+    <script src="js/typewriter.js"></script>
 </head>
     <body>
         <?php require 'header.php'; ?>
