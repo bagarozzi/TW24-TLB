@@ -1,4 +1,41 @@
 <?php 
+
+function isUserLoggedIn() {
+    return isset($_SESSION["logged"]) && isset($_SESSION["admin"]) && $_SESSION["logged"] && !$_SESSION["admin"];
+}
+
+function isAdminLoggedIn() {
+    return isset($_SESSION["logged"]) && isset($_SESSION["admin"]) && $_SESSION["logged"] && $_SESSION["admin"];
+}
+
+function registerLoggedUser($user) {
+    $_SESSION["logged"] = true;
+    $_SESSION["admin"] = false;
+    $_SESSION["email"] = $user["email"];
+    $_SESSION["name"] = $user["name"];
+    $_SESSION["surname"] = $user["surname"];
+}
+
+function registerAdminLogged($admin) {
+    $_SESSION["username"] = $admin["username"];
+    $_SESSION["logged"] = true;
+    $_SESSION["admin"] = true;
+}
+
+function logout() {
+    unset($_SESSION["logged"]);
+    unset($_SESSION["admin"]);
+    unset($_SESSION["username"]);
+    unset($_SESSION["name"]);
+    unset($_SESSION["surname"]);
+    unset($_SESSION["email"]);
+}
+
+function updateUser($templateParams) {
+    $_SESSION["name"] = $templateParams["userInfo"][0]["name"];
+    $_SESSION["surname"] = $templateParams["userInfo"][0]["surname"];
+}
+
 function uploadImage($path, $image) {
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;
