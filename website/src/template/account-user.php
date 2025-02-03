@@ -4,7 +4,7 @@
         <div class="card-body d-flex justify-content-between flex-column h-100">
             <!-- Intestazione -->
             <div class="d-flex justify-content-between mb-3">
-                <h2 class="fs-4">Welcome jacopo.turchi2@gmail.com</h2>
+                <h2 class="fs-4">Welcome <?php echo $_SESSION["email"]; ?></h2>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <!-- Voci del menu -->
@@ -28,7 +28,7 @@
             </div>
             <!-- Pulsante Logout -->
             <div class="logout-btn-container mt-3 text-end">
-                <a href="./index.php" class="btn btn-danger">Logout</a>
+                <a href="./logout.php" class="btn btn-danger">Logout</a>
             </div>
         </div>
     </div>
