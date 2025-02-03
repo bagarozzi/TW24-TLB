@@ -66,6 +66,13 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertUser($name, $surname, $email, $password, $birthday) {
+        $query = "INSERT INTO utente (nome, cognome, email, password, dataNascita) VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sssss', $name, $surname, $email, $password, $birthday);
+        $stmt->execute();
+    }
+
     public function updateUser($email, $name, $surname, $birthday, $password) {
         $query = "UPDATE user SET name = ?, surname = ?, birthday = ?, password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);

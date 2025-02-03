@@ -23,7 +23,11 @@ if(isUserLoggedIn()) {
         if(!empty($result) && isset($result[0]["password"]) && $result[0]["password"] == $_POST["password"]) {
             $user = $dbh->getUserInfo($_POST["username"])[0];
             registerLoggedUser($user);
-            header("Location: ./index.php");
+            if (isset($_SESSION["previousPage"])) {
+                header("Location: " . $_SESSION["previousPage"]);
+            } else {
+                header("Location: ./index.php");
+            }
             exit();
         } else {
             $templateParams["error"] = "Error! Check username or password!";

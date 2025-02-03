@@ -14,15 +14,18 @@ if(isUserLoggedIn()) {
     $templateParams["includeSearchbar"] = false;
     
     if(isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["email"]) && isset($_POST["birthday"]) && isset($_POST["password"])) {
-        $result = $dbh->getUserPassword($_POST["username"]);
-        if(empty($result)) {
-            $dbh->insertUser($_POST["username"], $_POST["password"], $_POST["email"], $_POST["name"], $_POST["surname"], $_POST["address"], $_POST["city"], $_POST["cap"]);
-            $user = $dbh->getUserInfo($_POST["username"])[0];
-            registerLoggedUser($user);
-            header("Location: ./index.php");
-            exit();
+        if (count($dbh->checkUsername($_POST["email"]))) {
+            // Registration failed
+            $templateParams["error"] = "That email is already used";
         } else {
-            $templateParams["error"] = "Error! Username already in use!";
+            $dbh->insertUser($_POST["name"], $_POST["surname"], $_POST["email"], $_POST["password"], $_POST["birthday"]);
+            $user = $dbh->getUserInfo($_POST["email"])[0];
+            registerLoggedUser($user); //Login the user
+            if (isset($_SESSION["previousPage"])) {
+                header("Location: " . $_SESSION["previousPage"]);
+            } else {
+                header("Location: ./index.php");
+            }
         }
     }
 }
