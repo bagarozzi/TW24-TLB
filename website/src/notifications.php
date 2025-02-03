@@ -4,7 +4,16 @@ $templateParams["titolo"] = "Notifications";
 $templateParams["nome"] = "notifications-list.php";
 $templateParams["styleSheet"] = "css/notifications.css";
 $templateParams["includeSearchbar"] = false;
-$templateParams["notifications"] = $dbh->getNotifications("federicobagattoni@subito.it");
+
+if (isUserLoggedIn()) {
+    $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
+}
+else {
+    $templateParams["previousPage"] = "notifications.php";
+    header('Location: login.php');
+    exit;
+}
+
 
 require 'template/base.php';
 ?>

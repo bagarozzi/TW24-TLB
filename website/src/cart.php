@@ -1,18 +1,20 @@
 <?php
 require_once 'bootstrap.php';
+require_once 'utils/functions.php';
 $templateParams["titolo"] = "Shopping Cart";
 $templateParams["nome"] = "shoppingCart.php";
 $templateParams["styleSheet"] = "css/cart.css";
 //$templateParams["scriptSheet"] = "js/cart.js";
 $templateParams["includeSearchbar"] = false;
 
-//if (!isset($_SESSION['username'])) {
-//    header('Location: login.php');
-//    exit;
-//}
-//else {
+if (!isUserLoggedIn()) {
+    $templateParams["previousPage"] = "cart.php";
+    header('Location: login.php');
+    exit;
+}
+else {
     $templateParams["shoppingCart"] = $dbh->getShoppingCart($_SESSION['username']);
-//}
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'update_quantity') {
     $product_id = $_POST['product_id'];
