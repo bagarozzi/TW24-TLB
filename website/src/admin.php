@@ -1,15 +1,10 @@
 <?php
 require_once 'bootstrap.php';
-$templateParams["titolo"] = "Personal Information";
-$templateParams["nome"] = "account-admin.php";
-//$templateParams["styleSheet"] = "";
-$templateParams["includeSearchbar"] = false;
 
-if (isAdminLoggedIn()) {
+if (isAdminLoggedIn()) { //TODO: implement
     $templateParams["title"] = "HarvestHub - Admin";
     $templateParams["nome"] = "account-admin.php";
     $templateParams["includeSearchbar"] = false;
-    $templateParams["userInfo"] = $dbh->getUserInfo($_SESSION["email"]);
 
     //add category
     if (isset($_POST["categoryName"])) {
@@ -36,4 +31,12 @@ if (isAdminLoggedIn()) {
             $templateParams["error"] = $msg;
         }
     }
+} else if (isUserLoggedIn()) { //if user is logged in, redirect to index, not autorized
+    header("Location: ./index.php");
+}
+else { //if user is not logged in, redirect to login
+    header("Location: ./login.php");
+}
+
+require 'template/base.php';
 ?>
