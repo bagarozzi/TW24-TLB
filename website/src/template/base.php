@@ -19,6 +19,7 @@
         }
     ?>
     <script src="js/typewriter.js"></script>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 </head>
     <body>
         <?php require 'header.php'; ?>

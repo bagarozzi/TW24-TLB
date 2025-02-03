@@ -7,7 +7,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand" href="./index.php">
-            <img src="resources/logoat.jpg" alt="" width="60" height="60" class="d-inline-block align-text-center">
+            <img src="resources/logoat.png" alt="" width="60" height="60" class="d-inline-block align-text-center">
             HarvestHub
             </a>
             <!-- Shopping cart -->
