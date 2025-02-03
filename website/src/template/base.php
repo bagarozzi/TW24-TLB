@@ -21,7 +21,7 @@
 </head>
     <body>
         <?php require 'header.php'; ?>
-        <?php require 'account-menu.php';?>
+        <?php require 'account-user.php';?>
         <main>
             <?php
                 if(isset($templateParams["nome"])) {
