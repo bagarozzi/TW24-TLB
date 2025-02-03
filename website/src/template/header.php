@@ -18,11 +18,23 @@
                     </a>
                 </div>
                 <!-- Profile -->
-                <!-- TODO: quando un utente non è loggato deve essere un dropdown -->
+                <!-- TODO: quando un utente è admin deve essere diverso -->
                 <div class="nav-item">
-                    <button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-                        <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                    </button>
+                    <?php
+                    if (isUserLoggedIn()) {
+                        echo `<button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+                                <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </button>`;
+                    } elseif (isAdminLoggedIn()) {
+                        echo `<a class="nav-link" href="./admin.php">
+                                <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </a>`;
+                    } else { //not logged in
+                        echo `<a class="nav-link" href="./login.php">
+                                <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </a>`;
+                    }
+                    ?>
                 </div>
             </div>
             <!-- Expansion -->
