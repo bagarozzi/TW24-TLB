@@ -67,9 +67,9 @@ class DatabaseHelper {
     }
 
     public function insertUser($name, $surname, $email, $password, $birthday) {
-        $query = "INSERT INTO utente (nome, cognome, email, password, dataNascita) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO utente (email, password, nome, cognome, dataNascita) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sssss', $name, $surname, $email, $password, $birthday);
+        $stmt->bind_param('sssss', $email, $password, $nome, $surname, $birthday);
         $stmt->execute();
     }
 
@@ -78,6 +78,15 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssss', $name, $surname, $birthday, $password, $email);
         $stmt->execute();
+    }
+
+    public function checkUsername($email) {
+        $query = "SELECT email FROM utente WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getOrders($user) {
