@@ -66,10 +66,10 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function updateUser($email, $name, $surname, $phone, $birthday, $password) {
-        $query = "UPDATE user SET name = ?, surname = ?, phone = ?, birthday = ?, password = ? WHERE email = ?";
+    public function updateUser($email, $name, $surname, $birthday, $password) {
+        $query = "UPDATE user SET name = ?, surname = ?, birthday = ?, password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssssss', $name, $surname, $phone, $birthday, $password, $email);
+        $stmt->bind_param('sssss', $name, $surname, $birthday, $password, $email);
         $stmt->execute();
     }
 

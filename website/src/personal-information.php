@@ -8,7 +8,7 @@ if (isUserLoggedIn()) {
     $templateParams["userInfo"] = $dbh->getUserInfo($_SESSION["email"]);
 
     // if form is submitted
-    if (isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["email"]) && isset($_POST["phone"]) && isset($_POST["birthday"]) && isset($_POST["password"])) {
+    if (isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["email"]) && isset($_POST["birthday"]) && isset($_POST["password"])) {
         if ($_POST["password"] == $_POST["confirmPassword"]) {
             $userInfo = $dbh->getUserInfo($_SESSION["email"]);
             if ($userInfo && isset($userInfo[0])) { //user found
@@ -17,11 +17,10 @@ if (isUserLoggedIn()) {
                 //if a field was deleted, keep the old one
                 $name = $_POST["name"] == "" ? $userInfo[0]["name"] : $_POST["name"];
                 $surname = $_POST["surname"] == "" ? $userInfo[0]["surname"] : $_POST["surname"];
-                $phone = $_POST["phone"] == "" ? $userInfo[0]["phone"] : $_POST["phone"];
                 $birthday = $_POST["birthday"] == "" ? $userInfo[0]["birthday"] : $_POST["birthday"];
                 $email = $userInfo[0]["email"]; //email cannot be changed
                 
-                $success = $dbh->updateUser($email, $name, $surname, $phone, $birthday, $password);
+                $success = $dbh->updateUser($email, $name, $surname, $birthday, $password);
                 if ($success) { //update successful
                     $templateParams["result"] = "Update successful";
                     $templateParams["userInfo"] = $dbh->getUserInfo($_SESSION["email"]);

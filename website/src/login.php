@@ -6,6 +6,7 @@ if(isUserLoggedIn()) {
     exit();
 } elseif (isAdminLoggedIn()) {
     header("Location: ./admin.php");
+    exit();
 } else { //if user is not logged in
     $templateParams["titolo"] = "Login";
     $templateParams["nome"] = "login-form.php";

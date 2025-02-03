@@ -1,0 +1,14 @@
+
+    .form-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .form-container .form-group {
+        width: 48%;
+        margin-right: 4%;
+    }
+
+    .form-container .form-group:nth-child(2n) {
+        margin-right: 0;
+    }

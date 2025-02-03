@@ -16,10 +16,6 @@
           <input type="text" readonly class="form-control" id="staticEmail" value="jacopo.turchi12@gmail.com"/>
         </div>
         <div class="mb-3">
-          <label for="phone" class="form-label">Phone</label>
-          <input type="tel" class="form-control" id="phone" value="3334445566"/>
-        </div>
-        <div class="mb-3">
           <label for="birthdate" class="form-label">Birthdate</label>
           <input type="date" class="form-control" id="birthdate" value="2003-08-08"/>
         </div>
