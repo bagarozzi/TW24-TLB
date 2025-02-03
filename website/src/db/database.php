@@ -38,5 +38,13 @@ class DatabaseHelper {
         $stmt->bind_param("si", $user, $product);
         $stmt->execute();
     }
+
+    public function getNotifications($user) {
+        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE email=? ORDER BY Data DESC");
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>
