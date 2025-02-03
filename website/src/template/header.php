@@ -6,7 +6,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Brand -->
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="./index.php">
             <img src="resources/logoat.jpg" alt="" width="60" height="60" class="d-inline-block align-text-center">
             HarvestHub
             </a>
@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Products</a>
+                        <a class="nav-link active" aria-current="page" href="./products.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact us</a>
