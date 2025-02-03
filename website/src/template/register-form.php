@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-50 py-3">
-    <div class="card shadow-sm p-4 w-100 mx-auto register-card">
+    <div class="card shadow-sm p-4 mx-auto register-card">
         <h2 class="text-center mb-3">Registrazione</h2>
 
         <?php if (isset($userParams["errore"])): ?>
@@ -28,6 +28,10 @@
             <div class="mb-3">
                 <label for="password" class="form-label">Password:</label>
                 <input type="password" name="password" id="password" class="form-control" required />
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Conferma Password:</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required />
             </div>
             <div class="d-grid">
                 <button type="submit" name="submit" class="btn btn-primary clickable">Invia</button>

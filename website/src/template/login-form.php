@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-50 py-3">
-    <div class="card shadow-sm p-4 w-100 mx-auto login-card">
+    <div class="card shadow-sm p-4 mx-auto login-card">
         <h2 class="text-center mb-3">Login</h2>
 
         <?php if (isset($userParams["errore"])): ?>
@@ -23,7 +23,7 @@
         </form>
 
         <p class="text-center mt-3">
-            Non hai un account? <a href="signin.php" class="text-decoration-none">Registrati</a>.
+            Non hai un account? <a href="register.php" class="text-decoration-none">Registrati</a>.
         </p>
     </div>
 </div>
