@@ -48,5 +48,29 @@ class DatabaseHelper {
         $stmt->bind_param("si", $user, $product);
         $stmt->execute();
     }
+
+    public function getNotifications($user) {
+        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE email=? ORDER BY Data DESC");
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getUserInfo($email) {
+        $query = "SELECT * FROM UTENTE WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function updateUser($email, $name, $surname, $phone, $birthday, $password) {
+        $query = "UPDATE user SET name = ?, surname = ?, phone = ?, birthday = ?, password = ? WHERE email = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssssss', $name, $surname, $phone, $birthday, $password, $email);
+        $stmt->execute();
+    }
 }
 ?>

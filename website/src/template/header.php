@@ -6,8 +6,8 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Brand -->
-            <a class="navbar-brand" href="#">
-            <img src="resources/logoat.jpg" alt="" width="60" height="60" class="d-inline-block align-text-center">
+            <a class="navbar-brand" href="./index.php">
+            <img src="resources/logoat.png" alt="" width="60" height="60" class="d-inline-block align-text-center">
             HarvestHub
             </a>
             <!-- Shopping cart -->
@@ -18,18 +18,29 @@
                     </a>
                 </div>
                 <!-- Profile -->
-                <!-- TODO: quando un utente non è loggato deve essere un dropdown -->
                 <div class="nav-item">
-                    <button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-                        <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                    </button>
+                    <?php
+                    if (isUserLoggedIn()) {
+                        echo '<button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+                                <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </button>';
+                    } elseif (isAdminLoggedIn()) {
+                        echo '<a class="nav-link" href="./admin.php">
+                                <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </a>';
+                    } else { //not logged in
+                        echo '<a class="nav-link" href="./login.php">
+                                <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </a>';
+                    }
+                    ?>
                 </div>
             </div>
             <!-- Expansion -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Products</a>
+                        <a class="nav-link active" aria-current="page" href="./products.php">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact us</a>
@@ -45,7 +56,7 @@
         if(isset($templateParams["includeSearchbar"]) && $templateParams["includeSearchbar"] == true) {
             echo '<div class="container-fluid position-absolute justify-content-center w-100 mt-2">
                     <form class="d-flex justify-content-center w-100">
-                        <input class="form-control me-2 w-50" type="search" placeholder="Search" aria-label="Search"/>
+                        <input class="form-control me-2 w-50" type="search" placeholder="" aria-label="Search"/>
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
                   </div>';

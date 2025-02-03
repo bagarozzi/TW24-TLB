@@ -18,10 +18,12 @@
             echo '<script src="' . $templateParams["scriptSheet"] . '"></script>';
         }
     ?>
+    <script src="js/typewriter.js"></script>
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 </head>
     <body>
         <?php require 'header.php'; ?>
-        <?php require 'account-menu.php';?>
+        <?php require 'account-user.php';?>
         <main>
             <?php
                 if(isset($templateParams["nome"])) {
