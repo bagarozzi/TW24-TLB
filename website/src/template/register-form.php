@@ -9,20 +9,20 @@
                 </div>
             <?php endif; ?>
             <div class="mb-3">
-                <label for="nome" class="form-label">Name:</label>
-                <input type="text" name="nome" id="nome" class="form-control" required />
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" required />
             </div>
             <div class="mb-3">
-                <label for="cognome" class="form-label">Surname:</label>
-                <input type="text" name="cognome" id="cognome" class="form-control" required />
+                <label for="surname" class="form-label">Surname:</label>
+                <input type="text" name="surname" id="surname" class="form-control" required />
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
                 <input type="email" name="email" id="email" class="form-control" required />
             </div>
             <div class="mb-3">
-                <label for="dataNascita" class="form-label">Birthday:</label>
-                <input type="date" name="dataNascita" id="dataNascita" class="form-control" required />
+                <label for="birthday" class="form-label">Birthday:</label>
+                <input type="date" name="birthday" id="birthday" class="form-control" required />
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password:</label>

@@ -18,7 +18,7 @@ if(isUserLoggedIn()) {
             // Registration failed
             $templateParams["error"] = "That email is already used";
         } else {
-            $dbh->insertUser($_POST["name"], $_POST["surname"], $_POST["email"], $_POST["password"], $_POST["birthday"]);
+            $dbh->insertUser($_POST["email"], $_POST["password"] , $_POST["name"], $_POST["surname"], $_POST["birthday"]);
             $user = $dbh->getUserInfo($_POST["email"])[0];
             registerLoggedUser($user); //Login the user
             if (isset($_SESSION["previousPage"])) {
