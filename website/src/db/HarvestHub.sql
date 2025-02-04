@@ -52,7 +52,6 @@ CREATE TABLE `carrello` (
 
 CREATE TABLE `CATEGORIA_PRODOTTO` (
   `nome` varchar(32) NOT NULL,
-  `descrizione` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
