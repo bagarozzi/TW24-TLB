@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 
-if(isAdminLoggedIn()) { //TODO: implement
+if(isAdminLoggedIn()) {
     $templateParams["titolo"] = "HarvestHub - Admin";
     $templateParams["nome"] = "account-admin.php";
     $templateParams["includeSearchbar"] = false;
