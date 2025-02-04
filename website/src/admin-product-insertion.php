@@ -31,6 +31,9 @@ if(isAdminLoggedIn()) {
                         if($categoryName == $newCategoryName) { //new category name is the same as the old one
                             $templateParams["categoryResult"] = "New category name is the same as the old one";
                             break;
+                        } else if(in_array($newCategoryName, array_column($templateParams["categories"], 'name'))) {
+                            $templateParams["categoryResult"] = "Category already exists";
+                            break;
                         } else { //new category name is different from the old one
                             $result = $dbh->updateCategory($newCategoryName, $categoryName);
                             if($result) { //category updated successfully
@@ -50,15 +53,16 @@ if(isAdminLoggedIn()) {
                 }
                 break;
             case 'delete':
-                if(isset($_POST["action"]) && $_POST["action"] == 'delete' && isset($_POST["categoryId"])) {
-                    $categoryId = $_POST["categoryId"];
-                    if(in_array($categoryId, array_column($templateParams["categories"], 'id'))) {
-                        $dbh->deleteCategory($categoryId);
-                        $templateParams["categoryResult"] = "Category deleted successfully";
+                if(in_array($categoryName, array_column($templateParams["categories"], 'name'))) {
+                    $result = $dbh->deleteCategory($categoryName);
+                    if($result) {
                         $templateParams["categories"] = $dbh->getCategories();
+                        $templateParams["categoryResult"] = "Category deleted successfully";
                     } else {
-                        $templateParams["categoryResult"] = "Category not found";
+                        $templateParams["categoryResult"] = "Category not deleted";
                     }
+                } else {
+                    $templateParams["categoryResult"] = "Category not found";
                 }
                 break;
             default:

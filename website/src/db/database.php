@@ -127,6 +127,13 @@ class DatabaseHelper {
         return $stmt->execute();
     }
 
+    public function deleteCategory($category) {
+        $query = "DELETE FROM CATEGORIA_PRODOTTO WHERE nome = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $category);
+        return $stmt->execute();
+    }
+
     public function insertProduct($name, $price, $description, $image, $quantity, $category) {
         $query = "INSERT INTO PRODOTTO (nome, prezzo, descrizione, immagine, disponibilita, App_nome) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
