@@ -9,20 +9,26 @@ class DatabaseHelper {
         }
     }
 
-    public function getProductsByCategory($category) {
-        $stmt = $this->db->prepare("SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto 
-                                    WHERE prodotto.App_nome = ?;");
-        $stmt->bind_param("s", $category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+    public function getProducts($category, $name, $sort) {
+        $sql = "SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto WHERE 1";
+        $types = "";
+        $params = [];
+        if($category != "") {
+            $sql .= " AND prodotto.App_nome = ?";
+            $types .= "s";
+            $params[] = $category; 
+        }
+        if($name != "") {
+            $sql .= " AND LOWER(nome) LIKE LOWER(?)";
+            $types .= "s";
+            $params[] = $name; 
+        }
+        if($sort !="") {
+            $sql .= " ORDER BY $sort";
+        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param($types, ...$params); // Binding dei parametri
 
-    public function getProductsSorted($category, $attribute) {
-        $stmt = $this->db->prepare("SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto 
-                                    WHERE prodotto.App_nome = ?
-                                    ORDER BY $attribute;"); 
-        $stmt->bind_param("s", $category);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

@@ -3,15 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
     orderDropdown.addEventListener('click', (e) => {
         const sortType = e.target.dataset.sort;
         const category = e.target.dataset.category;
-        if (sortType != "nessuno") {
-            const elemento = document.querySelector('.dropdown-item[data-sort="nessuno"]');
+        if (sortType != "") {
+            const elemento = document.querySelector('.dropdown-item[data-sort=""]');
             if (!elemento) {
                 document.getElementById("order-dropdown").insertAdjacentHTML(
                     "afterbegin",
-                    `<li><button class="dropdown-item" data-sort="nessuno" data-category="${category}">Togli ordinamento</button></li>`);
+                    `<li><button class="dropdown-item" data-sort="" data-category="${category}">Togli ordinamento</button></li>`);
             }
             changeOrder(e.target);
-        } else if (sortType == "nessuno") {
+        } else if (sortType == "") {
             const elemento = document.querySelector('.dropdown-item[data-sort="nessuno"]');
             if (elemento) {
                 elemento.remove();
@@ -28,7 +28,7 @@ function changeOrder(element) {
 }
 
 function sortProducts(sortType, category) {
-    fetch(`template/products-sorted.php?category=${category}&sort=${sortType}`)
+    fetch(`template/products-filtered.php?category=${category}&sort=${sortType}`)
         .then(response => response.text()) // Ricevi la risposta come testo HTML
         .then(data => {
             document.getElementById("productsContainer").innerHTML = data;
