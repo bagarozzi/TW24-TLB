@@ -79,14 +79,14 @@
                             <td><?php echo $order["riferimento"] ?></td>
                             <td><?php echo $order["email"] ?></td>
                             <td><?php echo $order["totale"] ?></td>
-                            <td><?php echo $order["data"] ?></td>
+                            <td><?php if($order["stato"] == "confermato") echo "Confirmed"; else if($order["stato"] == "spedito") echo "Shipped"; else echo "Delivered"; ?></td>
                             <td>
                                 <form method="POST" action="./admin.php" class="d-flex justify-content-around">
                                     <input type="hidden" name="action" value="order-operation"/>
                                     <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
                                     <input type="hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
-                                    <label for="ship-order" class="visually-hidden">Ship the order</label>
-                                    <button name="ship-order" class="btn btn-warning mx-2">Ship</button>
+                                    <label for="change-order-state" class="visually-hidden">Ship the order</label>
+                                    <button <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" class="btn btn-warning mx-2"><?php if($order["stato"] == "confermato") echo "Ship"; else echo "Close"?></button>
                                     <label for="delete-order" class="visually-hidden">Delete the order</label>
                                     <button name="delete-order" class="btn btn-danger">Delete</button>
                                 </form>                         
