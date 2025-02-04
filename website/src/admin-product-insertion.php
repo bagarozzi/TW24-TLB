@@ -5,6 +5,7 @@ if(isAdminLoggedIn()) {
     $templateParams["titolo"] = "Admin - Product Insertion";
     $templateParams["nome"] = "form-admin-product-insertion.php";
     $templateParams["includeSearchbar"] = false;
+    $templateParams["styleSheet"] = "./css/product-insertion.css";
     $templateParams["categories"] = $dbh->getCategories();
     $templateParams["productResult"] = NULL;
     $templateParams["categoryResult"] = NULL;
