@@ -12,22 +12,35 @@
             </a>
             <!-- Shopping cart -->
             <div class="d-flex">
-                <div class="nav-item">
-                    <a class="nav-link" href="./cart.php">
-                        <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                    </a>
-                </div>
+                <?php
+                if (isAdminLoggedIn()) {
+                    //do not visualise cart
+                } elseif(isUserLoggedIn()) {
+                    echo '<div class="nav-item">
+                            <a class="nav-link" href="./cart.php">
+                                <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </a>
+                        </div>';
+                } else { //not logged in
+                    echo '<div class="nav-item">
+                            <a class="nav-link" href="./login.php">
+                                <img src="resources/cart.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                            </a>
+                        </div>';
+                }
+                ?>
+                
                 <!-- Profile -->
                 <div class="nav-item">
                     <?php
                     if (isUserLoggedIn()) {
-                        echo '<button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+                        echo '<button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-user" aria-controls="offcanvas-user">
                                 <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
                             </button>';
                     } elseif (isAdminLoggedIn()) {
-                        echo '<a class="nav-link" href="./admin.php">
+                        echo '<button class="btn btn-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-admin" aria-controls="offcanvas-admin">
                                 <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
-                            </a>';
+                            </button>';
                     } else { //not logged in
                         echo '<a class="nav-link" href="./login.php">
                                 <img src="resources/profile.png" alt="" width="30" height="30" class="d-inline-block align-text-top">

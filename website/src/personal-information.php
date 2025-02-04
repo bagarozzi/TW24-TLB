@@ -56,7 +56,7 @@ if (isUserLoggedIn()) {
     */
 
 } else if (isAdminLoggedIn()) {
-    header("Location: admin.php");
+    header("Location: index.php");
 } else {
     header("Location: login.php");
 }

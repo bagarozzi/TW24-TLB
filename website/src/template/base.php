@@ -24,6 +24,7 @@
     <body>
         <?php require 'header.php'; ?>
         <?php require 'account-user.php';?>
+        <?php require 'account-admin.php';?>
         <main>
             <?php
                 if(isset($templateParams["nome"])) {
