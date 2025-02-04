@@ -6,7 +6,7 @@ $templateParams["styleSheet"] = "css/notifications.css";
 $templateParams["includeSearchbar"] = false;
 
 if (isUserLoggedIn()) {
-    $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
+    $templateParams["notifications"] = $dbh->getNotifications($_SESSION['email']);
 }
 else {
     $templateParams["previousPage"] = "notifications.php";
