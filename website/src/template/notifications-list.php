@@ -17,8 +17,8 @@
                     </div>
                     <div class="col d-flex flex-row align-items-center justify-content-end">
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center me-2">
-                            <input type="hidden" name="action" value="read_notification">
-                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>">
+                            <input type="hidden" name="action" value="read_notification"/>
+                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>"/>
                             <?php if($item["letto"] == 0) {
                                     echo '<button type="submit" name="read" class="btn btn-primary rounded-circle" title="Mark as read"><i class="bi bi-check"></i></button>';
                                 }
@@ -28,8 +28,8 @@
                             ?>
                         </form>
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center">
-                            <input type="hidden" name="action" value="remove_notification">
-                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>">
+                            <input type="hidden" name="action" value="remove_notification"/>
+                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>"/>
                             <button type="submit" name="delete" class="btn btn-danger rounded-circle" title="Delete"><i class="bi bi-x"></i></button>
                         </form>
                     </div>
