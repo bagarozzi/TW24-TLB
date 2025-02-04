@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'update_quanti
 }
 else if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'checkout-order') {
     $email = $_SESSION['email'];
-    $dbh->createOrder($email);
-    header('Location: orders.php');
+    $order_id = $dbh->createOrder($email);
+    header('Location: order-detail.php?ordernum=' . $order_id);
     exit;
 }
 

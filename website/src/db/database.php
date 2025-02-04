@@ -160,6 +160,8 @@ class DatabaseHelper {
         $this->emptyCart($email);
 
         $stmt2->close();
+
+        return $inserted_id;
     }
 
     public function getOrderDetails($order_id) {
