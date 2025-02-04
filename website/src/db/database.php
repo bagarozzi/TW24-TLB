@@ -138,7 +138,11 @@ class DatabaseHelper {
     }
 
     public function getOrders($user) {
-        $stmt = $this->db->prepare("SELECT SUM(richiesta.quantita * prodotto.prezzo) as totale, ordine.data, ordine.riferimento FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND ordine.email=? AND prodotto.codProdotto=richiesta.codProdotto ORDER BY data DESC");
+        $stmt = $this->db->prepare('SELECT o.riferimento AS riferimento, o.data AS data, SUM(p.prezzo * r.quantita) AS totale
+            FROM ORDINE o JOIN richiesta r ON o.riferimento = r.riferimento JOIN PRODOTTO p ON r.codProdotto = p.codProdotto
+            WHERE o.email=?
+            GROUP BY o.riferimento, o.data, o.email;
+        ');
         $stmt->bind_param("s", $user);
         $stmt->execute();
         $result = $stmt->get_result();
