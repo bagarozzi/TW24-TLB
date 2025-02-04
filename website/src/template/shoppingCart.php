@@ -50,8 +50,11 @@
                                 <form method="POST" action="cart.php" class="d-flex justify-content-between align-items-center">
                                     <input type="hidden" name="action" value="update_quantity">
                                     <input type="hidden" name="product_id" value="<?php echo $item["codProdotto"]; ?>">
+                                    <label for="decrease" class="visually-hidden">Decrease item's quantity</label>
                                     <button type="submit" name="decrease" class="btn btn-primary rounded-circle">-</button>
+                                    <label for="quantity" class="visually-hidden">Item's quantity</label>
                                     <input type="text" name="quantity" class="form-control" value="<?php echo $item["quantita"] ?>"/>
+                                    <label for="increase" class="visually-hidden">Increase item's quantity</label>
                                     <button type="submit" name="increase" class="btn btn-primary rounded-circle">+</button>
                                 </form>
                             </div>
@@ -118,8 +121,9 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <div class="d-flex justify-content-center mb-4">
-                        <button class="btn btn-primary">Checkout</button>
-                    </div> 
+                    <form method="POST" action="cart.php" class="d-flex justify-content-center mb-4">
+                        <label for="checkout" class="visually-hidden">Checkout</label>
+                        <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
+                    </form> 
                 </div>
             </div>
