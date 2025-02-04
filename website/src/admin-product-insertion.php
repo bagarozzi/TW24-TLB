@@ -24,13 +24,28 @@ if(isAdminLoggedIn()) {
                     $templateParams["categories"] = $dbh->getCategories();
                 }
                 break;
-            case 'edit':
+            case 'save': //edit
                 if(in_array($categoryName, array_column($templateParams["categories"], 'name'))) {
-                    
-                    $dbh->updateCategory($categoryId, $categoryName);
-                    $templateParams["categoryResult"] = "Category updated successfully";
-                    $templateParams["categories"] = $dbh->getCategories();
-                } else {
+                    if(isset($_POST["newCategoryName"])) { //new category name provided
+                        $newCategoryName = $_POST["newCategoryName"];
+                        if($categoryName == $newCategoryName) { //new category name is the same as the old one
+                            $templateParams["categoryResult"] = "New category name is the same as the old one";
+                            break;
+                        } else { //new category name is different from the old one
+                            $result = $dbh->updateCategory($newCategoryName, $categoryName);
+                            if($result) { //category updated successfully
+                                $templateParams["categories"] = $dbh->getCategories();
+                                $templateParams["categoryResult"] = "Category updated successfully";
+                            } else { //category not updated
+                                $templateParams["categoryResult"] = "New category name not provided";
+                                break;
+                            }
+                        }
+                    } else { //new category name not provided
+                        $templateParams["categoryResult"] = "New category name not provided";
+                        break;
+                    }
+                } else { //category not found in db
                     $templateParams["categoryResult"] = "Category not found";
                 }
                 break;

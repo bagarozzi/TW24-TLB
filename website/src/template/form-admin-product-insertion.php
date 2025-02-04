@@ -22,7 +22,7 @@
                         <input type="text" class="form-control" id="newCategoryName" name="newCategoryName" placeholder="Enter new category name" />
                     </div>
                     <button type="submit" class="btn btn-success" name="action" value="save">Save</button>
-                    <button type="button" class="btn btn-secondary" id="cancelEditButton">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="cancelEditButton">Cancel</button>
                 </div>
                 <button type="submit" class="btn btn-danger" name="action" value="delete">Delete Category</button>
             </form>
