@@ -13,22 +13,27 @@ class DatabaseHelper {
         $sql = "SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto WHERE 1";
         $types = "";
         $params = [];
+        $paramYN = false;
         if($category != "") {
             $sql .= " AND prodotto.App_nome = ?";
             $types .= "s";
-            $params[] = $category; 
+            $params[] = $category;
+            $paramYN = true;
         }
         if($name != "") {
-            $sql .= " AND LOWER(nome) LIKE LOWER(?)";
+            $sql .= ' AND LOWER(nome) LIKE ?';
             $types .= "s";
-            $params[] = $name; 
+            $name = strtolower($name);
+            $params[] = "%$name%";
+            $paramYN = true;
         }
         if($sort !="") {
             $sql .= " ORDER BY $sort";
         }
         $stmt = $this->db->prepare($sql);
-        $stmt->bind_param($types, ...$params); // Binding dei parametri
-
+        if($paramYN) {
+            $stmt->bind_param($types, ...$params); // Binding dei parametri
+        }
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

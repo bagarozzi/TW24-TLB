@@ -1,22 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Intercetta l'invio del form di ricerca
     document.getElementById('searchForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Impedisce il comportamento di submit normale
-
-        const query = document.getElementById('searchInput').value; // Ottieni la query di ricerca
-
-        if (query.trim() !== '') {
-            searchProducts(query); // Chiamata alla funzione per cercare i prodotti
+        event.preventDefault();
+        const name = document.getElementById('searchInput').value;
+        const params = new URLSearchParams(window.location.search);
+        params.delete("name");
+        params.append("name", name);
+        if (window.location.href.includes("products.php")) {
+            fetch(`template/products-filtered.php?${params.toString()}`)
+                .then(response => response.text()) // Ricevi la risposta come testo HTML
+                .then(data => {
+                    document.getElementById("productsContainer").innerHTML = data;
+                })
+                .catch(error => console.error('Errore:', error));
+            window.history.pushState({}, "", `${window.location.pathname}?${params.toString()}`);
+        } else {
+            window.location.href = `products.php?${params.toString()}`;
         }
     });
 });
-
-// Funzione per inviare la ricerca al server e aggiornare i risultati
-function searchProducts(query) {
-    fetch(`template/products-search.php?query=${encodeURIComponent(query)}`)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("productsContainer").innerHTML = data; // Aggiorna i prodotti visualizzati
-        })
-        .catch(error => console.error('Errore nella ricerca:', error));
-}
