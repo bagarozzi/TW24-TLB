@@ -75,8 +75,7 @@ class DatabaseHelper {
     }
 
     public function getAdminNotifications() {
-        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE username=? ORDER BY Data DESC");
-        $stmt->bind_param("s", $user);
+        $stmt = $this->db->prepare('SELECT * FROM notifica WHERE username="turbo" ORDER BY Data DESC');
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

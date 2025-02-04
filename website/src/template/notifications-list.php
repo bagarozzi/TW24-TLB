@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div class="col d-flex flex-row align-items-center justify-content-end">
-                        <a href="order-detail.php?ordernum=<?php echo $item["riferimento"]?>" class="btn btn-success">Go to order</a>
+                        <a href="<?php if(isUserLoggedIn()) echo "order-detail.php?ordernum=" . $item["riferimento"] . ""; else echo "./admin-orders.php"?>" class="btn btn-success">Go to order</a>
                     </div>
                     <div class="col d-flex flex-row align-items-center justify-content-end">
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center me-2">
