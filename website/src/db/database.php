@@ -103,6 +103,21 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function insertCategory($category) {
+        $query = "INSERT INTO CATEGORIA_PRODOTTO (nome) VALUES (?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $category);
+        $stmt->execute();
+    }
+
+    public function getCategories() {
+        $query = "SELECT nome as name FROM CATEGORIA_PRODOTTO";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function getOrders($user) {
         $stmt = $this->db->prepare("SELECT SUM(richiesta.quantita * prodotto.prezzo) as totale, ordine.data, ordine.riferimento FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND ordine.email=? AND prodotto.codProdotto=richiesta.codProdotto ORDER BY data DESC");
         $stmt->bind_param("s", $user);
