@@ -176,7 +176,7 @@ class DatabaseHelper {
     }
     
     public function createOrder($email) {
-        $stmt = $this->db->prepare("INSERT INTO ordine (email, data) VALUES (?, CURRENT_DATE)");
+        $stmt = $this->db->prepare('INSERT INTO ordine (email, data, stato) VALUES (?, CURRENT_DATE, "confermato")');
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
