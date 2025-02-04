@@ -72,7 +72,7 @@ class DatabaseHelper {
     }
 
     public function getUserInfo($email) {
-        $query = "SELECT * FROM UTENTE WHERE email = ?";
+        $query = "SELECT email, password, nome as name, cognome as surname, dataNascita as birthday FROM UTENTE WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $email);
         $stmt->execute();
@@ -88,10 +88,10 @@ class DatabaseHelper {
     }
 
     public function updateUser($email, $name, $surname, $birthday, $password) {
-        $query = "UPDATE user SET name = ?, surname = ?, birthday = ?, password = ? WHERE email = ?";
+        $query = "UPDATE UTENTE SET name = ?, surname = ?, birthday = ?, password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssss', $name, $surname, $birthday, $password, $email);
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     public function checkUsername($email) {
