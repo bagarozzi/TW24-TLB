@@ -115,6 +115,7 @@ class DatabaseHelper {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("sdssis", $name, $price, $description, $image, $quantity, $category);
         $stmt->execute();
+        return $stmt->insert_id;
     }
 
     public function getCategories() {

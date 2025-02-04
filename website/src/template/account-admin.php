@@ -22,7 +22,7 @@
 
             <div class="col-md-4 mt-4">
                 <h3>Add Product</h3>
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="./admin.php" method="POST" enctype="multipart/form-data">
                     <?php if (isset($templateParams["productResult"])): ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <?php echo $templateParams["productResult"]; ?>
