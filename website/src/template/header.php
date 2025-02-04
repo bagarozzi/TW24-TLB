@@ -2,7 +2,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid d-flex justify-content-between">
             <!-- Hamburger menu -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Brand -->
@@ -46,7 +46,7 @@
                         <a class="nav-link" href="#">Contact us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
+                        <a class="nav-link" href="./about.php">About us</a>
                     </li>
                 </ul>
             </div>

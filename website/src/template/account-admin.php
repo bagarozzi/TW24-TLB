@@ -5,66 +5,95 @@
         <div class="row mt-4">
             <div class="col-md-4">
                 <h3>Add Category</h3>
-                <form action="add_category.php" method="post">
+                <form action="./admin.php" method="post">
+                    <?php if (isset($templateParams["categoryResult"])): ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <?php echo $templateParams["categoryResult"]; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-3">
                         <label for="categoryName" class="form-label">Category Name</label>
-                        <input type="text" class="form-control" id="categoryName" name="categoryName" required>
+                        <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name" required />
                     </div>
                     <button type="submit" class="btn btn-primary">Add Category</button>
                 </form>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 mt-4">
                 <h3>Add Product</h3>
-                <form action="add_product.php" method="post">
+                <form action="./admin.php" method="POST" enctype="multipart/form-data">
+                    <?php if (isset($templateParams["productResult"])): ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <?php echo $templateParams["productResult"]; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
                     <div class="mb-3">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" name="productName" required>
+                        <input type="text" class="form-control" id="productName" name="productName" placeholder="Write the name of the product" required />
                     </div>
                     <div class="mb-3">
                         <label for="productCategory" class="form-label">Category</label>
                         <select class="form-select" id="productCategory" name="productCategory" required>
-                            <!-- Options should be populated dynamically from the database -->
-                            <option value="1">Category 1</option>
-                            <option value="2">Category 2</option>
+                            <option value="" disabled selected>Select a category</option>
+                            <?php foreach ($templateParams["categories"] as $category): ?>
+                                <option value="<?php echo $category["name"]; ?>"><?php echo $category["name"]; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="productPrice" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="productPrice" name="productPrice" required>
+                        <input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="0,00€" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="productQuantity" class="form-label">Quantity</label>
+                        <input type="number" step="0.01" class="form-control" id="productQuantity" name="productQuantity" placeholder="0" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="productDescription" class="form-label">Product Description</label>
+                        <textarea class="form-control" id="productDescription" name="productDescription" placeholder="Insert details and characteristics." rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productImage" class="form-label">Product Image</label>
+                        <input type="file" class="form-control" id="productImage" name="productImage" required />
                     </div>
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 mt-4">
                 <h3>View Orders</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Order ID</th>
-                            <th>Customer Name</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
+                            <th>Customer</th>
+                            <th>Total products</th>
+                            <th>Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Orders should be populated dynamically from the database -->
+                        <?php foreach($templateParams["orders"] as $order): ?>
                         <tr>
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>Product 1</td>
-                            <td>2</td>
-                            <td>Pending</td>
+                            <td><?php echo $order["riferimento"] ?></td>
+                            <td><?php echo $order["email"] ?></td>
+                            <td><?php echo $order["totale"] ?></td>
+                            <td><?php echo $order["data"] ?></td>
+                            <td>
+                                <form method="POST" action="./admin.php" class="d-flex justify-content-around">
+                                    <input type="hidden" name="action" value="order-operation"/>
+                                    <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
+                                    <input type="hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
+                                    <label for="ship-order" class="visually-hidden">Ship the order</label>
+                                    <button name="ship-order" class="btn btn-warning mx-2">Ship</button>
+                                    <label for="delete-order" class="visually-hidden">Delete the order</label>
+                                    <button name="delete-order" class="btn btn-danger">Delete</button>
+                                </form>                         
+                            </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jane Smith</td>
-                            <td>Product 2</td>
-                            <td>1</td>
-                            <td>Shipped</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

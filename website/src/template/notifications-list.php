@@ -13,6 +13,9 @@
                         </div>
                     </div>
                     <div class="col d-flex flex-row align-items-center justify-content-end">
+                        <a href="order-detail.php?ordernum=<?php echo $item["riferimento"]?>" class="btn btn-success">Go to order</a>
+                    </div>
+                    <div class="col d-flex flex-row align-items-center justify-content-end">
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center me-2">
                             <input type="hidden" name="action" value="read_notification">
                             <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>">
