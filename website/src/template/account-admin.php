@@ -68,28 +68,32 @@
                     <thead>
                         <tr>
                             <th>Order ID</th>
-                            <th>Customer Name</th>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Status</th>
+                            <th>Customer</th>
+                            <th>Total products</th>
+                            <th>Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Orders should be populated dynamically from the database -->
+                        <?php foreach($templateParams["orders"] as $order): ?>
                         <tr>
-                            <td>1</td>
-                            <td>John Doe</td>
-                            <td>Product 1</td>
-                            <td>2</td>
-                            <td>Pending</td>
+                            <td><?php echo $order["riferimento"] ?></td>
+                            <td><?php echo $order["email"] ?></td>
+                            <td><?php echo $order["totale"] ?></td>
+                            <td><?php echo $order["data"] ?></td>
+                            <td>
+                                <form method="POST" action="./admin.php" class="d-flex justify-content-around">
+                                    <input type="hidden" name="action" value="order-operation"/>
+                                    <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
+                                    <input type="hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
+                                    <label for="ship-order" class="visually-hidden">Ship the order</label>
+                                    <button name="ship-order" class="btn btn-warning mx-2">Ship</button>
+                                    <label for="delete-order" class="visually-hidden">Delete the order</label>
+                                    <button name="delete-order" class="btn btn-danger">Delete</button>
+                                </form>                         
+                            </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jane Smith</td>
-                            <td>Product 2</td>
-                            <td>1</td>
-                            <td>Shipped</td>
-                        </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

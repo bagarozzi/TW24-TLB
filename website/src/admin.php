@@ -8,6 +8,7 @@ if(isAdminLoggedIn()) { //TODO: implement
     $templateParams["categories"] = $dbh->getCategories();
     $templateParams["productResult"] = NULL;
     $templateParams["categoryResult"] = NULL;
+    $templateParams["orders"] = $dbh->getAllOrders();
 
     //add category
     if(isset($_POST["categoryName"])) {
@@ -34,6 +35,16 @@ if(isAdminLoggedIn()) { //TODO: implement
             }
         } else {
             $templateParams["productResult"] = $msg;
+        }
+    }
+
+    if(isset($_POST["action"]) && $_POST["action"] == "order-operation") {
+        $order_id = $_POST["order-id"];
+        if(isset($_POST["ship-order"])) {
+            
+        }
+        else if (isset($_POST["delete-order"])) {
+            $dbh->deleteOrder($order_id);
         }
     }
 } else if(isUserLoggedIn()) { //if user is logged in, redirect to index, not autorized
