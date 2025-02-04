@@ -193,5 +193,17 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function createUserNotification($email, $order_id, $title, $description) {
+        $stmt = $this->db->prepare("INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, email) VALUES (CURRENT_DATE, ?, ?, ?, ?)");
+        $stmt->bind_param("ssis", $title, $description, $order_id, $email);
+        $stmt->execute();
+    }
+
+    public function createAdminNotification($user, $order_id, $title, $description) {
+        $stmt = $this->db->prepare("INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, username) VALUES (CURRENT_DATE, ?, ?, ?, ?)");
+        $stmt->bind_param("ssis", $title, $description, $order_id, $user);
+        $stmt->execute();
+    }
 }
 ?>
