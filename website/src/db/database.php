@@ -114,5 +114,17 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function markNotificationAsRead($notification_id) {
+        $stmt = $this->db->prepare("UPDATE notifica SET letto=1 WHERE id_notifica=?");
+        $stmt->bind_param("i", $notification_id);
+        $stmt->execute();
+    }
+
+    public function removeNotification($notification_id) {
+        $stmt = $this->db->prepare("DELETE FROM notifica WHERE id_notifica=?");
+        $stmt->bind_param("i", $notification_id);
+        $stmt->execute();
+    }   
 }
 ?>

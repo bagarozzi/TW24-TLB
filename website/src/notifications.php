@@ -14,6 +14,22 @@ else {
     exit;
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'read_notification') {
+    $notification_id = $_POST['notification_id'];
+
+    $dbh->markNotificationAsRead($notification_id);
+
+    header('Location: notifications.php');
+    exit;
+}
+else if($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'remove_notification') {
+    $notification_id = $_POST['notification_id'];
+
+    $dbh->removeNotification($notification_id);
+
+    header('Location: notifications.php');
+    exit;
+}
 
 require 'template/base.php';
 ?>
