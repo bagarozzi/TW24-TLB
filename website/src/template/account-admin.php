@@ -17,6 +17,10 @@
                     <i class="menu-icon bi bi-receipt"></i>
                     Manage Orders
                 </a>
+                <a href="./notifications.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
+                    <i class="menu-icon bi bi-bell"></i>
+                    Notifications
+                </a>
                 <a href="./admin-dashboard.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-speedometer2"></i>
                     Dashboard
