@@ -2,14 +2,13 @@
 require_once 'bootstrap.php';
 
 if (isUserLoggedIn()) {
-    $templateParams["title"] = "HarvestHub - Personal Information";
+    $templateParams["titolo"] = "HarvestHub - Personal Information";
     $templateParams["nome"] = "form-personal-information.php";
     $templateParams["includeSearchbar"] = false;
     $templateParams["userInfo"] = $dbh->getUserInfo($_SESSION["email"]);
-
     // if form is submitted
     if (isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["email"]) && isset($_POST["birthday"]) && isset($_POST["password"])) {
-        if ($_POST["password"] == $_POST["confirmPassword"]) {
+        if ($_POST["password"] == $_POST["confirm-password"]) {
             $userInfo = $dbh->getUserInfo($_SESSION["email"]);
             if ($userInfo && isset($userInfo[0])) { //user found
                 //if password is not changed, keep the old one
@@ -25,6 +24,8 @@ if (isUserLoggedIn()) {
                     $templateParams["result"] = "Update successful";
                     $templateParams["userInfo"] = $dbh->getUserInfo($_SESSION["email"]);
                     updateUser($templateParams);
+                    header("Location: ./index.php");
+                    exit();
                 } else { //update failed
                     $templateParams["result"] = "Update failed";
                 }

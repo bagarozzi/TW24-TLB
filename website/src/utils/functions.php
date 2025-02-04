@@ -14,6 +14,7 @@ function registerLoggedUser($user) {
     $_SESSION["email"] = $user["email"];
     $_SESSION["name"] = $user["name"];
     $_SESSION["surname"] = $user["surname"];
+    $_SESSION["birthday"] = $user["birthday"];
 }
 
 function registerAdminLogged($admin) {
@@ -31,9 +32,12 @@ function logout() {
     unset($_SESSION["email"]);
 }
 
+//Function to update user session variables
 function updateUser($templateParams) {
+    $_SESSION["email"] = $templateParams["userInfo"][0]["email"];
     $_SESSION["name"] = $templateParams["userInfo"][0]["name"];
     $_SESSION["surname"] = $templateParams["userInfo"][0]["surname"];
+    $_SESSION["birthday"] = $templateParams["userInfo"][0]["birthday"];
 }
 
 function uploadImage($path, $image) {
