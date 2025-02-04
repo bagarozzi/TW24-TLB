@@ -11,7 +11,7 @@ if (!isUserLoggedIn()) {
   exit;
 }
 else {
-  $templateParams["orderds"] = $dbh->getOrders($_SESSION['username']);
+  $templateParams["orders"] = $dbh->getOrders($_SESSION['email']);
 }
 
 require 'template/base.php';

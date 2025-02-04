@@ -57,6 +57,10 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getAdminNotifications() {
+        
+    }
+
     public function getUserInfo($email) {
         $query = "SELECT * FROM UTENTE WHERE email = ?";
         $stmt = $this->db->prepare($query);
