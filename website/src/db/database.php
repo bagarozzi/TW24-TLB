@@ -193,6 +193,25 @@ class DatabaseHelper {
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+    
+    public function getAllOrders() {
+        $stmt = $this->db->prepare("SELECT ordine.riferimento, ordine.email, ordine.data, SUM(richiesta.quantita) as totale FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND prodotto.codProdotto=richiesta.codProdotto GROUP BY ordine.riferimento ORDER BY ordine.data DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function deleteOrder($order_id) {
+        $stmt = $this->db->prepare("DELETE FROM ordine WHERE riferimento=?");
+        $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+    }
+
+    public function setOrderShipped($order_id) {
+        $stmt = $this->db->prepare("UPDATE ordine SET spedito=1 WHERE riferimento=?");
+        $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+    }
 
     public function createUserNotification($email, $order_id, $title, $description) {
         $stmt = $this->db->prepare("INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, email) VALUES (CURRENT_DATE, ?, ?, ?, ?)");
