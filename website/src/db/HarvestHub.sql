@@ -78,9 +78,9 @@ CREATE TABLE `NOTIFICA` (
   `Titolo` varchar(20) NOT NULL,
   `Descrizione` varchar(255) NOT NULL,
   `letto` tinyint(1) NOT NULL,
-  `username` varchar(20) NOT NULL,
+  `username` varchar(20) NULL,
   `riferimento` int(11) NOT NULL,
-  `email` varchar(64) NOT NULL
+  `email` varchar(64) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
