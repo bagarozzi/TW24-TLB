@@ -6,7 +6,7 @@ $templateParams["styleSheet"] = "css/index.css";
 $templateParams["includeSearchbar"] = false;
 
 if (!isUserLoggedIn()) {
-  $templateParams["previousPage"] = "cart.php";
+  $templateParams["previousPage"] = "orders.php";
   header('Location: login.php');
   exit;
 }
