@@ -207,7 +207,7 @@ class DatabaseHelper {
     }
     
     public function getAllOrders() {
-        $stmt = $this->db->prepare("SELECT ordine.riferimento, ordine.email, ordine.data, SUM(richiesta.quantita) as totale FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND prodotto.codProdotto=richiesta.codProdotto GROUP BY ordine.riferimento ORDER BY ordine.data DESC");
+        $stmt = $this->db->prepare("SELECT ordine.riferimento, ordine.email, ordine.data, SUM(richiesta.quantita) as totale, ordine.stato FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND prodotto.codProdotto=richiesta.codProdotto GROUP BY ordine.riferimento ORDER BY ordine.data DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
