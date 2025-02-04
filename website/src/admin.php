@@ -22,7 +22,6 @@ if(isAdminLoggedIn()) { //TODO: implement
     }
 
     // add product
-    var_dump($_FILES);
     if(isset($_POST["productName"]) && isset($_POST["productCategory"]) && isset($_POST["productPrice"]) && isset($_POST["productQuantity"]) && isset($_POST["productDescription"]) && isset($_FILES["productImage"])) {
         list($result, $msg) = uploadImage(PRODUCTS_DIR, $_FILES["productImage"]);
         if($result != 0) {
