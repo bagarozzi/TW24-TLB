@@ -36,6 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'update_quanti
     header('Location: cart.php');
     exit;
 }
+else if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'checkout-order') {
+    $email = $_SESSION['email'];
+    $dbh->createOrder($email);
+    header('Location: orders.php');
+    exit;
+}
 
 require 'template/base.php';
 ?>

@@ -37,6 +37,12 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function emptyCart($email) {
+        $stmt = $this->db->prepare("DELETE FROM carrello WHERE email=?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+    }
+
     public function updateShoppingCart($user, $product, $quantity) {
         $stmt = $this->db->prepare("UPDATE carrello SET quantita=? WHERE email=? AND codProdotto=?");
         $stmt->bind_param("isi", $quantity, $user, $product);
@@ -58,7 +64,11 @@ class DatabaseHelper {
     }
 
     public function getAdminNotifications() {
-        
+        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE username=? ORDER BY Data DESC");
+        $stmt->bind_param("s", $user);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getUserInfo($email) {
@@ -129,6 +139,27 @@ class DatabaseHelper {
         $stmt = $this->db->prepare("DELETE FROM notifica WHERE id_notifica=?");
         $stmt->bind_param("i", $notification_id);
         $stmt->execute();
-    }   
+    }
+    
+    public function createOrder($email) {
+        $stmt = $this->db->prepare("INSERT INTO ordine (email, data) VALUES (?, CURRENT_DATE)");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+        $inserted_id = $stmt->insert_id;
+
+        $stmt->close();
+        
+        $stmt2 = $this->db->prepare("INSERT INTO richiesta (riferimento, codProdotto, quantita) VALUES ($inserted_id, ?, ?)");
+        $cart = $this->getShoppingCart($email);
+        foreach($cart as $product) {
+            $stmt2->bind_param("si", $product["codProdotto"], $product["quantita"]);
+            $stmt2->execute();
+        }
+
+        $this->emptyCart($email);
+
+        $stmt2->close();
+    }
 }
 ?>

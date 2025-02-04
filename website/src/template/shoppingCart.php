@@ -122,6 +122,7 @@
                         </tfoot>
                     </table>
                     <form method="POST" action="cart.php" class="d-flex justify-content-center mb-4">
+                        <input type="hidden" name="action" value="checkout-order">
                         <label for="checkout" class="visually-hidden">Checkout</label>
                         <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
                     </form> 
