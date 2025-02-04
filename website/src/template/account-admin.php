@@ -69,7 +69,7 @@
                             <th>Order ID</th>
                             <th>Customer</th>
                             <th>Total products</th>
-                            <th>Date</th>
+                            <th>State</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -83,12 +83,16 @@
                             <td>
                                 <form method="POST" action="./admin.php" class="d-flex justify-content-around">
                                     <input type="hidden" name="action" value="order-operation"/>
+
+                                    <input type="number" class="visually-hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
+
                                     <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
-                                    <input type="hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
-                                    <label for="change-order-state" class="visually-hidden">Ship the order</label>
-                                    <button <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" class="btn btn-warning mx-2"><?php if($order["stato"] == "confermato") echo "Ship"; else echo "Close"?></button>
-                                    <label for="delete-order" class="visually-hidden">Delete the order</label>
-                                    <button name="delete-order" class="btn btn-danger">Delete</button>
+
+                                    <button type="submit" <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" value="" class="btn btn-warning mx-2">
+                                        <?php if($order["stato"] == "confermato") echo "Ship"; else echo "Close"?>
+                                    </button>
+
+                                    <button type="submit" name="delete-order" value="" class="btn btn-danger">Delete</button>
                                 </form>                         
                             </td>
                         </tr>

@@ -213,9 +213,23 @@ class DatabaseHelper {
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getSingleOrder($order_id) {
+        $stmt = $this->db->prepare("SELECT * FROM ordine WHERE riferimento=?");
+        $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
     public function deleteOrder($order_id) {
         $stmt = $this->db->prepare("DELETE FROM ordine WHERE riferimento=?");
         $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+    }
+
+    public function updateOrderStatus($order_id, $status) {
+        $stmt = $this->db->prepare("UPDATE ordine SET stato=? WHERE riferimento=?");
+        $stmt->bind_param("si", $status, $order_id);
         $stmt->execute();
     }
 
