@@ -6,19 +6,49 @@ if(isAdminLoggedIn()) {
     $templateParams["nome"] = "form-admin-product-insertion.php";
     $templateParams["includeSearchbar"] = false;
     $templateParams["styleSheet"] = "./css/product-insertion.css";
+    $templateParams["script"] = "js/category.js";
     $templateParams["categories"] = $dbh->getCategories();
     $templateParams["productResult"] = NULL;
     $templateParams["categoryResult"] = NULL;
 
-    //add category
-    if(isset($_POST["categoryName"])) {
-        if(in_array($_POST["categoryName"], array_column($templateParams["categories"], 'name'))) {
-            $templateParams["categoryResult"] = "Category already exists";
-        }
-        else {
-            $dbh->insertCategory($_POST["categoryName"]);
-            $templateParams["categoryResult"] = "Category added successfully";
-            $templateParams["categories"] = $dbh->getCategories();
+    // manage category actions
+    if(isset($_POST["action"]) && isset($_POST["categoryName"])) {
+        $categoryName = $_POST["categoryName"];
+        switch($_POST["action"]) {
+            case 'add':
+                if(in_array($categoryName, array_column($templateParams["categories"], 'name'))) {
+                    $templateParams["categoryResult"] = "Category already exists";
+                } else {
+                    $dbh->insertCategory($categoryName);
+                    $templateParams["categoryResult"] = "Category added successfully";
+                    $templateParams["categories"] = $dbh->getCategories();
+                }
+                break;
+            case 'edit':
+                if(in_array($categoryName, array_column($templateParams["categories"], 'name'))) {
+                    
+                    $dbh->updateCategory($categoryId, $categoryName);
+                    $templateParams["categoryResult"] = "Category updated successfully";
+                    $templateParams["categories"] = $dbh->getCategories();
+                } else {
+                    $templateParams["categoryResult"] = "Category not found";
+                }
+                break;
+            case 'delete':
+                if(isset($_POST["action"]) && $_POST["action"] == 'delete' && isset($_POST["categoryId"])) {
+                    $categoryId = $_POST["categoryId"];
+                    if(in_array($categoryId, array_column($templateParams["categories"], 'id'))) {
+                        $dbh->deleteCategory($categoryId);
+                        $templateParams["categoryResult"] = "Category deleted successfully";
+                        $templateParams["categories"] = $dbh->getCategories();
+                    } else {
+                        $templateParams["categoryResult"] = "Category not found";
+                    }
+                }
+                break;
+            default:
+                $templateParams["categoryResult"] = "Invalid action";
+                break;
         }
     }
 

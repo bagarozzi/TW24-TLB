@@ -2,19 +2,29 @@
     <h1 class="text-center">Admin Dashboard</h1>
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
-            <h3>Add Category</h3>
+            <h3>Manage Categories</h3>
             <form action="./admin-product-insertion.php" method="post">
                 <?php if (isset($templateParams["categoryResult"])): ?>
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                        <?php echo $templateParams["categoryResult"]; ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <?php echo $templateParams["categoryResult"]; ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
                 <div class="mb-3">
                     <label for="categoryName" class="form-label">Category Name</label>
                     <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name" required />
                 </div>
-                <button type="submit" class="btn btn-primary">Add Category</button>
+                <button type="submit" class="btn btn-primary" name="action" value="add">Add Category</button>
+                <button type="button" class="btn btn-warning" id="editCategoryButton">Edit Category</button>
+                <div id="editCategoryForm" style="display: none;">
+                    <div class="mb-3">
+                        <label for="newCategoryName" class="form-label">New Category Name</label>
+                        <input type="text" class="form-control" id="newCategoryName" name="newCategoryName" placeholder="Enter new category name" />
+                    </div>
+                    <button type="submit" class="btn btn-success" name="action" value="save">Save</button>
+                    <button type="button" class="btn btn-secondary" id="cancelEditButton">Cancel</button>
+                </div>
+                <button type="submit" class="btn btn-danger" name="action" value="delete">Delete Category</button>
             </form>
         </div>
 
@@ -65,3 +75,4 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src = "js/category.js"></script>
