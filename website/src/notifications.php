@@ -8,6 +8,9 @@ $templateParams["includeSearchbar"] = false;
 if (isUserLoggedIn()) {
     $templateParams["notifications"] = $dbh->getNotifications($_SESSION['email']);
 }
+else if (isAdminLoggedIn()) {
+    $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
+}
 else {
     $templateParams["previousPage"] = "notifications.php";
     header('Location: login.php');
