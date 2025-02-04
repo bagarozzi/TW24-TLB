@@ -21,7 +21,7 @@
                     <i class="menu-icon bi bi-cart"></i>
                     Shopping Cart
                 </a>
-                <a href="#" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
+                <a href="./notifications.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
                     <i class="menu-icon bi bi-bell"></i>
                     Notifications
                 </a>

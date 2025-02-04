@@ -13,7 +13,7 @@ if (!isUserLoggedIn()) {
     exit;
 }
 else {
-    $templateParams["shoppingCart"] = $dbh->getShoppingCart($_SESSION['username']);
+    $templateParams["shoppingCart"] = $dbh->getShoppingCart($_SESSION['email']);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'update_quantity') {
@@ -27,10 +27,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'update_quanti
     }
     
     if($quantity <= 0) {
-        $dbh->removeFromShoppingCart($_SESSION['username'], $product_id);
+        $dbh->removeFromShoppingCart($_SESSION['email'], $product_id);
     }
     else {
-        $dbh->updateShoppingCart($_SESSION['username'], $product_id, $quantity);
+        $dbh->updateShoppingCart($_SESSION['email'], $product_id, $quantity);
     }
 
     header('Location: cart.php');
