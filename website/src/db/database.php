@@ -110,6 +110,13 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
+    public function insertProduct($name, $price, $description, $image, $quantity, $category) {
+        $query = "INSERT INTO PRODOTTO (nome, prezzo, descrizione, immagine, disponibilita, App_nome) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sdssis", $name, $price, $description, $image, $quantity, $category);
+        $stmt->execute();
+    }
+
     public function getCategories() {
         $query = "SELECT nome as name FROM CATEGORIA_PRODOTTO";
         $stmt = $this->db->prepare($query);

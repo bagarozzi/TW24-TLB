@@ -6,6 +6,8 @@ if(isAdminLoggedIn()) { //TODO: implement
     $templateParams["nome"] = "account-admin.php";
     $templateParams["includeSearchbar"] = false;
     $templateParams["categories"] = $dbh->getCategories();
+    $templateParams["productResult"] = NULL;
+    $templateParams["categoryResult"] = NULL;
 
     //add category
     if(isset($_POST["categoryName"])) {
@@ -20,15 +22,13 @@ if(isAdminLoggedIn()) { //TODO: implement
     }
 
     // add product
-    if(isset($_POST["productName"]) && isset($_POST["productDescription"]) && isset($_POST["productPrice"]) && isset($_POST["productAmount"]) && isset($_POST["duration"]) && isset($_FILES["productImages"]) && isset($_POST["category"]) && is_array($_POST['category'])) {
-        list($result, $msg) = uploadImage(UPLOAD_DIR, $_FILES["productImages"]);
+    var_dump($_FILES);
+    if(isset($_POST["productName"]) && isset($_POST["productCategory"]) && isset($_POST["productPrice"]) && isset($_POST["productQuantity"]) && isset($_POST["productDescription"]) && isset($_FILES["productImage"])) {
+        list($result, $msg) = uploadImage(PRODUCTS_DIR, $_FILES["productImage"]);
         if($result != 0) {
             $imgname = $msg;
-            $id = $dbh->insertProduct($_POST["productName"], $_POST["productDescription"], $_POST["productPrice"], $_POST["productAmount"], $_POST["duration"], $imgname, 0.0);
+            $id = $dbh->insertProduct($_POST["productName"], $_POST["productPrice"], $_POST["productDescription"], $imgname, $_POST["productQuantity"], $_POST["productCategory"]);
             if($id != false) {
-                foreach ($_POST["category"] as $category) {
-                    $dbh->insertProductIsCategory($category, $id);
-                }
                 $templateParams["productResult"] = "Insertion successful";
             } else {
                 $templateParams["productResult"] = "Insertion failed";

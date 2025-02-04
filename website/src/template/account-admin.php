@@ -5,7 +5,7 @@
         <div class="row mt-4">
             <div class="col-md-4">
                 <h3>Add Category</h3>
-                <form action="#" method="post">
+                <form action="./admin.php" method="post">
                     <?php if (isset($templateParams["categoryResult"])): ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <?php echo $templateParams["categoryResult"]; ?>
@@ -22,7 +22,7 @@
 
             <div class="col-md-4 mt-4">
                 <h3>Add Product</h3>
-                <form action="#" method="post">
+                <form action="#" method="POST" enctype="multipart/form-data">
                     <?php if (isset($templateParams["productResult"])): ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <?php echo $templateParams["productResult"]; ?>
@@ -31,7 +31,7 @@
                     <?php endif; ?>
                     <div class="mb-3">
                         <label for="productName" class="form-label">Product Name</label>
-                        <input type="text" class="form-control" id="productName" name="productName" required>
+                        <input type="text" class="form-control" id="productName" name="productName" placeholder="Write the name of the product" required />
                     </div>
                     <div class="mb-3">
                         <label for="productCategory" class="form-label">Category</label>
@@ -44,19 +44,19 @@
                     </div>
                     <div class="mb-3">
                         <label for="productPrice" class="form-label">Price</label>
-                        <input type="number" class="form-control" id="productPrice" name="productPrice" required>
+                        <input type="number" class="form-control" id="productPrice" name="productPrice" placeholder="0,00€" required />
                     </div>
                     <div class="mb-3">
                         <label for="productQuantity" class="form-label">Quantity</label>
-                        <input type="number" class="form-control" id="productQuantity" name="productQuantity" required>
+                        <input type="number" step="0.01" class="form-control" id="productQuantity" name="productQuantity" placeholder="0" required />
                     </div>
                     <div class="mb-3">
                         <label for="productDescription" class="form-label">Product Description</label>
-                        <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
+                        <textarea class="form-control" id="productDescription" name="productDescription" placeholder="Insert details and characteristics." rows="3" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="productImage" class="form-label">Product Image</label>
-                        <input type="file" class="form-control" id="productImage" name="productImage" required>
+                        <input type="file" class="form-control" id="productImage" name="productImage" required />
                     </div>
                     <button type="submit" class="btn btn-primary">Add Product</button>
                 </form>
