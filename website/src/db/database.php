@@ -161,5 +161,13 @@ class DatabaseHelper {
 
         $stmt2->close();
     }
+
+    public function getOrderDetails($order_id) {
+        $stmt = $this->db->prepare("SELECT prodotto.nome, richiesta.quantita, prodotto.prezzo FROM richiesta, prodotto WHERE richiesta.riferimento=? AND richiesta.codProdotto=prodotto.codProdotto");
+        $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

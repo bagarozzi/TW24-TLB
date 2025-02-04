@@ -17,7 +17,7 @@
               <td><?php echo $order["riferimento"] ?></td>
               <td><?php echo $order["data"] ?></td>
               <td><?php echo $order["totale"] ?>€</td>
-              <td><a href="./order-detail.php" class="btn btn-primary btn-sm">View</a></td>
+              <td><a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary btn-sm">View</a></td>
             </tr>
             <?php endforeach; ?>
           </tbody>
