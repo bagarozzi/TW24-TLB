@@ -1,5 +1,5 @@
 #footer-container {
-    background-image: url("resources/footer.png");
+    background-image: url("../resources/footer.png");
     background-size: cover;
     background-repeat: no-repeat;
     height: 150px; /* Altezza del footer */

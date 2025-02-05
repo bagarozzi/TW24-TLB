@@ -7,7 +7,7 @@
     
     require_once 'bootstrap.php';
     $templateParams["includeSearchbar"] = true;
-    $templateParams["styleSheet"] = "css\listProducts.css";
+    $templateParams["styleSheet"] = "css/listProducts.css";
     $templateParams["nome"] = 'template/scrolling-products.php';
     $templateParams["categories"] = $dbh->getCategories();
     $templateParams["products"] = $dbh->getProducts($category, $name, $sort, $maxPrice);
