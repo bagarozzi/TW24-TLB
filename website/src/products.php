@@ -12,5 +12,6 @@
     $templateParams["nome"] = 'template/scrolling-products.php';
     $templateParams["categories"] = $dbh->getCategories();
     $templateParams["products"] = $dbh->getProducts($category, $name, $sort, $maxPrice);
+    $_SESSION["previousPage"] = "./products.php?" . http_build_query($_GET);
     require 'template/base.php';
 ?>

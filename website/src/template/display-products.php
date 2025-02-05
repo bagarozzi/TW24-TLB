@@ -15,5 +15,6 @@ function display($products)
                   </div>';
         echo $html;
     endforeach;
+    $_SESSION["previousPage"] = "./products.php?" . http_build_query($_GET);
 }
 ?>

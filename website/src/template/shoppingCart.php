@@ -53,7 +53,7 @@
                                     <label for="decrease" class="visually-hidden">Decrease item's quantity</label>
                                     <button type="submit" name="decrease" class="btn btn-primary rounded-circle" tabindex="-1">-</button>
                                     <label for="quantity" class="visually-hidden">Item's quantity</label>
-                                    <input type="text" name="quantity" class="form-control" value="<?php echo $item["quantita"] ?>"/>
+                                    <input type="text" name="quantity" readonly class="form-control" value="<?php echo $item["quantita"] ?>"/>
                                     <label for="increase" class="visually-hidden">Increase item's quantity</label>
                                     <button type="submit" name="increase" class="btn btn-primary rounded-circle" tabindex="-1">+</button>
                                 </form>
