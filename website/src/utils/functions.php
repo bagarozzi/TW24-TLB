@@ -42,9 +42,9 @@ function updateUser($templateParams) {
 
 function uploadImage($path, $image) {
     $imageName = basename($image["name"]);
-    $fullPath = $path.$imageName;
+    $fullPath = $path . $imageName;
 
-    $maxKB = 2000;
+    $maxKB = 5000;
     $acceptedExtensions = array("jpg", "jpeg", "png", "gif");
     $result = 0;
     $msg = "";
@@ -53,7 +53,7 @@ function uploadImage($path, $image) {
     if($imageSize === false) {
         $msg .= "File caricato non è un'immagine! ";
     }
-    //Controllo dimensione dell'immagine < 2000KB
+    //Controllo dimensione dell'immagine < 5000KB
     if ($image["size"] > $maxKB * 1024) {
         $msg .= "File caricato pesa troppo! Dimensione massima è $maxKB KB. ";
     }
@@ -82,7 +82,7 @@ function uploadImage($path, $image) {
         }
         else{
             $result = 1;
-            $msg = $imageName;
+            $msg = $fullPath;
         }
     }
     return array($result, $msg);
