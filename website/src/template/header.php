@@ -14,7 +14,7 @@
             justify-content: flex-start;
         }
         .navbar-brand {
-            justify-content center;
+            justify-content: center;
             align-items: center;
         }
         .d-flex {
