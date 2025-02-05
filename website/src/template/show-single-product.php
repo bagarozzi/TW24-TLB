@@ -10,7 +10,7 @@
                     <label for="quantity" class="form-label">Quantità</label>
                     <input type="number" class="form-control" id="quantity" name="quantity" min="1" max="<?php echo $templateParams["product"]["disponibilita"]; ?>" value="1" required>
                 </div>
-                <button type="submit" id="add-cart" name="action" class="btn btn-dark mt-3 w-100">Add to cart</button>' ;
+                <button type="submit" id="add-cart" name="action" class="btn btn-dark mt-3 w-100">Add to cart</button>
             </form>
         </div>
     </div>
