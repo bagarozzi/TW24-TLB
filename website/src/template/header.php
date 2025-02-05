@@ -80,9 +80,6 @@
                         <a class="nav-link active" aria-current="page" href="./products.php">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact us</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="./about.php">About us</a>
                     </li>
                 </ul>
