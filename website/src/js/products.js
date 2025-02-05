@@ -30,10 +30,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const priceSlider = document.getElementById("priceSlider");
     const maxPrice = document.getElementById("maxPrice");
 
+    maxPrice.addEventListener("input", function () {
+        const value = parseFloat(maxPrice.value);
+        if(value > parseFloat(maxPrice.getAttribute("max"))){
+            maxPrice.value = parseFloat(maxPrice.getAttribute("max"));
+        }
+    });
+
     // Sincronizzare il valore tra lo slider e l'input numerico
     priceSlider.addEventListener("input", function () {
-        maxPrice.value = priceSlider.value; // Imposta il valore dell'input numerico uguale al valore dello slider
-    });;
+        maxPrice.value = priceSlider.value; 
+    });
 
     // Funzione per applicare i filtri
     document.getElementById("applyFilters").addEventListener("click", function () {
