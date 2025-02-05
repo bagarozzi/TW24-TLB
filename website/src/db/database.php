@@ -330,7 +330,7 @@ class DatabaseHelper
 
     public function createUserNotification($email, $order_id, $title, $description)
     {
-        $stmt = $this->db->prepare("INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, email) VALUES (CURRENT_DATE, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare('INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, email, letto) VALUES (CURRENT_DATE, ?, ?, ?, ?, "0")');
         $stmt->bind_param("ssis", $title, $description, $order_id, $email);
         $stmt->execute();
     }
