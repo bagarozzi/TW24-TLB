@@ -105,7 +105,7 @@ CREATE TABLE `ORDINE` (
 CREATE TABLE `PRODOTTO` (
   `codProdotto` int(11) NOT NULL,
   `nome` varchar(64) NOT NULL,
-  `prezzo` varchar(16) NOT NULL,
+  `prezzo` FLOAT NOT NULL,
   `descrizione` varchar(100) NOT NULL,
   `immagine` varchar(64) NOT NULL,
   `disponibilita` int(11) NOT NULL,
