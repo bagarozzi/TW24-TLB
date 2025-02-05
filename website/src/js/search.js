@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
         params.append("name", name);
         if (window.location.href.includes("products.php")) {
             fetch(`template/products-filtered.php?${params.toString()}`)
-                .then(response => response.text()) // Ricevi la risposta come testo HTML
+                .then(response => response.text())
                 .then(data => {
                     document.getElementById("productsContainer").innerHTML = data;
                 })
