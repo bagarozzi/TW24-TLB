@@ -12,10 +12,28 @@ class DatabaseHelper
     }
 
     public function insertProductInCart($id, $email, $quantity) {
+        $product = $this->getSingleProductinCart($id, $email);
+        if($product) {
+            $newQuantity = $product["quantita"] +$quantity;
+            $query = "UPDATE carrello SET `quantita`= $newQuantity WHERE id = ? AND email = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param('sss',$id, $quantity);
+            $stmt->execute();
+        }
         $query = "INSERT INTO `carrello`(`codProdotto`, `email`, `quantita`) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sss',$id, $email, $quantity);
         $stmt->execute();
+    }
+
+    public function getSingleProductinCart($id, $email)
+    {
+        $sql = "SELECT nome FROM carrello WHERE codProdotto = ? AND email = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("is", $id, $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
     }
 
     public function getSingleProduct($id)

@@ -12,9 +12,6 @@
     if(isset($_POST["action"])) {
         if(isset($_SESSION["email"])) {
             $dbh->insertProductInCart($_GET["id"], $_SESSION["email"], $_POST["quantity"]);
-        } else {
-            header("Location: login.php");
-            exit();
         }
     }
     
