@@ -1,15 +1,15 @@
 <div class="container-fluid d-flex justify-content-center align-items-center pt-5">
     <div class="card justify-content-center align-items-center shadow h-100 w-100">
-        <form action="#"  method="POST" enctype="multipart/form-data">
-            <img src="<?php echo $templateParams["product"]["immagine"] ?>" class="card-img-top pt-2 px-2" alt="John Deere 6R-175">
+        <form action="#" method="POST" enctype="multipart/form-data">
             <div class="card-body d-flex flex-column justify-content-between">
+                <img src="<?php echo $templateParams["product"]["immagine"] ?>" class="card-img-top pt-2 px-2" alt="">
                 <div class="mb-3">
                     <label for="nome" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $templateParams["product"]["nome"] ?>" required>
                 </div>
                 <div class="mb-3">
                     <label for="prezzo" class="form-label">Prezzo (€)</label>
-                    <input type="number" class="form-control" id="prezzo" name="prezzo" value="<?php echo $templateParams["product"]["prezzo"] ?>" step="0,01" required>
+                    <input type="number" class="form-control" id="prezzo" name="prezzo" value="<?php echo $templateParams["product"]["prezzo"] ?>" step="0.01" required>
                 </div>
                 <div class="mb-3">
                     <label for="descrizione" class="form-label">Descrizione</label>
