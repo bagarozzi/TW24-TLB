@@ -126,7 +126,7 @@ class DatabaseHelper
 
     public function updateUser($email, $name, $surname, $birthday, $password)
     {
-        $query = "UPDATE UTENTE SET name = ?, surname = ?, birthday = ?, password = ? WHERE email = ?";
+        $query = "UPDATE UTENTE SET nome = ?, cognome = ?, dataNascita = ?, password = ? WHERE email = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('sssss', $name, $surname, $birthday, $password, $email);
         return $stmt->execute();
