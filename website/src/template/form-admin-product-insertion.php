@@ -14,17 +14,21 @@
                     <label for="categoryName" class="form-label">Category Name</label>
                     <input type="text" class="form-control" id="categoryName" name="categoryName" placeholder="Enter category name" required />
                 </div>
-                <button type="submit" class="btn btn-primary" name="action" value="add">Add Category</button>
-                <button type="button" class="btn btn-warning" id="editCategoryButton">Edit Category</button>
-                <div id="editCategoryForm" style="display: none;">
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary px-2" name="action" value="add" style="flex: 1; margin-right: 1%;">Add</button>
+                    <button type="button" class="btn btn-warning px-2" id="editCategoryButton" style="flex: 1; margin-right: 1%;">Edit</button>
+                    <button type="submit" class="btn btn-danger px-2" name="action" value="delete" style="flex: 1;">Delete</button>
+                </div>
+                <div id="editCategoryForm" style="display: none;" class="mt-3">
                     <div class="mb-3">
                         <label for="newCategoryName" class="form-label">New Category Name</label>
                         <input type="text" class="form-control" id="newCategoryName" name="newCategoryName" placeholder="Enter new category name" />
                     </div>
-                    <button type="submit" class="btn btn-success" name="action" value="save">Save</button>
-                    <button type="button" class="btn btn-danger" id="cancelEditButton">Cancel</button>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success" name="action" value="save">Save</button>
+                        <button type="button" class="btn btn-danger" id="cancelEditButton">Cancel</button>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-danger" name="action" value="delete">Delete Category</button>
             </form>
         </div>
 
