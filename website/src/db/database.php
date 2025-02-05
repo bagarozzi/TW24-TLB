@@ -11,6 +11,13 @@ class DatabaseHelper
         }
     }
 
+    public function insertProductInCart($id, $email, $quantity) {
+        $query = "INSERT INTO `carrello`(`codProdotto`, `email`, `quantita`) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('sss',$id, $email, $quantity);
+        $stmt->execute();
+    }
+
     public function getSingleProduct($id)
     {
         $sql = "SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto WHERE codProdotto = ?";
