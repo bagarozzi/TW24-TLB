@@ -24,7 +24,7 @@
 							endforeach;
 							?>
 						</select>
-						<label for="priceInput" class="form-label mt-3">
+						<label for="macPrice" class="form-label mt-3">
 							Prezzo massimo:
 							<div class="input-group">
 								<input type="number" id="maxPrice" class="form-control" min="0" max="70000" step="10" value="70000">
