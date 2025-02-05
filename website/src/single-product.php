@@ -5,6 +5,7 @@
     $templateParams["scriptSheet"]  = "js/product.js";
     $templateParams["nome"] = 'template/show-single-product.php';
     $templateParams["product"] = $dbh->getSingleProduct($_GET["id"]);
+    $templateParams["titolo"] = $templateParams["product"]["nome"];
     require 'template/base.php';
 
 

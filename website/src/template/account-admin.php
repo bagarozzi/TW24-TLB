@@ -21,18 +21,6 @@
                     <i class="menu-icon bi bi-bell"></i>
                     Notifications
                 </a>
-                <a href="./admin-dashboard.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-speedometer2"></i>
-                    Dashboard
-                </a>
-                <a href="./manage-users.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-people"></i>
-                    Manage Users
-                </a>
-                <a href="./site-settings.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-gear"></i>
-                    Site Settings
-                </a>
             </div>
             <!-- Pulsante Logout -->
             <div class="logout-btn-container mt-3 text-end">

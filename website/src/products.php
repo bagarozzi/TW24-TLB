@@ -6,6 +6,7 @@
     $maxPrice=(isset($_GET["maxPrice"])) ? $_GET["maxPrice"] : ""; 
     
     require_once 'bootstrap.php';
+    $templateParams["titolo"] = "Products";
     $templateParams["includeSearchbar"] = true;
     $templateParams["styleSheet"] = "css/listProducts.css";
     $templateParams["nome"] = 'template/scrolling-products.php';
