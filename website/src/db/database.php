@@ -9,7 +9,7 @@ class DatabaseHelper {
         }
     }
 
-    public function getProducts($category, $name, $sort) {
+    public function getProducts($category, $name, $sort, $maxPrice) {
         $sql = "SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto WHERE 1";
         $types = "";
         $params = [];
@@ -18,6 +18,12 @@ class DatabaseHelper {
             $sql .= " AND prodotto.App_nome = ?";
             $types .= "s";
             $params[] = $category;
+            $paramYN = true;
+        }
+        if($maxPrice != "") {
+            $sql .= " AND prodotto.prezzo < ?";
+            $types .= "d";
+            $params[] = $maxPrice;
             $paramYN = true;
         }
         if($name != "") {
