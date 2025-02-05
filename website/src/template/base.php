@@ -16,11 +16,11 @@
     <script src="js/typewriter.js"></script>
     <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 </head>
-    <body>
+    <body >
         <?php require 'header.php'; ?>
         <?php require 'account-user.php';?>
         <?php require 'account-admin.php';?>
-        <main>
+        <main class="d-flex flex-column">
             <?php
                 if(isset($templateParams["nome"])) {
                     require $templateParams["nome"];
