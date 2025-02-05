@@ -39,7 +39,7 @@ class DatabaseHelper
 
     public function getSingleProduct($id)
     {
-        $sql = "SELECT nome, prezzo, descrizione, immagine, disponibilita FROM prodotto WHERE codProdotto = ?";
+        $sql = "SELECT codProdotto, nome, prezzo, descrizione, immagine, disponibilita, App_nome FROM prodotto WHERE codProdotto = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -199,6 +199,30 @@ class DatabaseHelper
         $stmt->bind_param("sdssis", $name, $price, $description, $image, $quantity, $category);
         $stmt->execute();
         return $stmt->insert_id;
+    }
+
+    public function updateProduct($name, $price, $description, $image, $quantity, $category, $id)
+    {
+        $query = "UPDATE PRODOTTO SET nome = ?, prezzo = ?, descrizione = ?, immagine = ?, disponibilita = ?, App_nome = ? WHERE codProdotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sdssisi", $name, $price, $description, $image, $quantity, $category, $id);
+        return $stmt->execute();
+    }
+
+    public function updateProductWithoutImage($name, $price, $description, $quantity, $category, $id)
+    {
+        $query = "UPDATE PRODOTTO SET nome = ?, prezzo = ?, descrizione = ?, disponibilita = ?, App_nome = ? WHERE codProdotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sdsisi", $name, $price, $description, $quantity, $category, $id);
+        return $stmt->execute();
+    }
+
+    public function deleteProduct($id)
+    {
+        $query = "DELETE FROM PRODOTTO WHERE codProdotto = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
     }
 
     public function removeProduct($product_id, $quantity) {
