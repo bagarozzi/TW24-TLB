@@ -22,7 +22,7 @@
             <?php endforeach; ?>
           </tbody>
         </table>
-        <a href="./orders.php" class="btn btn-secondary">Go to orders</a>
+        <a href="./index.php" class="btn btn-secondary">Home</a>
       </div>
     </div>
   </div>
