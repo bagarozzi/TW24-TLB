@@ -1,3 +1,27 @@
+<style>
+    @media (max-width: 400px) {
+        .container-fluid.d-flex.justify-content-between {
+            flex-wrap: nowrap;
+        }
+        .navbar-toggler,
+        .navbar-brand,
+        .d-flex {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar-toggler {
+            justify-content: flex-start;
+        }
+        .navbar-brand {
+            justify-content center;
+            align-items: center;
+        }
+        .d-flex {
+            justify-content: flex-end;
+        }
+    }
+</style>
 <header>
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid d-flex justify-content-between">
