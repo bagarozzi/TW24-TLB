@@ -268,7 +268,7 @@ class DatabaseHelper
         $stmt2 = $this->db->prepare("INSERT INTO richiesta (riferimento, codProdotto, quantita) VALUES ($inserted_id, ?, ?)");
         $cart = $this->getShoppingCart($email);
         foreach ($cart as $product) {
-            if(removeProduct($product["codProdotto"], $product["quantita"])) {
+            if($this->removeProduct($product["codProdotto"], $product["quantita"])) {
                 $stmt2->bind_param("si", $product["codProdotto"], $product["quantita"]);
                 $stmt2->execute();
             }
