@@ -43,7 +43,7 @@ INSERT INTO `prodotto` (`codProdotto`, `nome`, `prezzo`, `descrizione`, `immagin
 (3, 'Claas Xerion 12.650', 700000, 'Class Xerion 12, 650hp. Overcome everything.', 'resources/products/claas-xerion-12.650.png', 2, 'Tractors'),
 (4, 'Claas Jaguar 900', 50000, 'Hay harvester Class Jaguar 900. ', 'resources/products/claas-jaguar900.png', 2, 'Hay and Forage'),
 (5, 'Cow', 900, 'Your favourite cow!', 'resources/products/cow.png', 100, 'Cattle'),
-(6, 'Fiat Agri 180/90', 30000, 'The legendary. The greatest of all time. The Fiat Agri 180/90.', 'resources/products/fa-18090.jpg', 2, 'Tractors'),
+(6, 'Fiat Agri 180/90', 30000, 'The legendary. The greatest of all time. THE. FIAT. AGRI. 180/90.', 'resources/products/fa-18090.jpg', 2, 'Tractors'),
 (7, 'Horse', 1600, 'Your favourite horse!', 'resources/products/horse.png', 100, 'Cattle'),
 (8, 'John Deere 6M-180', 80000, 'Tractor John Deere 6M 180. Tame the beast.', 'resources/products/jd-6m180.png', 5, 'Tractors'),
 (9, 'John Deere 5120 ML ', 40000, '5120ML, it\'s not the size, it\'s how you use it.', 'resources/products/jd-5120ml.png', 3, 'Tractors'),
