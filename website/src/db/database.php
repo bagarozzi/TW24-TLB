@@ -81,8 +81,7 @@ class DatabaseHelper {
     }
 
     public function getAdminNotifications() {
-        $stmt = $this->db->prepare("SELECT * FROM notifica WHERE username=? ORDER BY Data DESC");
-        $stmt->bind_param("s", $user);
+        $stmt = $this->db->prepare('SELECT * FROM notifica WHERE username="turbo" ORDER BY Data DESC');
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -127,6 +126,20 @@ class DatabaseHelper {
         $stmt->execute();
     }
 
+    public function updateCategory($newCategory, $category) {
+        $query = "UPDATE CATEGORIA_PRODOTTO SET nome = ? WHERE nome = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ss", $newCategory, $category);
+        return $stmt->execute();
+    }
+
+    public function deleteCategory($category) {
+        $query = "DELETE FROM CATEGORIA_PRODOTTO WHERE nome = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("s", $category);
+        return $stmt->execute();
+    }
+
     public function insertProduct($name, $price, $description, $image, $quantity, $category) {
         $query = "INSERT INTO PRODOTTO (nome, prezzo, descrizione, immagine, disponibilita, App_nome) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
@@ -144,7 +157,11 @@ class DatabaseHelper {
     }
 
     public function getOrders($user) {
-        $stmt = $this->db->prepare("SELECT SUM(richiesta.quantita * prodotto.prezzo) as totale, ordine.data, ordine.riferimento FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND ordine.email=? AND prodotto.codProdotto=richiesta.codProdotto ORDER BY data DESC");
+        $stmt = $this->db->prepare('SELECT o.riferimento AS riferimento, o.data AS data, SUM(p.prezzo * r.quantita) AS totale
+            FROM ORDINE o JOIN richiesta r ON o.riferimento = r.riferimento JOIN PRODOTTO p ON r.codProdotto = p.codProdotto
+            WHERE o.email=?
+            GROUP BY o.riferimento, o.data, o.email;
+        ');
         $stmt->bind_param("s", $user);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -182,7 +199,7 @@ class DatabaseHelper {
     }
     
     public function createOrder($email) {
-        $stmt = $this->db->prepare("INSERT INTO ordine (email, data) VALUES (?, CURRENT_DATE)");
+        $stmt = $this->db->prepare('INSERT INTO ordine (email, data, stato) VALUES (?, CURRENT_DATE, "confermato")');
         $stmt->bind_param("s", $email);
         $stmt->execute();
 
@@ -213,7 +230,15 @@ class DatabaseHelper {
     }
     
     public function getAllOrders() {
-        $stmt = $this->db->prepare("SELECT ordine.riferimento, ordine.email, ordine.data, SUM(richiesta.quantita) as totale FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND prodotto.codProdotto=richiesta.codProdotto GROUP BY ordine.riferimento ORDER BY ordine.data DESC");
+        $stmt = $this->db->prepare("SELECT ordine.riferimento, ordine.email, ordine.data, SUM(richiesta.quantita) as totale, ordine.stato FROM ordine, richiesta, prodotto WHERE ordine.riferimento=richiesta.riferimento AND prodotto.codProdotto=richiesta.codProdotto GROUP BY ordine.riferimento ORDER BY ordine.data DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getSingleOrder($order_id) {
+        $stmt = $this->db->prepare("SELECT * FROM ordine WHERE riferimento=?");
+        $stmt->bind_param("i", $order_id);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -222,6 +247,12 @@ class DatabaseHelper {
     public function deleteOrder($order_id) {
         $stmt = $this->db->prepare("DELETE FROM ordine WHERE riferimento=?");
         $stmt->bind_param("i", $order_id);
+        $stmt->execute();
+    }
+
+    public function updateOrderStatus($order_id, $status) {
+        $stmt = $this->db->prepare("UPDATE ordine SET stato=? WHERE riferimento=?");
+        $stmt->bind_param("si", $status, $order_id);
         $stmt->execute();
     }
 

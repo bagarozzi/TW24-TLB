@@ -13,17 +13,13 @@
     ?>
     <link rel="stylesheet" href="./css/account.css">
     <link rel="stylesheet" href="./css/base.css">
-    <?php
-        if(isset($templateParams["scriptSheet"])) {
-            echo '<script src="' . $templateParams["scriptSheet"] . '"></script>';
-        }
-    ?>
     <script src="js/typewriter.js"></script>
     <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
 </head>
     <body>
         <?php require 'header.php'; ?>
         <?php require 'account-user.php';?>
+        <?php require 'account-admin.php';?>
         <main>
             <?php
                 if(isset($templateParams["nome"])) {
@@ -32,6 +28,11 @@
             ?>
         </main>
         <?php require 'footer.php'; ?>
+        <?php
+            if(isset($templateParams["scriptSheet"])) {
+                echo '<script src="' . $templateParams["scriptSheet"] . '"></script>';
+            }
+        ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

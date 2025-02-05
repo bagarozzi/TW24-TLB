@@ -13,12 +13,12 @@
                         </div>
                     </div>
                     <div class="col d-flex flex-row align-items-center justify-content-end">
-                        <a href="order-detail.php?ordernum=<?php echo $item["riferimento"]?>" class="btn btn-success">Go to order</a>
+                        <a href="<?php if(isUserLoggedIn()) echo "order-detail.php?ordernum=" . $item["riferimento"] . ""; else echo "./admin-orders.php"?>" class="btn btn-success">Go to order</a>
                     </div>
                     <div class="col d-flex flex-row align-items-center justify-content-end">
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center me-2">
-                            <input type="hidden" name="action" value="read_notification">
-                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>">
+                            <input type="hidden" name="action" value="read_notification"/>
+                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>"/>
                             <?php if($item["letto"] == 0) {
                                     echo '<button type="submit" name="read" class="btn btn-primary rounded-circle" title="Mark as read"><i class="bi bi-check"></i></button>';
                                 }
@@ -28,8 +28,8 @@
                             ?>
                         </form>
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center">
-                            <input type="hidden" name="action" value="remove_notification">
-                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>">
+                            <input type="hidden" name="action" value="remove_notification"/>
+                            <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>"/>
                             <button type="submit" name="delete" class="btn btn-danger rounded-circle" title="Delete"><i class="bi bi-x"></i></button>
                         </form>
                     </div>

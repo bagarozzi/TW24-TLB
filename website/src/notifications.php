@@ -9,7 +9,7 @@ if (isUserLoggedIn()) {
     $templateParams["notifications"] = $dbh->getNotifications($_SESSION['email']);
 }
 else if (isAdminLoggedIn()) {
-    $templateParams["notifications"] = $dbh->getNotifications($_SESSION['username']);
+    $templateParams["notifications"] = $dbh->getAdminNotifications();
 }
 else {
     $templateParams["previousPage"] = "notifications.php";

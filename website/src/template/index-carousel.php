@@ -21,9 +21,9 @@
                 <a href="#" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
-                <img src="resources/slides/bots.png" class="d-block w-100" alt="...">
+                <img src="resources/slides/epico.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption">
-                    <h1>Need a hand?</h1>
+                    <h1 class="text-dark">Harvesting made easy.</h1>
                 </div>
                 <a href="#" class="stretched-link"></a>
             </div>

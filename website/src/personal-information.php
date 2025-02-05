@@ -5,6 +5,7 @@ if (isUserLoggedIn()) {
     $templateParams["titolo"] = "HarvestHub - Personal Information";
     $templateParams["nome"] = "form-personal-information.php";
     $templateParams["includeSearchbar"] = false;
+    $templateParams["styleSheet"] = "./css/personal-information.css";
     $templateParams["userInfo"] = $dbh->getUserInfo($_SESSION["email"]);
     // if form is submitted
     if (isset($_POST["name"]) && isset($_POST["surname"]) && isset($_POST["email"]) && isset($_POST["birthday"]) && isset($_POST["password"])) {
@@ -56,7 +57,7 @@ if (isUserLoggedIn()) {
     */
 
 } else if (isAdminLoggedIn()) {
-    header("Location: admin.php");
+    header("Location: index.php");
 } else {
     header("Location: login.php");
 }

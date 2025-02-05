@@ -5,7 +5,7 @@ if(isUserLoggedIn()) {
     header("Location: ./index.php");
     exit();
 } elseif (isAdminLoggedIn()) {
-    header("Location: ./admin.php");
+    header("Location: ./index.php");
     exit();
 } else { //if user is not logged in
     $templateParams["titolo"] = "Login";
@@ -16,7 +16,7 @@ if(isUserLoggedIn()) {
         $result = $dbh->getAdminPassword($_POST["username"]);
         if(!empty($result) && isset($result[0]["password"]) && $result[0]["password"] == $_POST["password"]) {
             registerAdminLogged($_POST);
-            header("Location: ./admin.php");
+            header("Location: ./index.php");
             exit();
         }
         $result = $dbh->getUserPassword($_POST["username"]);

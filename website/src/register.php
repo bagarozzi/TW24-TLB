@@ -5,7 +5,7 @@ if(isUserLoggedIn()) {
     header("Location: ./index.php");
     exit();
 } elseif (isAdminLoggedIn()) {
-    header("Location: ./admin.php");
+    header("Location: ./index.php");
     exit();
 } else { //if user is not logged in
     $templateParams["titolo"] = "Register";

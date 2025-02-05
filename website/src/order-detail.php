@@ -1,6 +1,6 @@
 <?php
 require_once 'bootstrap.php';
-$templateParams["titolo"] = "My Orders - HarverstHub";
+$templateParams["titolo"] = "Order detail - HarverstHub";
 $templateParams["nome"] = "detail-table.php";
 $templateParams["styleSheet"] = "css/index.css";
 $templateParams["includeSearchbar"] = false;

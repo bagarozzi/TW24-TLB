@@ -1,5 +1,5 @@
 <!-- Offcanvas Account -->
-<div class="offcanvas offcanvas-end offcanvas-account" tabindex="-1" id="offcanvas">
+<div class="offcanvas offcanvas-end offcanvas-account" tabindex="-1" id="offcanvas-user">
     <div class="card">
         <div class="card-body d-flex justify-content-between flex-column h-100">
             <!-- Intestazione -->

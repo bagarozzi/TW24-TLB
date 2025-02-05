@@ -51,8 +51,7 @@ CREATE TABLE `carrello` (
 --
 
 CREATE TABLE `CATEGORIA_PRODOTTO` (
-  `nome` varchar(32) NOT NULL,
-  `descrizione` varchar(256) NOT NULL
+  `nome` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -75,7 +74,7 @@ CREATE TABLE `lista_desideri` (
 CREATE TABLE `NOTIFICA` (
   `id_notifica` int(11) NOT NULL,
   `Data` date NOT NULL,
-  `Titolo` varchar(20) NOT NULL,
+  `Titolo` varchar(30) NOT NULL,
   `Descrizione` varchar(255) NOT NULL,
   `letto` tinyint(1) NOT NULL,
   `username` varchar(20) NULL,
@@ -109,7 +108,7 @@ CREATE TABLE `PRODOTTO` (
   `descrizione` varchar(100) NOT NULL,
   `immagine` varchar(64) NOT NULL,
   `disponibilita` int(11) NOT NULL,
-  `App_nome` varchar(32) NOT NULL
+  `App_nome` varchar(32) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -264,49 +263,49 @@ ALTER TABLE `PRODOTTO`
 -- Limiti per la tabella `carrello`
 --
 ALTER TABLE `carrello`
-  ADD CONSTRAINT `REF_carre_PRODO_FK` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`),
-  ADD CONSTRAINT `REF_carre_UTENT` FOREIGN KEY (`email`) REFERENCES `utente` (`email`);
+  ADD CONSTRAINT `REF_carre_PRODO_FK` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `REF_carre_UTENT` FOREIGN KEY (`email`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `lista_desideri`
 --
 ALTER TABLE `lista_desideri`
-  ADD CONSTRAINT `REF_lista_PRODO_FK` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`),
-  ADD CONSTRAINT `REF_lista_UTENT` FOREIGN KEY (`email`) REFERENCES `utente` (`email`);
+  ADD CONSTRAINT `REF_lista_PRODO_FK` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `REF_lista_UTENT` FOREIGN KEY (`email`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `NOTIFICA`
 --
 ALTER TABLE `NOTIFICA`
-  ADD CONSTRAINT `REF_NOTIF_ADMIN_FK` FOREIGN KEY (`username`) REFERENCES `admin` (`username`),
-  ADD CONSTRAINT `REF_NOTIF_ORDIN_FK` FOREIGN KEY (`riferimento`) REFERENCES `ordine` (`riferimento`),
-  ADD CONSTRAINT `REF_NOTIF_UTENT_FK` FOREIGN KEY (`email`) REFERENCES `utente` (`email`);
+  ADD CONSTRAINT `REF_NOTIF_ADMIN_FK` FOREIGN KEY (`username`) REFERENCES `admin` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `REF_NOTIF_ORDIN_FK` FOREIGN KEY (`riferimento`) REFERENCES `ordine` (`riferimento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `REF_NOTIF_UTENT_FK` FOREIGN KEY (`email`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `ORDINE`
 --
 ALTER TABLE `ORDINE`
-  ADD CONSTRAINT `REF_ORDIN_UTENT_FK` FOREIGN KEY (`email`) REFERENCES `utente` (`email`);
+  ADD CONSTRAINT `REF_ORDIN_UTENT_FK` FOREIGN KEY (`email`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `PRODOTTO`
 --
 ALTER TABLE `PRODOTTO`
-  ADD CONSTRAINT `REF_PRODO_CATEG_FK` FOREIGN KEY (`App_nome`) REFERENCES `categoria_prodotto` (`nome`);
+  ADD CONSTRAINT `REF_PRODO_CATEG_FK` FOREIGN KEY (`App_nome`) REFERENCES `categoria_prodotto` (`nome`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `recensione`
 --
 ALTER TABLE `recensione`
-  ADD CONSTRAINT `REF_recen_PRODO` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`),
-  ADD CONSTRAINT `REF_recen_UTENT_FK` FOREIGN KEY (`email`) REFERENCES `utente` (`email`);
+  ADD CONSTRAINT `REF_recen_PRODO` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `REF_recen_UTENT_FK` FOREIGN KEY (`email`) REFERENCES `utente` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limiti per la tabella `richiesta`
 --
 ALTER TABLE `richiesta`
-  ADD CONSTRAINT `REF_richi_ORDIN` FOREIGN KEY (`riferimento`) REFERENCES `ordine` (`riferimento`),
-  ADD CONSTRAINT `REF_richi_PRODO_FK` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`);
+  ADD CONSTRAINT `REF_richi_ORDIN` FOREIGN KEY (`riferimento`) REFERENCES `ordine` (`riferimento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `REF_richi_PRODO_FK` FOREIGN KEY (`codProdotto`) REFERENCES `prodotto` (`codProdotto`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
