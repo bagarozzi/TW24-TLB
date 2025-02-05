@@ -20,7 +20,7 @@
             <?php endforeach; ?>
           </tbody>
         </table>
-        <a href="./orders.php" class="btn btn-secondary">Back</a>
+        <a href="<?php if(isAdminLoggedIn()) echo "./admin-orders.php"; else if(isUserLoggedIn()) echo "./orders.php"; ?>" class="btn btn-secondary">Back</a>
       </div>
     </div>
   </div>
