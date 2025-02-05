@@ -26,7 +26,7 @@
                                 <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
                                     <h2 class="card-title">Your cart is empty!</h5>
                                     <h3 class="card-subtitle mb-2 text-muted">Get your farming right on HarvestHub</h6>
-                                    <a href="./index.php" class="btn btn-success">Start shopping</a>
+                                    <a href="./products.php" class="btn btn-success">Start shopping</a>
                                 </div>
                             </div>
                         </div>

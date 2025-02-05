@@ -40,8 +40,8 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'checkout
     $email = $_SESSION['email'];
     $order_id = $dbh->createOrder($email);
 
-    $dbh->createUserNotification($email, $order_id, "Ordine" . $order_id . " confermato", "Il tuo ordine è stato confermato.");
-    $dbh->createAdminNotification("turbo", $order_id, "Ordine" . $order_id . " piazzato", "Un utente ha piazzato questo ordine.");
+    $dbh->createUserNotification($email, $order_id, "Ordine #" . $order_id . " confermato", "Il tuo ordine è stato confermato.");
+    $dbh->createAdminNotification("turbo", $order_id, "Ordine #" . $order_id . " piazzato", "Un utente ha piazzato questo ordine.");
 
     header('Location: order-detail.php?ordernum=' . $order_id);
     exit;
