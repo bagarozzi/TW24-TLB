@@ -337,7 +337,7 @@ class DatabaseHelper
 
     public function createAdminNotification($user, $order_id, $title, $description)
     {
-        $stmt = $this->db->prepare("INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, username) VALUES (CURRENT_DATE, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare('INSERT INTO notifica (Data, Titolo, Descrizione, riferimento, username, letto) VALUES (CURRENT_DATE, ?, ?, ?, ?, "0")');
         $stmt->bind_param("ssis", $title, $description, $order_id, $user);
         $stmt->execute();
     }
