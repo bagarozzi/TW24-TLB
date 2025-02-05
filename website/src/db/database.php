@@ -182,6 +182,23 @@ class DatabaseHelper
         return $stmt->insert_id;
     }
 
+    public function removeProduct($product_id, $quantity) {
+        $stmt = $this->db->prepare("SELECT disponibilita FROM prodotto WHERE codProdotto = ?");
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $product = $result->fetch_assoc();
+
+        if ($product && $product['disponibilita'] >= $quantity) {
+            $stmt = $this->db->prepare("UPDATE prodotto SET disponibilita = disponibilita - ? WHERE codProdotto = ?");
+            $stmt->bind_param("ii", $quantity, $product_id);
+            $stmt->execute();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function getCategories()
     {
         $query = "SELECT nome as name FROM CATEGORIA_PRODOTTO";
@@ -251,8 +268,10 @@ class DatabaseHelper
         $stmt2 = $this->db->prepare("INSERT INTO richiesta (riferimento, codProdotto, quantita) VALUES ($inserted_id, ?, ?)");
         $cart = $this->getShoppingCart($email);
         foreach ($cart as $product) {
-            $stmt2->bind_param("si", $product["codProdotto"], $product["quantita"]);
-            $stmt2->execute();
+            if(removeProduct($product["codProdotto"], $product["quantita"])) {
+                $stmt2->bind_param("si", $product["codProdotto"], $product["quantita"]);
+                $stmt2->execute();
+            }
         }
 
         $this->emptyCart($email);
