@@ -11,3 +11,11 @@
 #order-dropdown{
     border-radius: 20px; 
 }
+
+#dropdown-menu-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 300;
+}
