@@ -60,7 +60,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="productQuantity" class="form-label">Quantity</label>
-                    <input type="number" step="0.01" class="form-control" id="productQuantity" name="productQuantity" placeholder="0" required />
+                    <input type="number" step="0,01" class="form-control" id="productQuantity" name="productQuantity" placeholder="0" required />
                 </div>
                 <div class="mb-3">
                     <label for="productDescription" class="form-label">Product Description</label>
