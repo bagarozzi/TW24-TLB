@@ -6,4 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
             quantity.value = parseFloat(quantity.getAttribute("max"));
         }
     });
+
+    document.getElementById("add-cart").addEventListener("input", function () {
+        const params = new URLSearchParams(window.location.search);
+        
+    });
 })
