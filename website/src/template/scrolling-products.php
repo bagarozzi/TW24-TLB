@@ -27,7 +27,7 @@
 						<label for="priceInput" class="form-label mt-3">
 							Prezzo massimo:
 							<div class="input-group">
-								<input type="number" id="maxPrice" class="form-control" min="0" step="10" value="70000">
+								<input type="number" id="maxPrice" class="form-control" min="0" max="70000" step="10" value="70000">
 								<span class="input-group-text">€</span>
 							</div>
 							<input type="range" id="priceSlider" class="form-range" min="0" max="70000" step="50">
@@ -40,7 +40,7 @@
 		</div>
 	</div>
 
-	<div id="productsContainer" class="row d-flex flex-wrap justify-content-start align-items-stretch px-0">
+	<div id="productsContainer" class="row d-flex flex-wrap justify-content-start align-items-stretch px-0 mb-3">
 		<?php
 		require "display-products.php";
 		echo display($templateParams["products"]);
