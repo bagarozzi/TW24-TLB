@@ -72,6 +72,7 @@ INSERT INTO `CATEGORIA_PRODOTTO` (`nome`) VALUES
 ('Equipment'),
 ('Harvesters'),
 ('Hay and Forage'),
+('Foraging'),
 ('Tractors');
 
 -- --------------------------------------------------------
