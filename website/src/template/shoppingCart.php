@@ -24,7 +24,7 @@
                             <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
                                 <img class="w-25" src="resources/empty_cart.png" alt="Goat crying for the emptyness of the cart.">
                                 <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
-                                    <h2 class="card-title">Your cart is empty!</h5>
+                                    <h2 class="card-title">Your cart is empty!</h2>
                                     <h3 class="card-subtitle mb-2 text-muted">Get your farming right on HarvestHub</h6>
                                     <a href="./products.php" class="btn btn-success">Start shopping</a>
                                 </div>
@@ -50,12 +50,12 @@
                                 <form method="POST" action="cart.php" class="d-flex justify-content-between align-items-center">
                                     <input type="hidden" name="action" value="update_quantity"/>
                                     <input type="hidden" name="product_id" value="<?php echo $item["codProdotto"]; ?>"/>
-                                    <label for="decrease" class="visually-hidden">Decrease item's quantity</label>
-                                    <button id="decrese" type="submit" name="decrease" class="btn btn-primary rounded-circle" tabindex="-1">-</button>
-                                    <label for="quantity" class="visually-hidden">Item's quantity</label>
-                                    <input id="quantity" type="text" name="quantity" readonly class="form-control" value="<?php echo $item["quantita"] ?>"/>
-                                    <label for="increase" class="visually-hidden">Increase item's quantity</label>
-                                    <button id="increase" type="submit" name="increase" class="btn btn-primary rounded-circle" tabindex="-1">+</button>
+                                    <label for="decrease<?php echo $item["codProdotto"]?>" class="visually-hidden">Decrease item's quantity</label>
+                                    <button id="decrease<?php echo $item["codProdotto"]?>" type="submit" name="decrease" class="btn btn-primary rounded-circle" tabindex="-1">-</button>
+                                    <label for="quantity<?php echo $item["codProdotto"]?>" class="visually-hidden">Item's quantity</label>
+                                    <input id="quantity<?php echo $item["codProdotto"]?>" type="text" name="quantity" readonly class="form-control" value="<?php echo $item["quantita"] ?>"/>
+                                    <label for="increase<?php echo $item["codProdotto"]?>" class="visually-hidden">Increase item's quantity</label>
+                                    <button id="increase<?php echo $item["codProdotto"]?>" type="submit" name="increase" class="btn btn-primary rounded-circle" tabindex="-1">+</button>
                                 </form>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                     <form method="POST" action="cart.php" class="d-flex justify-content-center mb-4">
                         <input type="hidden" name="action" value="checkout-order">
                         <label for="checkout" class="visually-hidden">Checkout</label>
-                        <button type="submit" name="checkout" class="btn btn-primary">Checkout</button>
+                        <button id="checkout" type="submit" name="checkout" class="btn btn-primary">Checkout</button>
                     </form> 
                 </div>
             </div>

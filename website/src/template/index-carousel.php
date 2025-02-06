@@ -9,7 +9,7 @@
             <div class="carousel-item active">
                 <img src="resources/slides/johndeere.png" class="d-block w-100" alt="Hay and forage harvester at work.">
                 <div class="carousel-caption">
-                    <h1>They'll see you in town.</h5>
+                    <h1>They'll see you in town.</h1>
                 </div>
                 <a href="./products.php?category=Foraging&maxPrice=100000" class="stretched-link"></a>
             </div>

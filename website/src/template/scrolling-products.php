@@ -6,8 +6,8 @@
 					Ordina per
 				</button>
 				<ul id="order-dropdown" class="dropdown-menu">
-					<li><button id="order-by-name" class="dropdown-item" data-sort="nome ASC" data-category="<?php echo $_GET['category']; ?>">Nome</button></li>
-					<li><button id="order-by-price" class="dropdown-item" data-sort="prezzo ASC" data-category="<?php echo $_GET['category']; ?>">Prezzo</button></li>
+					<li><button id="order-by-name" class="dropdown-item" data-sort="nome ASC">Nome</button></li>
+					<li><button id="order-by-price" class="dropdown-item" data-sort="prezzo ASC">Prezzo</button></li>
 				</ul>
 			</div>
 			<div class="dropdown">
