@@ -10,7 +10,7 @@
                         <button class="social-button"><img src="resources/Youtube.png" alt="Profilo youtube"></button>
                         <button class="social-button"><img src="resources/Instagram.png" alt="Profilo Instagram"></button>
                     </div>
-                    <div class="col-6" style="color: rgba(255, 255, 255, 0.7);">
+                    <div class="col-6" style="color: rgb(255, 255, 255);">
                         <p>&copy; 2025 Il tuo sito. Tutti i diritti riservati.</p>
                     </div>
                 </div>

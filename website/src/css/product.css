@@ -11,8 +11,12 @@
 }
 
 @media (min-width: 768px) {
-    .card-img-top {
-        max-width: 50%;
+    @media (min-width: 768px) {
+        #product-immage {
+        max-width: 30%; /* Riduci la larghezza dell'immagine */
+        height: auto; /* Mantieni le proporzioni */
+        display: block;
+        margin: 0 auto; /* Centra l'immagine */
     }
-
+    }
 }
