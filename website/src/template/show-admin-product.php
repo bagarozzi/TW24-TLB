@@ -22,6 +22,7 @@
                 <div class="mb-3">
                     <label for="categoria" class="form-label">Categoria</label>
                     <select class="form-select" id="categoria" name="categoria" required>
+                        <option value="" disabled>Select a category</option>
                         <option value="<?php echo $templateParams["product"]["App_nome"]?>" selected><?php echo $templateParams["product"]["App_nome"]?></option>
                         <?php foreach ($templateParams["categories"] as $category): ?>
                             <?php if ($category["name"] != $templateParams["product"]["App_nome"]): ?>

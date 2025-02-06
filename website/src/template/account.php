@@ -23,19 +23,19 @@
                 <!-- Voci del menu -->
                 <div class="d-grid gap-3">
                     <a href="./personal-information.php" class="menu-item">
-                        <i class="menu-icon bi bi-person"></i>
+                        <em class="menu-icon bi bi-person"></em>
                         Personal Information
                     </a>
                     <a href="./orders.php" class="menu-item">
-                        <i class="menu-icon bi bi-receipt"></i>
+                        <em class="menu-icon bi bi-receipt"></em>
                         My Orders
                     </a>
                     <a href="#" class="menu-item">
-                        <i class="menu-icon bi bi-cart"></i>
+                        <em class="menu-icon bi bi-cart"></em>
                         Shopping Cart
                     </a>
                     <a href="#" class="menu-item">
-                        <i class="menu-icon bi bi-bell"></i>
+                        <em class="menu-icon bi bi-bell"></em>
                         Notifications
                     </a>
                 </div>

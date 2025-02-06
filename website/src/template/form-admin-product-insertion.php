@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h1 class="text-center">Admin Dashboard</h1>
+    <h2 class="text-center">Admin Dashboard</h2>
     <div class="row mt-4">
         <div class="col-md-8 offset-md-2">
             <h3>Manage Categories</h3>

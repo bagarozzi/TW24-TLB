@@ -1,5 +1,5 @@
 <div class="container mt-5">
-    <h1 class="text-center">Admin Orders</h1>
+    <h2 class="text-center">Admin Orders</h2>
     <div class="row mt-4">
         <div class="col-md-4 mt-4 offset-md-4">
             <h3>View Orders</h3>
@@ -27,12 +27,12 @@
                                 <input type="number" class="visually-hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
 
                                 <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
-                                <label for="change-order-state" class="visually-hidden">Change the state of the order from <?php if($order["stato"] == "confermato") echo "Confirmed"; else if($order["stato"] == "spedito") echo "Shipped"; else echo "Delivered"; ?> to <?php if($order["stato"] == "confermato") echo "Shipped"; else echo "Delivered"?></label>
-                                <button type="submit" <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" value="" class="btn btn-warning mx-2">
+                                <label for="change-order-state<?php echo $order["riferimento"]?>" class="visually-hidden">Change the state of the order from <?php if($order["stato"] == "confermato") echo "Confirmed"; else if($order["stato"] == "spedito") echo "Shipped"; else echo "Delivered"; ?> to <?php if($order["stato"] == "confermato") echo "Shipped"; else echo "Delivered"?></label>
+                                <button id="change-order-state<?php echo $order["riferimento"]?>" type="submit" <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" value="" class="btn btn-warning mx-2">
                                     <?php if($order["stato"] == "confermato") echo "Ship"; else echo "Close"?>
                                 </button>
-                                <label for="delete-order" class="visually-hidden">Delete the order</label>
-                                <button type="submit" name="delete-order" value="" class="btn btn-danger">Delete</button>
+                                <label for="delete-order<?php echo $order["riferimento"]?>" class="visually-hidden">Delete the order</label>
+                                <button id="delete-order<?php echo $order["riferimento"]?>" type="submit" name="delete-order" value="" class="btn btn-danger">Delete</button>
                             </form>                         
                         </td>
                     </tr>

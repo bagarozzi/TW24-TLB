@@ -10,15 +10,15 @@
             <!-- Voci del menu -->
             <div class="d-grid gap-3">
                 <a href="./admin-product-insertion.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-box-seam"></i>
+                    <em class="menu-icon bi bi-box-seam"></em>
                     Insert Product
                 </a>
                 <a href="./admin-orders.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-receipt"></i>
+                    <em class="menu-icon bi bi-receipt"></em>
                     Manage Orders
                 </a>
                 <a href="./notifications.php" class="menu-item d-flex align-items-center p-10 border text-decoration-none text-dark rounded p-2">
-                    <i class="menu-icon bi bi-bell"></i>
+                    <em class="menu-icon bi bi-bell"></em>
                     Notifications
                 </a>
             </div>

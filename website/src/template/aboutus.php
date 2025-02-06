@@ -15,7 +15,7 @@
     Today, Turbo, Baga, and Luca's vision continues to thrive. Their passion for agriculture and technology has not only changed the way farmers buy equipment but has also empowered small-scale farmers with access to affordable machinery. Harvest Hub stands as a testament to their determination, proving that with the right mix of passion, innovation, and perseverance, even the most traditional industries can be revolutionized.
     </p>
     <h3 class="fst-italic mb-4">
-        <i class="bi bi-quote"></i>
+        <em class="bi bi-quote"></em>
         Stay hungry, stay foolish.
     </h3>
 </div>
