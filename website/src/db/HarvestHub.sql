@@ -171,7 +171,7 @@ INSERT INTO `prodotto` (`codProdotto`, `nome`, `prezzo`, `descrizione`, `immagin
 (17, 'New Holland FR-920', 250000, 'Hay harvester, 910hp.', 'https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/4d5bc6227b37404f9535941ba8c9eb86?v=9bc3ae6b', 4, 'Foraging'),
 (18, 'Hydroponics nutrients', 30, 'Hydroponics nutrients, suitable for all greens.', 'resources/products/nutrients.png', 4, 'Chemicals'),
 (19, 'Pig', 300, 'Your favourite pig!', 'resources/products/pig.png', 3, 'Cattle'),
-(20, 'Dosatron Hydroponics Pump', 90, 'Hydroponics dosing pump. 100.000 hours.', 'resources/products/pompa-idroponica.jpg', 40, 'Chemicals'),
+(20, 'Dosatron Hydroponics Pump', 90, 'Hydroponics dosing pump. 100.000 hours.', 'https://tarif2024.dosatron.com/Medias/Dosatron/Produits/D8WL3000.png', 40, 'Chemicals'),
 (21, 'Froggy Shoulder Pump', 40, 'Get wherever you want!', 'resources/products/zaino-diserbante.jpg', 15, 'Chemicals');
 
 
