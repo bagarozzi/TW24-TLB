@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-6 p-4">
                 <div class="card text-bg-dark">
-                    <img src="resources/products/nh-fr.png" class="card-img" alt="Haversting crops">
+                    <img src="https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/f16fd8f1cb5e4a73bfc9acd073d39456?v=a7ae64e6" class="card-img" alt="Haversting crops">
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-end align-items-between h-100 p-2">
                             <h2 class="card-title"><span class="badge bg-light text-dark">Harvesters</span></h2>
