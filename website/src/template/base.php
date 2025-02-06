@@ -23,7 +23,7 @@
                 require 'account-admin.php';
             }
             else {
-                php require 'account-user.php';        
+                require 'account-user.php';        
             }
         ?>
         <main class="d-flex flex-column">
