@@ -22,7 +22,7 @@
                             echo '<div class="card w-100 my-2">
                         <div class="card-body d-flex justify-content-center">
                             <div class="col d-flex flex-column flex-md-row align-items-center justify-content-center">
-                                <img class="w-25" src="resources/empty_cart.png" alt="">
+                                <img class="w-25" src="resources/empty_cart.png" alt="Goat crying for the emptyness of the cart.">
                                 <div class="d-flex flex-column justify-content-center ms-md-5 mt-3 mt-md-0">
                                     <h2 class="card-title">Your cart is empty!</h5>
                                     <h3 class="card-subtitle mb-2 text-muted">Get your farming right on HarvestHub</h6>
