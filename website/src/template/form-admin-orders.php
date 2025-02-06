@@ -24,8 +24,8 @@
                             <form method="POST" action="./admin-orders.php" class="d-flex justify-content-around">
                                 <input type="hidden" name="action" value="order-operation"/>
 
-                                <input type="number" class="visually-hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
-
+                                <label for="order-id<?php echo $order["riferimento"]?>" class="visually-hidden">Order ID</label>
+                                <input id="order-id<?php echo $order["riferimento"]?>" type="number" class="visually-hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
                                 <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
                                 <label for="change-order-state<?php echo $order["riferimento"]?>" class="visually-hidden">Change the state of the order from <?php if($order["stato"] == "confermato") echo "Confirmed"; else if($order["stato"] == "spedito") echo "Shipped"; else echo "Delivered"; ?> to <?php if($order["stato"] == "confermato") echo "Shipped"; else echo "Delivered"?></label>
                                 <button id="change-order-state<?php echo $order["riferimento"]?>" type="submit" <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" value="" class="btn btn-warning mx-2">
