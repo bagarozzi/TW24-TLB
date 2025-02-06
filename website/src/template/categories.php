@@ -6,7 +6,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-end align-items-between h-100 p-2">
                             <h2 class="card-title text-light"><span class="badge bg-light text-dark">Farming products</span></h2>
-                            <a href="products.php?category=chemicals" class="stretched-link"></a>
+                            <a href="products.php?category=chemicals" title="Chemical products" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -17,7 +17,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-end align-items-between h-100 p-2">
                             <h2 class="card-title"><span class="badge bg-light text-dark">Harvesters</span></h2>
-                            <a href="products.php?category=harvesters" class="stretched-link"></a>
+                            <a href="products.php?category=harvesters" title="Harvester machines" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-end align-items-between h-100 p-2">
                             <h2 class="card-title"><span class="badge bg-light text-dark">Equipment</span></h2>
-                            <a href="products.php?category=equipment" class="stretched-link"></a>
+                            <a href="products.php?category=equipment" title="Farming equipment" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                     <div class="card-img-overlay">
                         <div class="d-flex flex-column justify-content-end align-items-between h-100 p-3">
                             <h2 class="card-title"><span class="badge bg-light text-dark">Cattle</span></h2>
-                            <a href="products.php?category=cattle" class="stretched-link"></a>
+                            <a href="products.php?category=cattle" title="Cattle" class="stretched-link"></a>
                         </div>
                     </div>
                 </div>
