@@ -1,6 +1,6 @@
 <div class="container-fluid d-flex row m-0 p-0">
-    <img src="resources/about-us.jpg" class="w-50 m-0 p-0" alt="">
-    <img src="resources/about-us-2.jpg" class="w-50 m-0 p-0" alt="">
+    <img src="resources/about-us.jpg" class="w-50 m-0 p-0" alt="Tractors working.">
+    <img src="resources/about-us-2.jpg" class="w-50 m-0 p-0" alt="Tractors working.">
 </div>
 <div class="container-fluid d-flex flex-column justify-content-center align-items-center w-75 mt-2">
     <h1 class="my-4">About us</h1>

@@ -7,21 +7,21 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="resources/slides/johndeere.png" class="d-block w-100" alt="...">
+                <img src="resources/slides/johndeere.png" class="d-block w-100" alt="Hay and forage harvester at work.">
                 <div class="carousel-caption">
                     <h1>They'll see you in town.</h5>
                 </div>
                 <a href="./products.php?category=Foraging&maxPrice=100000" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
-                <img src="resources/slides/hydro.jpg" class="d-block w-100" alt="...">
+                <img src="resources/slides/hydro.jpg" class="d-block w-100" alt="Hydroponics greenhouse.">
                 <div class="carousel-caption">
                     <h1 class="text-dark text-danger">The new era of farming.</h1>
                 </div>
                 <a href="./products.php?category=Chemicals" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
-                <img src="resources/slides/epico.jpg" class="d-block w-100" alt="...">
+                <img src="resources/slides/epico.jpg" class="d-block w-100" alt="Combine harvester at work.">
                 <div class="carousel-caption">
                     <h1 class="text-dark">Harvesting made easy.</h1>
                 </div>

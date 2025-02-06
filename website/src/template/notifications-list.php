@@ -20,9 +20,11 @@
                             <input type="hidden" name="action" value="read_notification"/>
                             <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>"/>
                             <?php if($item["letto"] == 0) {
+                                    echo '<label for="read" class="visually-hidden">Mark as read</label>';
                                     echo '<button type="submit" name="read" class="btn btn-primary rounded-circle" title="Mark as read"><i class="bi bi-check"></i></button>';
                                 }
                                 else {
+                                    echo '<label for="read" class="visually-hidden">Notification already marked as read. Button unpressable.</label>';
                                     echo '<button type="submit" name="read" class="btn btn-primary rounded-circle" disabled title="Already marked as read"><i class="bi bi-check-all"></i></button>';
                                 }
                             ?>
@@ -30,6 +32,7 @@
                         <form method="POST" action="notifications.php" class="d-flex justify-content-between align-items-center">
                             <input type="hidden" name="action" value="remove_notification"/>
                             <input type="hidden" name="notification_id" value="<?php echo $item["id_notifica"]; ?>"/>
+                            <label for="delete" class="visually-hidden">Delete notification.</label>
                             <button type="submit" name="delete" class="btn btn-danger rounded-circle" title="Delete"><i class="bi bi-x"></i></button>
                         </form>
                     </div>
