@@ -1,6 +1,6 @@
 <div class="container-fluid d-flex row m-0 p-0">
-    <img src="resources/about-us.jpg" class="w-50 m-0 p-0" alt="Tractors working.">
-    <img src="resources/about-us-2.jpg" class="w-50 m-0 p-0" alt="Tractors working.">
+    <img src="https://www.claas.com/caas/v1/media/684456/data/6d2f95dcfad89cb658fe9fb0b71babe2/attachments-category-stage-image-1-.jpg" class="w-50 m-0 p-0" alt="Tractors working.">
+    <img src="https://media.gettyimages.com/id/1769564657/it/video/colpo-aereo-del-drone-del-trattore-di-silhouette-con-i-fari-accesi-che-arano-il-campo-sotto.jpg?s=640x640&k=20&c=W9roJWE59WUVyrwu-Alxme_C0EnO-EiogS06VFL8AFI=" class="w-50 m-0 p-0" alt="Tractors working.">
 </div>
 <div class="container-fluid d-flex flex-column justify-content-center align-items-center w-75 mt-2">
     <h1 class="my-4">About us</h1>
