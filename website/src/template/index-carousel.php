@@ -7,7 +7,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="resources/products/jd-9900i.png" class="d-block w-100" alt="Hay and forage harvester at work.">
+                <img src="https://www.deere.asia/assets/images/region-2/products/self-propelled-forage-harvesters/9500i-r2g031086-large.jpg" class="d-block w-100" alt="Hay and forage harvester at work.">
                 <div class="carousel-caption">
                     <h1>They'll see you in town.</h1>
                 </div>
