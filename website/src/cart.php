@@ -1,7 +1,7 @@
 <?php
 require_once 'bootstrap.php';
 require_once 'utils/functions.php';
-$templateParams["titolo"] = "Shopping-Cart";
+$templateParams["titolo"] = "Shopping Cart - Harvest Hub";
 $templateParams["nome"] = "shoppingCart.php";
 $templateParams["styleSheet"] = "css/cart.css";
 //$templateParams["scriptSheet"] = "js/cart.js";
