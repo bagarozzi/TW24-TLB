@@ -11,21 +11,21 @@
                 <div class="carousel-caption">
                     <h1>They'll see you in town.</h1>
                 </div>
-                <a href="./products.php?category=Foraging&maxPrice=100000" class="stretched-link"></a>
+                <a href="./products.php?category=Foraging&maxPrice=100000" title="Foraging machines" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
                 <img src="resources/slides/hydro.jpg" class="d-block w-100" alt="Hydroponics greenhouse.">
                 <div class="carousel-caption">
                     <h1 class="text-dark text-danger">The new era of farming.</h1>
                 </div>
-                <a href="./products.php?category=Chemicals" class="stretched-link"></a>
+                <a href="./products.php?category=Chemicals" title="Chemical products" class="stretched-link"></a>
             </div>
             <div class="carousel-item">
                 <img src="resources/slides/epico.jpg" class="d-block w-100" alt="Combine harvester at work.">
                 <div class="carousel-caption">
                     <h1 class="text-dark">Harvesting made easy.</h1>
                 </div>
-                <a href="./products.php?category=Harvesters" class="stretched-link"></a>
+                <a href="./products.php?category=Harvesters" title="Harvesters machines" class="stretched-link"></a>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
