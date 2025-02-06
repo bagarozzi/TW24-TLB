@@ -27,11 +27,11 @@
                                 <input type="number" class="visually-hidden" name="order-id" value="<?php echo $order["riferimento"] ?>"/>
 
                                 <a href="./order-detail.php?ordernum=<?php echo $order["riferimento"] ?>" class="btn btn-primary">View</a>
-
+                                <label for="change-order-state" class="visually-hidden">Change the state of the order from <?php if($order["stato"] == "confermato") echo "Confirmed"; else if($order["stato"] == "spedito") echo "Shipped"; else echo "Delivered"; ?> to <?php if($order["stato"] == "confermato") echo "Shipped"; else echo "Delivered"?></label>
                                 <button type="submit" <?php if($order["stato"] == "consegnato") echo "disabled";?> name="change-order-state" value="" class="btn btn-warning mx-2">
                                     <?php if($order["stato"] == "confermato") echo "Ship"; else echo "Close"?>
                                 </button>
-
+                                <label for="delete-order" class="visually-hidden">Delete the order</label>
                                 <button type="submit" name="delete-order" value="" class="btn btn-danger">Delete</button>
                             </form>                         
                         </td>
