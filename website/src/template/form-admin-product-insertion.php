@@ -38,7 +38,8 @@
                 <?php if (isset($templateParams["productResult"])): ?>
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
                         <?php echo $templateParams["productResult"]; ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <label for="close" class="visually-hidden">Close the section.</label>
+                        <button type="button" name="close" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php endif; ?>
                 <div class="mb-3">
