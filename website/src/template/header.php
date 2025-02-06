@@ -3,13 +3,14 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid d-flex justify-content-between">
             <!-- Hamburger menu -->
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <label for="navbar-toggler">Toggle the navigation bar.</label>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" name="navbar-toggler">
             <span class="navbar-toggler-icon"></span>
             </button>
             <!-- Brand -->
             <a class="navbar-brand" href="./index.php">
-            <img src="resources/logoat.png" alt="HarvestHub Logo" width="60" height="60" class="d-inline-block align-text-center">
-            HarvestHub
+                <img src="resources/logoat.png" alt="HarvestHub Logo" width="60" height="60" class="d-inline-block align-text-center">
+                HarvestHub
             </a>
             <!-- Shopping cart -->
             <div class="d-flex">
@@ -67,7 +68,8 @@
         if(isset($templateParams["includeSearchbar"]) && $templateParams["includeSearchbar"] == true) {
             echo '<div class="container-fluid position-absolute justify-content-center w-100 mt-2" style="z-index: 10;">
                     <form  id="searchForm" class="d-flex justify-content-center w-100">
-                        <input  id="searchInput" class="form-control me-2 w-50" type="search" placeholder="" aria-label="Search"/>
+                        <label for="searchBar">search bar</label>
+                        <input  id="searchInput" class="form-control me-2 w-50" type="search" placeholder="" aria-label="Search" name="searchBar"/>
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
                   </div>';
