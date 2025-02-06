@@ -18,8 +18,14 @@
 </head>
     <body >
         <?php require 'header.php'; ?>
-        <?php require 'account-user.php';?>
-        <?php require 'account-admin.php';?>
+        <?php 
+            if(isAdminLoggedIn()) {
+                require 'account-admin.php';
+            }
+            else {
+                php require 'account-user.php';        
+            }
+        ?>
         <main class="d-flex flex-column">
             <?php
                 if(isset($templateParams["nome"])) {
