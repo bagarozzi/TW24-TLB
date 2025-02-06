@@ -29,6 +29,7 @@
 								<input type="number" id="maxPrice" class="form-control" min="0" max="70000" step="10" value="70000">
 								<span class="input-group-text">€</span>
 							</div>
+							<label for="priceSlider" class="visually-hidden">Price slider</label>
 							<input type="range" id="priceSlider" class="form-range" min="0" max="70000" step="50">
 						<button id="applyFilters" class="btn btn-primary w-100 mt-3">Applica</button>
 					</div>
