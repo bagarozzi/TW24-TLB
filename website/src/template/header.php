@@ -3,7 +3,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid d-flex justify-content-between">
             <!-- Hamburger menu -->
-            <label for="navbar-toggler">Toggle the navigation bar.</label>
+            <label for="navbar-toggler" class="visually-hidden">Toggle the navigation bar.</label>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" name="navbar-toggler">
             <span class="navbar-toggler-icon"></span>
             </button>
