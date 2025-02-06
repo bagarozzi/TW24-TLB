@@ -51,11 +51,11 @@
                                     <input type="hidden" name="action" value="update_quantity"/>
                                     <input type="hidden" name="product_id" value="<?php echo $item["codProdotto"]; ?>"/>
                                     <label for="decrease" class="visually-hidden">Decrease item's quantity</label>
-                                    <button type="submit" name="decrease" class="btn btn-primary rounded-circle" tabindex="-1">-</button>
+                                    <button id="decrese" type="submit" name="decrease" class="btn btn-primary rounded-circle" tabindex="-1">-</button>
                                     <label for="quantity" class="visually-hidden">Item's quantity</label>
-                                    <input type="text" name="quantity" readonly class="form-control" value="<?php echo $item["quantita"] ?>"/>
+                                    <input id="quantity" type="text" name="quantity" readonly class="form-control" value="<?php echo $item["quantita"] ?>"/>
                                     <label for="increase" class="visually-hidden">Increase item's quantity</label>
-                                    <button type="submit" name="increase" class="btn btn-primary rounded-circle" tabindex="-1">+</button>
+                                    <button id="increase" type="submit" name="increase" class="btn btn-primary rounded-circle" tabindex="-1">+</button>
                                 </form>
                             </div>
                         </div>

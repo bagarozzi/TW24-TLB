@@ -20,18 +20,16 @@
 						<select id="categoryFilter" class="form-select">
 							<?php
 							foreach ($templateParams["categories"] as $category) :
-								echo '<option value=' . $category["name"] . '>' . $category["name"] . '</option>';
+								echo '<option value="' . $category["name"] . '">' . $category["name"] . '</option>';
 							endforeach;
 							?>
 						</select>
-						<label for="macPrice" class="form-label mt-3">
-							Prezzo massimo:
+						<label for="maxPrice" class="form-label mt-3">Prezzo massimo:</label>
 							<div class="input-group">
 								<input type="number" id="maxPrice" class="form-control" min="0" max="70000" step="10" value="70000">
 								<span class="input-group-text">€</span>
 							</div>
 							<input type="range" id="priceSlider" class="form-range" min="0" max="70000" step="50">
-						</label>
 						<button id="applyFilters" class="btn btn-primary w-100 mt-3">Applica</button>
 					</div>
 				</div>

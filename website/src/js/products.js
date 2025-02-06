@@ -45,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Funzione per applicare i filtri
     document.getElementById("applyFilters").addEventListener("click", function () {
         if (!document.getElementById("clearFilters")) {
-            let nuovoElemento = document.createElement("li"); // Crea un <li>
-            nuovoElemento.innerHTML = '<button id="clearFilters" class="btn btn-danger">❌ Rimuovi filtri</button>'; // Aggiunge testo
+            let nuovoElemento = document.createElement("div"); // Crea un <li>
+            nuovoElemento.innerHTML = '<button id="clearFilters" class="btn btn-danger rounded-pill">❌ Rimuovi filtri</button>'; // Aggiunge testo
             document.getElementById("filter-container").appendChild(nuovoElemento);
             nuovoElemento.addEventListener("click", function (e) {
                 updateProducts(["maxPrice", "category", "name"], []);

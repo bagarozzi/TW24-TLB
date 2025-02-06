@@ -15,7 +15,7 @@ $templateParams["includeSearchbar"] = true;
 $templateParams["styleSheet"] = "css/product.css";
 $templateParams["scriptSheet"]  = "js/product.js";
 $templateParams["product"] = $dbh->getSingleProduct($_GET["id"]);
-$templateParams["titolo"] = $templateParams["product"]["nome"];
+$templateParams["titolo"] = str_replace(' ', '-', $templateParams["product"]["nome"]);
 $templateParams["categories"] = $dbh->getCategories();
 
 if(isAdminLoggedIn()) {
