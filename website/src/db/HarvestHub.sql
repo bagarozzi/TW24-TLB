@@ -141,7 +141,7 @@ CREATE TABLE `PRODOTTO` (
   `nome` varchar(64) NOT NULL,
   `prezzo` FLOAT NOT NULL,
   `descrizione` varchar(100) NOT NULL,
-  `immagine` varchar(100) NOT NULL,
+  `immagine` varchar(200) NOT NULL,
   `disponibilita` int(11) NOT NULL,
   `App_nome` varchar(32) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -150,28 +150,29 @@ CREATE TABLE `PRODOTTO` (
 -- Dump dei dati per la tabella `PRODOTTO`
 --
 
-INSERT INTO `PRODOTTO` (`codProdotto`, `nome`, `prezzo`, `descrizione`, `immagine`, `disponibilita`, `App_nome`) VALUES
-(1, 'Total liquid Herbicide', '35', 'Total and liquid weedkiller suitable for all applications.', 'resources/products/antigrass.png', 3, 'Chemicals'),
-(2, 'Class Lexion 7500', '300000', 'Harvester Lexion 7500. Always powerful.', 'resources/products/claas-lexion-7500.png', 2, 'Harvesters'),
-(3, 'Class Xerion 12.650', '700000', 'Class Xerion 12, 650hp. Overcome everything.', 'resources/products/claas-xerion-12.650.png', 2, 'Tractors'),
-(4, 'Class Jaguar 900', '50000', 'Hay harvester Class Jaguar 900. ', 'resources/products/class-jaguar900.png', 2, 'Hay and Forage'),
-(5, 'Cow', '900', 'Your favourite cow!', 'resources/products/cow.png', 100, 'Cattle'),
-(6, 'Fiat Agri 180/90', '30000', 'The legendary. The greatest of all time. The Fiat Agri 180/90.', 'resources/products/fa-18090.jpg', 2, 'Tractors'),
-(7, 'Horse', '1600', 'Your favourite horse!', 'resources/products/horse.png', 100, 'Cattle'),
-(8, 'John Deere 6M-180', '80000', 'Tractor John Deere 6M 180. Tame the beast.', 'resources/products/jd-6m180.png', 5, 'Tractors'),
-(9, 'John Deere 5120 ML ', '40000', '5120ML, it\'s not the size, it\'s how you use it.', 'resources/products/jd-5120ml.png', 3, 'Tractors'),
-(10, 'John Deere 9900i', '80000', 'The greatest hay and forage harvester, back in stock.', 'resources/products/jd-9900i.png', 3, 'Hay and Forage'),
-(11, 'John Deere F310R', '4000', 'John Deere Mower F310R', 'resources/products/jd-falciaf310r.png', 4, 'Equipment'),
-(12, 'John Deere S7-900', '350000', 'John Deere\'s second best. Harvesting made easy.', 'resources/products/jd-s7900.png', 3, 'Harvesters'),
-(13, 'John Deere 1590', '5000', 'John Deere seeder 1590. A true masterpiece.', 'resources/products/jd-seeder1590.png', 4, 'Equipment'),
-(14, 'Massey-Ferguson Baler 1843', '15000', 'The latest baler from Massey-Ferguson.', 'resources/products/mf-1842.jpg', 5, 'Equipment'),
-(15, 'Massery-Ferguson TD', '15000', 'The best tedder in the game.', 'resources/products/mf-jpg.jpg', 3, 'Equipment'),
-(16, 'New Holland CH10', '450000', 'The best you can have from New Holland 2025 line.', 'resources/products/nh-ch10.png', 2, 'Harvesters'),
-(17, 'New Holland FR-920', '250000', 'Hay harvester, 910hp.', 'resources/products/nh-fr.png', 4, 'Hay and Forage'),
-(18, 'Hydroponics nutrients', '30', 'Hydroponics nutrients, suitable for all greens.', 'resources/products/nutrients.png', 4, 'Chemicals'),
-(19, 'Pig', '300', 'Your favourite pig!', 'resources/products/pig.png', 3, 'Cattle'),
-(20, 'Dosatron Hydroponics Pump', '90', 'Hydroponics dosing pump. 100.000 hours.', 'resources/products/pompa-idroponica.jpg', 40, 'Chemicals'),
-(21, 'Froggy Shoulder Pump', '40', 'Get wherever you want!', 'resources/products/zaino-diserbante.jpg', 15, 'Chemicals');
+INSERT INTO `prodotto` (`codProdotto`, `nome`, `prezzo`, `descrizione`, `immagine`, `disponibilita`, `App_nome`) VALUES
+(1, 'Total liquid Herbicide', 30, 'Total and liquid weedkiller suitable for all applications.', 'resources/products/antigrass.png', 8, 'Chemicals'),
+(2, 'Class Lexion 7500', 300000, 'Harvester Lexion 7500. Always powerful.', 'https://www.lectura-specs.it/models/renamed/orig/mietitrebbie-lexion-7500-claas.jpg', 2, 'Harvesters'),
+(3, 'Claas Xerion 12.650', 700000, 'Class Xerion 12, 650hp. Overcome everything.', 'https://www.claas.com/caas/v1/media/147270/data/74cb08d6c1d15851c0a04b68cafc7bc5/portrait_ratio1x1/768/482094-25.jpg', 2, 'Tractors'),
+(4, 'Claas Jaguar 900', 50000, 'Hay harvester Class Jaguar 900. ', 'https://www.claas.com/caas/v1/media/155182/data/997977674402916e4e7460ee6dfee8fb/portrait_ratio1x1/768/296264-25.jpg', 0, 'Foraging'),
+(5, 'Cow', 900, 'Your favourite cow!', 'resources/products/cow.png', 98, 'Cattle'),
+(6, 'Fiat Agri 180/90', 30000, 'The legendary. The greatest of all time. The Fiat Agri 180/90.', 'resources/products/fa-18090.jpg', 2, 'Tractors'),
+(7, 'Horse', 1600, 'Your favourite horse!', 'resources/products/horse.png', 100, 'Cattle'),
+(8, 'John Deere 6M-180', 80000, 'Tractor John Deere 6M 180. Tame the beast.', 'https://www.deere.it/assets/images/6m180_r2g079731_large_large_10b025e32822ce8d12dabace57a94c1e7e18a8c7.png', 5, 'Tractors'),
+(9, 'John Deere 5120 ML ', 40000, '5120ML, it\'s not the size, it\'s how you use it.', 'https://www.deere.it/assets/images/region-2/products/tractors/small/5-Series/5120ml_r2g047568_large_large_4b8af46d42d3c9a03874a8654b6b604d0f283061.png', 3, 'Tractors'),
+(10, 'John Deere 9900i', 80000, 'The greatest hay and forage harvester, back in stock.', 'https://www.deere.it/assets/images/9700i_639premium_lfz0854_large_large_deb2bb82f376ce43dc9e210925ac42e686577f37.jpg', 3, 'Foraging'),
+(11, 'John Deere F310R', 4000, 'John Deere Mower F310R', 'https://www.deere.it/assets/images/region-2/products/mower-conditioners/f310r-front-mount/fm_310_350_r4a062366_large_6ab7c73bf9b86ebbcabf9a1fa8be13c2e145666e.png', 4, 'Equipment'),
+(12, 'John Deere S7-900', 350000, 'John Deere\'s second best. Harvesting made easy.', 'https://www.deere.it/assets/images/region-2/products/combines/s7-series/s7900_r2g075282_large_large_2214afce0f00923ed8999e71069b86f03642b28a.png', 3, 'Harvesters'),
+(13, 'John Deere 1590', 5000, 'John Deere seeder 1590. A true masterpiece.', 'https://www.deere.it/assets/images/region-4/products/seeding-equipment/1590-no-till-drill/1590_no_till_drill_0086017_large_4295a65fead75d219b72a26bac0da92c409e8357.jpg', 4, 'Equipment'),
+(14, 'Massey-Ferguson Baler 1843', 15000, 'The latest baler from Massey-Ferguson.', 'https://www.masseyferguson.com/content/dam/public/masseyfergusonglobal/markets/en/assets/balers/mf1842s/gallery/MF1842s-gallery2.jpg', 5, 'Equipment'),
+(15, 'Massery-Ferguson TD', 15000, 'The best tedder in the game.', 'resources/products/mf-jpg.jpg', 3, 'Equipment'),
+(16, 'New Holland CH10', 450000, 'The best you can have from New Holland 2025 line.', 'https://www.lectura-specs.it/models/renamed/orig/mietitrebbie-cr-10-90-raupe-hscr-new-holland(1).png', 2, 'Harvesters'),
+(17, 'New Holland FR-920', 250000, 'Hay harvester, 910hp.', 'https://cnhi-p-001-delivery.sitecorecontenthub.cloud/api/public/content/4d5bc6227b37404f9535941ba8c9eb86?v=9bc3ae6b', 4, 'Foraging'),
+(18, 'Hydroponics nutrients', 30, 'Hydroponics nutrients, suitable for all greens.', 'resources/products/nutrients.png', 4, 'Chemicals'),
+(19, 'Pig', 300, 'Your favourite pig!', 'resources/products/pig.png', 3, 'Cattle'),
+(20, 'Dosatron Hydroponics Pump', 90, 'Hydroponics dosing pump. 100.000 hours.', 'resources/products/pompa-idroponica.jpg', 40, 'Chemicals'),
+(21, 'Froggy Shoulder Pump', 40, 'Get wherever you want!', 'resources/products/zaino-diserbante.jpg', 15, 'Chemicals');
+
 
 -- --------------------------------------------------------
 
