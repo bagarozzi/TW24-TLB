@@ -68,7 +68,7 @@
         if(isset($templateParams["includeSearchbar"]) && $templateParams["includeSearchbar"] == true) {
             echo '<div class="container-fluid position-absolute justify-content-center w-100 mt-2" style="z-index: 10;">
                     <form  id="searchForm" class="d-flex justify-content-center w-100">
-                        <label for="searchBar">search bar</label>
+                        <label for="searchBar" class="visually-hidden">search bar</label>
                         <input  id="searchInput" class="form-control me-2 w-50" type="search" placeholder="" aria-label="Search" name="searchBar"/>
                         <button class="btn btn-primary" type="submit">Search</button>
                     </form>
